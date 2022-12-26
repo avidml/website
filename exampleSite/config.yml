@@ -1,0 +1,198 @@
+---
+baseURL: https://piko-heksagon.netlify.app/
+languageCode: en-us
+title: AVID
+theme: piko
+paginate: "9"
+copyright: A template by [Heksagon](https://www.heksagon.net "Your most friendly developer")
+googleAnalytics: # Enter Google Analytics ie. UA-012345678-9
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+outputs:
+  home:
+  - HTML
+  - RSS
+  - JSON
+minify:
+  disableCSS: false
+  disableHTML: false
+  disableJS: false
+  disableJSON: false
+  disableSVG: false
+  disableXML: false
+  minifyOutput: true
+  tdewolff:
+    html:
+      keepWhitespace: false
+
+params:
+  analytics:
+    google:
+      SiteVerificationTag: # Google Site Verification
+    yandex:
+      SiteVerificationTag: # Yandex Site Verification
+    bing:
+      SiteVerificationTag: # Bing Site Verification
+  env: production
+  author: Your Name
+  description: Your website description
+  math: false
+  images:
+  # - "/uploads/avid-logo.png"
+  label:
+    title: AVID
+    text: Welcome to AVID
+    # icon: /uploads/zap.svg
+    icon: /uploads/avid-logo.png
+    iconHeight: "50"
+    iconWIdth: "50"
+  comments: true
+  mainSections:
+  - blog
+  ShowShareButtons: true
+  ShowCodeCopyButtons: true
+  ShowRelated: true
+  CookieNotice: We use cookies to improve your experience on our site and to show
+    you relevant advertising.
+  CookieLink: /legal/privacy/#cookies-and-web-beacons
+  CookieButton: Cookies Policy
+  disableAnchoredHeadings: false
+  contactFormAction: # Get link from https://formsubmit.io or https://fabform.io
+  assets:
+    disableFingerprinting: false
+    favicon: /uploads/avid-logo.png
+    favicon16x16: /uploads/avid-logo.png
+    favicon32x32: /uploads/avid-logo.png
+    apple_touch_icon: /uploads/avid-logo.png
+    safari_pinned_tab: /uploads/avid-logo.png
+  ShowReadingTime: true
+  ShowBreadCrumbs: true
+  homepage:
+    # Hero Section
+    disableHeroSection: false
+    heroUpperTitle: AI Vulnerability Database
+    heroTitle: 
+    heroDescription: An open-source, extensible knowledge base of AI failures
+    heroCTAPrimaryText: Blog
+    heroCTAPrimaryUrl: "/blog/"
+    heroCTASecondaryText: Contact Us
+    heroCTASecondaryUrl: "/contact/"
+    heroBackgroundImage: "/uploads/avid.png"
+    # heroBackgroundImage: "/uploads/portfolio-1.webp"
+    # Blog Section
+    disableBlogSection: true
+    blogTitle: Latest Posts
+    blogDescription: This is my latest blog posts
+    seeMoreText: More Posts
+    # About Section    
+    disableAboutSection: false
+    aboutTitle: Mission
+    # aboutDescription: Just something about me
+    # aboutImgUrl: "/uploads/self.webp"
+    aboutContent: |
+      AI Vulnerability Database (AVID) is a open-source knowledge base of vulnerabilities for AI/ML models and datasets.
+      Our goals are to \n
+      - Encompass coordinates of responsible ML such as fairness, robustness, privacy, reliability, and alignment,\n
+      - Build out a taxonomy of potential harms across these coordinates,\n
+      - House full-fidelity information (metadata, harm metrics, measurements, benchmarks, and mitigation techniques if any)
+      on evaluation use cases of a harm (sub)category
+      - Evaluate models and datasets that are either open-source, or accessible through APIs.
+    
+    # Portfolio Section
+    disablePortfolioSection: false
+    portfolioTitle: 
+    portfolioDescription:
+    portfolio:
+    - imageUrl: /uploads/tax.png
+      alt: # image alt for better SEO
+      description: Taxonomy
+      websiteUrl: /taxonomy
+    - imageUrl: /uploads/db.png
+      alt: # image alt for better SEO
+      description: Database
+      websiteUrl: /database
+    - imageUrl: /uploads/avid-logo.png
+      alt: # image alt for better SEO
+      description: Blog
+      websiteUrl: /blog
+  # Search Options (https://fusejs.io/)
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: "0"
+    distance: "1000"
+    threshold: "0.4"
+    minMatchCharLength: "0"
+    keys:
+    - title
+    - permalink
+    - summary
+    - content
+  plugins:
+    css:
+    - link: plugins/css/pico.min.css
+    js:
+    - link: plugins/js/feather.min.js
+menus:
+  main: # Main Menu
+  - name: Taxonomy
+    title: Taxonomy
+    # pre: pen-tool
+    url: "/taxonomy"
+    weight: "1"
+  - name: Database
+    title: Database
+    # pre: pen-tool
+    url: "/database"
+    weight: "2" 
+  # - name: Resources
+  #   title: Resources
+  #   identifier: resources
+  #   url: /resources
+  #   weight: "3"
+  # - name: Getting Started
+  #   title: Getting Started
+  #   parent: resources
+  #   url: /resources/faq
+  #   weight: "1"
+  - name: FAQ
+    title: FAQ
+    # parent: resources
+    url: /resources/faq
+    weight: "3"
+  - name: Blog
+    title: Blog
+    pre: pen-tool
+    url: "/blog"
+    weight: "4"
+  - name: Search
+    title: Search
+    pre: search
+    url: "/search"
+    weight: "5"
+  - name: Contact
+    title: Contact
+    pre: mail
+    url: "/contact"
+    weight: "6"
+  - name: Github
+    title: 
+    pre: github
+    url: https://github.com/avidml
+    weight: "7"
+  search: # Search page's quick links
+  - name: Categories
+    title: Categories
+    url: "/categories"
+    weight: "1"
+  - name: Archives
+    title: Archives
+    url: "/archives"
+    weight: "2"
+  - name: Tags
+    title: Tags
+    url: "/tags"
+    weight: "3"

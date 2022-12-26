@@ -1,0 +1,83 @@
+---
+author: "Subho Majumdar, Nathan Butters, Sven Cattell"
+title: "Comments from AI Vulnerability Database on the NIST AI Risk Management Framework (RMF) and RMF Playbook"
+layout: legal
+---
+
+![](uploads/avid-logo.png)
+
+Subhabrata Majumdar, Senior Applied Scientist, Splunk  
+Nathan Butters, Product Manager, Tableau  
+Sven Cattell, Founder, nbhd.ai  
+*On behalf of AI Vulnerability Database (AVID)*
+
+We appreciate the work NIST has done to build consensus-driven best practice principles in AI Risk management, and welcome the offer to contribute responses to evolve the AI RMF and RMF Playbooks into resources to support companies building AI systems that are functioning, responsible, safe, and reliable.
+
+AVID is a community-driven effort—involving volunteer engineers, hackers, and researchers— aimed at creating an open-source knowledge base of potential failure modes that AI models and datasets may exhibit. To this end, our aspirational goals are to:
+
+- encompass coordinates of responsible AI such as fairness, robustness, privacy, reliability, security, and alignment
+- build out a taxonomy of potential harms across these coordinates
+- house full-fidelity information (metadata, harm metrics, measurements, benchmarks, and mitigation techniques if any) on evaluation use cases of a harm (sub)category
+- evaluate models and datasets that are open-source, or accessible through APIs.
+
+As a community of practitioners, through this response we hope to provide inputs and articulate nuances in the area of AI risk management from a sociotechnical point of view that we believe will drive wider adoption to the AI RMF and associated resources among the technical community of AI developers, engineers, and data scientists.
+
+### Observations on the Content of the AI RMF
+We begin with a few suggested areas where the AI RMF can be strengthened. These comments are guided towards refining specific content in the current RMF draft.
+
+#### Operationalizing AI Risk management principles is a major roadblock
+While the AI RMF is a step in the right direction, we should take steps to operationalize this knowledge. AI is becoming ubiquitous in many business contexts already. Inside most companies, there are many AI models already in deployment, so the assumption that there is a clean slate to implement AI based on a new risk framework may not always be valid.
+
+The current RMF draft asks for collective cooperation, and requires too much dedicated staffing to work across the contexts where AI is developed and used. 
+
+Below are a few examples:
+
+- Section 2 - "The primary audience also includes those with responsibilities to commission or fund an AI system and those who are part of the enterprise management structure governing the AI system lifecycle."
+- Section 2 - "A sense of collective responsibility among the many AI actors is essential for AI risk management to be successful."
+- Section 3.2.4 - "small to medium-sized organizations may face challenges in implementing the AI RMF which can be different from those of large organizations, depending on their capabilities and resources."
+
+As a potential instance of pain points for operationalizing the AI RMF, consider the case of Stability.Ai. A small AI startup, they recently open-sourced Stable Diffusion (SD), probably the most influential AI models this year. Given limited resources, how is Stability AI going to operationalize the framework—in part or whole—while also focusing on research, development, and commercialization of their product? We simply do not know. This challenge is referenced in the RMF, as indicated by the third point above, but there is no solution offered.
+
+#### Security concerns for AI
+Security risks specific to AI systems, as stated in the draft, appear to ignore how AI connects to traditional security concerns or should adapt them to the new context.
+
+Regarding the content in Section 4.4, placing secure and resilient close together conflates the particular risks that each entails separately. For instance, the security issues for classification models differ from those of generative models, but both achieve resilience in different ways. Putting them all together further complicates the assessment of risks. As specific examples, a reliable easy to execute bypass is a concern for a malware model, but a generative model may have a security concern stemming from an [SQL style injection](https://gizmodo.com/remote-work-twitter-bot-hack-ai-1849547550).
+
+Regarding the content in Section 4.6, security often competes with explainability. By providing access to the reason a system makes a decision you empower those trying to subvert that decision. For example, tools that explain how deepfakes are uncovered will likely lead to innovations in the creation of deep fakes to beat the system. As an instantiation to this problem, leaking even the continuous logit from a multi led to the first [ML CVE](https://nvd.nist.gov/vuln/detail/CVE-2019-20634), but this is a common first step in model explainability. Further work in this area that other explainability methods—like SHAP scores—aid in model theft. [Research on explainability](https://dl.acm.org/doi/10.1145/3531146.3533153) also shows how explainability methods fail within adversarial contexts, such as when a model builder does not want to expose themselves to legal risks brought on by a user contesting the model’s prediction.
+
+We acknowledge that some of our feedback may have been addressed to some extent within the accompanying RMF Playbook. We recommend making such connections between the RMF and RMF Playbook stronger and more exhaustive to avoid miscommunication or misrepresentation across the set of resources NIST is offering for AI Risk management.
+
+The RMF Playbook is a great step towards operationalization, but also needs refinements when it comes to security. When a security risk arises, the owners of the model should respond as quickly as possible. Case in point: [Codex](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/work-with-code) was recommending code to developers that introduced vulnerabilities in their software, and Microsoft took [months to just acknowledge the issue](https://www.lightbluetouchpaper.org/2022/08/05/the-dynamics-of-industry-wide-disclosure). This is unacceptable in traditional software and should be unacceptable in AI systems. Even if the response is ham-fisted, like Google’s [removal of primates](https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai) from their image classification model used to label user images, it needs to be quick. Common risk management ideas like scheduled retraining and redeployment are also missing from the playbook. Both of these address model drift, which is a major concern for the security of most models. The only relevant piece of text we could find in the RMF that addresses this is, "Datasets used to train … outdated relative to deployment context" in Appendix B. Even this references the original problem only indirectly, with a primary focus on data drift.
+
+
+From the initial observations above, we have developed expanded comments which we divide into the following sub-areas:
+
+- **Community**- The AI RMF will benefit from the perspectives of diverse actors from affected communities, both as guidance within the document and as a target audience to help them manage their risks from using AI.
+
+- **Taxonomy**- AVID aims to build a community driven taxonomy for AI risks, as vulnerabilities and harms, to support the advancement of the RAI field. We 
+
+- **Documentation**- The AI RMF will benefit the Responsible AI (RAI) field by establishing a definition of AI vulnerabilities that expands on the current CVE definition of vulnerability.
+
+### Community
+NIST is rightly taking a consensus-driven, collaborative approach in developing the AI RMF and RMF Playbook. It is essential for the field of RAI to take a community-driven approach to define technical resources, standards, and artifacts with diverse actors who participate in the end-to-end AI system development lifecycle. This goes beyond enterprise corporations, government agencies, and academic institutions. It should include affected communities and actors who use or consume the outputs of AI to manage personal and societal risk.
+
+Developing best practices and standards lays the foundation for success, and will do little to mitigate risk if they are not widely adopted by the community. The current draft of the AI RMF does not provide operational guidance for smaller organizations or communities. To ensure the outcomes of this collaborative exercise in framework building improves the current state of practice we recommend adding additional guidance informed by communities and small businesses.
+
+For populations susceptible to particular AI risks this means, at the very least, guidance on how to understand, expose, or even control the potential algorithmic harms relevant to them. It should be extended to the main audience with guidance on ways to provide tools and documentation to those communities in support of a shared goal of risk management. For small businesses this entails guidance for how to assess their risk with less resources, by highlighting what’s critical to their context. This also requires adding guidance for the main enterprise audience to provide better documentation and risk assessments to their customers.
+
+### Taxonomy
+The AI RMF taxonomy (Section 4) directly addresses the question of what exactly does it mean for AI to be trustworthy (Figure 4). We especially welcome its integrative approach towards tying together existing major classifications and taxonomies (Table 1). The AI RMF also expands on the need for integrating Human-in-the-loop factors in a trustworthy AI pipeline.
+
+We believe that the next step in operationalizing this taxonomy is to develop a ‘playbook’ of suggested best practices in navigating the different coordinates of trust (e.g. fairness, explainability), potentially expanding on the existing AI RMF playbook that currently provides guidelines to operationalize the Map and Govern components of the AI RMF Core. This operationalization should be developed in collaboration with the technical practitioner community. The end goal of this practice should be a set of outcomes that are directly usable and adoptable by data scientists, AI engineers, their product and engineering teams, as well as the executive leadership in a company alike. Finally, NIST should take an active effort in driving adoption of such developments so that—albeit voluntary—they become the default standards through which practitioners characterize the inherent risk of AI systems stemming from either intentional adversarial attacks, or unintentional failures such as insufficient data collection and model misspecification.
+
+AVID aims to make progress in this area by being motivated by existing technical standards and frameworks that are widely adopted in cybersecurity. [MITRE ATT&CK](https://attack.mitre.org/) and [Kill Chain Phases](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) (KCP) are two such standards that codify security attacks on software systems. These frameworks provide common ground for security professionals to segment and cross-reference security vulnerabilities (or detections), and have spurred spontaneous adoption among companies that offer B2B security solutions (for example, see 1000+ novel detections in [Splunk Security Content](https://research.splunk.com/) that are characterized by MITRE ATT&CK and KCP categories). The recently proposed [MITRE ATLAS](https://atlas.mitre.org/) proposes a similar codification, but for adversarial attacks on AI systems. Motivated by such advances, AVID plans to develop a taxonomy of categories and subcategories of the pitfalls that trustworthy AI systems need to map, govern, and manage. To this end, we shall take a participatory, developer-first approach, taking both direct input and feedback from practitioners to come up with a framework that will be actionable by AI practitioners, as-is. We shall be guided by taxonomies, including and similar to the AI RMF, but will expand each category of trust based on practitioner needs and latest research.
+
+### Documentation
+The AI RMF correctly stresses on the need for documentation of risks and limitations of AI systems deployed in an industry setting. It rightly advocates for a leadership-level drive in implementing documentation practices to drive transparency during audits or more granular human reviews, and bolster accountability of AI development teams. In the RMF Playbook, stages under Map and Govern specifically call out the needs for transparency and documentation at that very stage. Such documentation of risks, as vulnerabilities and harms, should be publicly available. Overall, the RMF excellently underlines the motivations to drive consensus around who is responsible and how it should be made available.
+
+While this greatly advances the state of the art in the collective effort of operationalizing trustworthy AI, much work remains to be done. Documentation of specific instantiations of risks in proprietary models or datasets are often not shareable outside the confines of a company. However, it certainly is possible to document such instantiations of resources—such as datasets and pretrained models—that are freely available in the public domain. For this purpose, we again advocate for being guided by best practices in the security world. NIST already maintains the [National Vulnerability Database](https://nvd.nist.gov/general) (NVD) as a crowdsourced repository of Common Vulnerabilities and Exposures (CVE) of software systems. For practitioner benefit, each vulnerability is structured with predefined fields, and assigned a unique identifier upon acceptance. A similar structure can be followed to document failure modes of AI systems. Per the CVE framework, a vulnerability is [defined](https://nvd.nist.gov/vuln) as "A weakness in the computational logic (e.g., code) found in software and hardware components that, when exploited, results in a negative impact to confidentiality, integrity, or availability. Mitigation of the vulnerabilities in this context typically involves coding changes, but could also include specification changes or even specification deprecations (e.g., removal of affected protocols or functionality in their entirety)." It will benefit the field to expand this definition to encompass the different ways AI systems can fail, both in the face of intentional attacks and unintentional design flaws. Such ‘AI vulnerabilities’ can be made even more useful to practitioners through organizing them using an operational, granular, widely adopted taxonomy, like we discussed above.
+
+One of the major aspirational goals of AVID is to house information on evaluation examples of (sub)categories of AI failures. Such information may be in the form of incidents related to deployed AI systems (similar to those reported in the [AI Incident Database](https://incidentdatabase.ai/)), informational articles pertaining to particular AI-related examples (e.g. the [prompt injection attack on GPT-3](https://simonwillison.net/2022/Sep/12/prompt-injection/)), or full-fidelity technical information that includes an evaluated category of trust (e.g. fairness), its measurement metric (e.g. disparate impact), along with details to aid in reproducibility such as details of accessing a model or dataset to which this evaluation pertains to, and the code to reproduce evaluation details. Beyond maintaining a repository of such examples, AVID will also categorize them into the taxonomy to enable adoption by AI practitioners to help them take a proactive approach in developing AI systems in a secure and trusted manner.
+
+### Conclusion
+As a community, AI Ethics experts, policy-makers, and executives should make conscious efforts to build bridges and bring in technical expertise—from the AI and the security worlds—into collaborative spaces such as the one that the NIST AI RMF provides. We at AVID sincerely hope that our feedback is helpful in taking forward the consensus-driven process through which the NIST AI RMF, RMF Playbook and associated resources are being developed successfully bringing into fold all concerned parties to build best practice principles and tools that lead to safe, reliable, and trustworthy integration of AI into the world around us.
