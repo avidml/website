@@ -1,10 +1,11 @@
 ---
-baseURL: https://piko-heksagon.netlify.app/
+baseURL: https://avidml.netlify.app/
 languageCode: en-us
 title: AVID
 theme: piko
 paginate: "9"
-copyright: A template by [Heksagon](https://www.heksagon.net "Your most friendly developer")
+copyright:
+# copyright: A template by [Heksagon](https://www.heksagon.net "Your most friendly developer")
 googleAnalytics: # Enter Google Analytics ie. UA-012345678-9
 enableRobotsTXT: true
 buildDrafts: false
@@ -55,11 +56,11 @@ params:
   ShowShareButtons: true
   ShowCodeCopyButtons: true
   ShowRelated: true
-  CookieNotice: We use cookies to improve your experience on our site and to show
-    you relevant advertising.
-  CookieLink: /legal/privacy/#cookies-and-web-beacons
-  CookieButton: Cookies Policy
-  disableAnchoredHeadings: false
+  # CookieNotice: We use cookies to improve your experience on our site and to show
+  #   you relevant advertising.
+  # CookieLink: /legal/privacy/#cookies-and-web-beacons
+  # CookieButton: Cookies Policy
+  # disableAnchoredHeadings: false
   contactFormAction: # Get link from https://formsubmit.io or https://fabform.io
   assets:
     disableFingerprinting: false
@@ -76,10 +77,10 @@ params:
     heroUpperTitle: AI Vulnerability Database
     heroTitle: 
     heroDescription: An open-source, extensible knowledge base of AI failures
-    heroCTAPrimaryText: Blog
-    heroCTAPrimaryUrl: "/blog/"
-    heroCTASecondaryText: Contact Us
-    heroCTASecondaryUrl: "/contact/"
+    heroCTAPrimaryText: Efforts
+    heroCTAPrimaryUrl: "#efforts"
+    heroCTASecondaryText: "Contribute"
+    heroCTASecondaryUrl: "/contribute"
     heroBackgroundImage: "/uploads/avid.png"
     # heroBackgroundImage: "/uploads/portfolio-1.webp"
     # Blog Section
@@ -163,26 +164,30 @@ menus:
     # parent: resources
     url: /resources/faq
     weight: "3"
+  - name: Contribute
+    title: Contribute
+    url: "/contribute"
+    weight: "4"
   - name: Blog
     title: Blog
     pre: pen-tool
     url: "/blog"
-    weight: "4"
+    weight: "5"
   - name: Search
     title: Search
     pre: search
     url: "/search"
-    weight: "5"
+    weight: "6"
   - name: Contact
     title: Contact
     pre: mail
     url: "/contact"
-    weight: "6"
+    weight: "7"
   - name: Github
     title: 
     pre: github
     url: https://github.com/avidml
-    weight: "7"
+    weight: "8"
   search: # Search page's quick links
   - name: Categories
     title: Categories

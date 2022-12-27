@@ -13,14 +13,15 @@ url('{{.Site.Params.homepage.heroBackgroundImage}}'); ">
     <div style="display: flex; justify-content: center">
       <a
         class="hero-buttons"
-        href="{{ .Site.Params.homepage.heroCTAPrimaryUrl | relURL  }}"
+        href="{{ .Site.Params.homepage.heroCTAPrimaryUrl | relURL }}"
         role="button"
         >{{.Site.Params.homepage.heroCTAPrimaryText}}</a
       >
+      <!-- class="contrast outline" -->
       <a
-        href="{{ .Site.Params.homepage.heroCTASecondaryUrl | relURL  }}"
+        class="hero-buttons"
+        href="{{ .Site.Params.homepage.heroCTASecondaryUrl | relURL }}"
         role="button"
-        class="contrast outline"
         >{{.Site.Params.homepage.heroCTASecondaryText}}</a
       >
     </div>
