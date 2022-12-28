@@ -1,5 +1,6 @@
 ---
 title: Taxonomy
+image: "/uploads/avid.png"
 layout: page
 ---
 
@@ -18,11 +19,30 @@ Based on case-specific needs, people involved with building a ML system may need
 
 The domains, categories, and subcategories in this view provide a 'risk surface' for the AI artifact being evaluated, may it be a dataset, model, or the whole system. This view contains three top-level domains:
 
-- [Security](./security)
-- [Ethics](./ethics)
-- [Performance](./performance)
 
-Each domain is divided into a number of categories and subcategories, each of which is assigned a unique identifier.
+<!-- | [Security](./security) || [Ethics](./ethics) || [Performance](./performance) ||
+|---|---|---|---|---|---|
+Software Vulnerability || Bias/Discrimination | Group fairness | Data issues | Data drift |
+Supply Chain Compromise	| Model Compromise || Individual fairness ||		Concept drift |
+|| Software compromise	| Explainability | Global explanations || Data entanglement |
+Over-permissive API	| Information Leak || Local explanations ||	Data quality issues |
+|| Excessive Queries | User actions	| Toxicity || Feedback loops |
+| Model Bypass	| Bad Features || Polarization/ Exclusion | Robustness | Resilience/stability |
+|| Insufficient Training Data | Misinformation | Deliberative Misinformation ||	OOD generalization |
+|| Adversarial Example || Generative Misinformation || Scaling |
+| Exfiltration	| Model inversion ||| Privacy | Anonymization |
+|| Model theft |||| Randomization |
+Data poisoning	| Ingest Poisoning ||||	Encryption |
+||||| Safety	| Psychological Safety |
+|||||| Physical safety |
+|||||| Socioeconomic safety |
+|||||| Environmental safety | -->
+
+Each domain is divided into a number of categories and subcategories, each of which is assigned a unique identifier. Figure 1 presents a holistic view of this AVID taxonomy matrix. See the individual pages for [Security](./security), [Ethics](./ethics), [Performance](./performance) for more details.
+
+| ![matrix.png](/uploads/matrix.png) |
+|:--:|
+| *Figure 1.* The AVID Taxonomy Matrix. |
 
 ## Lifecycle view
 
@@ -37,8 +57,8 @@ The stages in this view represent high-level sequential steps of a typical ML wo
 | L05 | Evaluation |
 | L06 | Deployment |
 
-Figure 1 reconciles the two different views of the AVID taxonomy. We conceptually represent the potential space of risks in three dimensions, consisting of the risk domain—S, E, or P—a specific vuln pertains to; the (sub)category within a chosen domain; and the development lifecycle stage of a vuln. The SEP and lifecycle views are simply two different sections of this three-dimensional space.
+Figure 2 reconciles the two different views of the AVID taxonomy. We conceptually represent the potential space of risks in three dimensions, consisting of the risk domain—S, E, or P—a specific vuln pertains to; the (sub)category within a chosen domain; and the development lifecycle stage of a vuln. The SEP and lifecycle views are simply two different sections of this three-dimensional space.
 
-| ![views.png](/uploads/views.png) |
-|---|
-| *Figure 1.* SEP and Lifecycle views of the AVID taxonomy represent different sections of the space of potential risks in an AI development workflow. |
+| ![views.png](/uploads/views-small.png) |
+|:--:|
+| *Figure 2.* SEP and Lifecycle views of the AVID taxonomy represent different sections of the space of potential risks in an AI development workflow. |

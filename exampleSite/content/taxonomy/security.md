@@ -25,4 +25,4 @@ This domain is intended to codify the landscape of threats to a ML system.
 | | S0601 | Ingest Poisoning | Attackers inject poisoned data into the ingest pipeline |
 
 > **NOTE**  
-Notice that certain categories map directly to techniques codified in MITRE ATLAS. In future, we intend to cover the full landscape of attacks under the Security domain.
+A number of categories map directly to techniques codified in MITRE ATLAS. In future, we intend to cover the full landscape of adversarial ML attacks under the Security domain.

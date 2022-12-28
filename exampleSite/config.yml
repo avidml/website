@@ -56,11 +56,12 @@ params:
   ShowShareButtons: true
   ShowCodeCopyButtons: true
   ShowRelated: true
+  CookieNotice: We use cookies to improve your experience on our site.
   # CookieNotice: We use cookies to improve your experience on our site and to show
   #   you relevant advertising.
-  # CookieLink: /legal/privacy/#cookies-and-web-beacons
-  # CookieButton: Cookies Policy
-  # disableAnchoredHeadings: false
+  CookieLink: /legal/privacy/#cookies-and-web-beacons
+  CookieButton: Cookies Policy
+  disableAnchoredHeadings: false
   contactFormAction: # Get link from https://formsubmit.io or https://fabform.io
   assets:
     disableFingerprinting: false
