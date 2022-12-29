@@ -108,15 +108,15 @@ params:
     portfolioTitle: 
     portfolioDescription:
     portfolio:
-    - imageUrl: /uploads/tax.png
-      alt: # image alt for better SEO
+    - imageUrl: /uploads/tax-blue-narrow.png
+      alt: AVID Taxonomy # image alt for better SEO
       description: Taxonomy
       websiteUrl: /taxonomy
-    - imageUrl: /uploads/db.png
+    - imageUrl: /uploads/db-blue-narrow.png
       alt: # image alt for better SEO
       description: Database
       websiteUrl: /database
-    - imageUrl: /uploads/avid-logo.png
+    - imageUrl: /uploads/blog-blue-narrow3.png
       alt: # image alt for better SEO
       description: Blog
       websiteUrl: /blog

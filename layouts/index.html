@@ -20,6 +20,7 @@ url('{{.Site.Params.homepage.heroBackgroundImage}}'); ">
       <!-- class="contrast outline" -->
       <a
         class="hero-buttons"
+        style="background-color: transparent; border: 1px solid white; color: white"
         href="{{ .Site.Params.homepage.heroCTASecondaryUrl | relURL }}"
         role="button"
         >{{.Site.Params.homepage.heroCTASecondaryText}}</a
@@ -93,7 +94,7 @@ url('{{.Site.Params.homepage.heroBackgroundImage}}'); ">
       <!-- <div class="container"> -->
         <!-- Hardcoded content for better formatting -->
         <!-- {{.Site.Params.homepage.aboutContent}} -->
-        <b style="color:#4dd0e1">AI Vulnerability Database (AVID)</b> is a open-source knowledge base of vulnerabilities for
+        <b style="color:#4dd0e1">AI Vulnerability Database (AVID)</b> is an open-source knowledge base of failure modes for
         Artificial Intelligence (AI) models, datasets, and systems.<br>
         Our aspirational goals are to <br>
         <ul>
@@ -110,7 +111,7 @@ url('{{.Site.Params.homepage.heroBackgroundImage}}'); ">
 {{ end }}
 
 <!-- Hardcoded Efforts section -->
-<section>
+<section id="efforts">
 <div class="container">
   <h2>What We Do</h2>
   Our efforts have two focus areas: a <b style="color:#4dd0e1">Taxonomy</b> of the different avenues through which an AI system can fail,
@@ -126,21 +127,22 @@ url('{{.Site.Params.homepage.heroBackgroundImage}}'); ">
     <h2>{{.Site.Params.homepage.portfolioTitle}}</h2>
     <h3>{{.Site.Params.homepage.portfolioDescription}}</h3>
   </hgroup>
-  <div class="container" style="display: flex; justify-content: center">
-    <div class="grid grid-post">
+  <div class="container">
+    <div class="grid grid-post" style="display: flex; justify-content: center">
       {{ range .Site.Params.homepage.portfolio }}
-      <a class="portfolio-post" href="{{.websiteUrl}}">
-        <figure >
+      <a class="portfolio-post" href="{{.websiteUrl}}"  style="padding: 0px 20px 0px 20px">
+      <!-- <a class="portfolio-post" href="{{.websiteUrl}}"> -->
+          <figure >
           <img
             src="{{.imageUrl}}"
-            width="300"
-            height="300"
+            width="250"
+            height="150"
             layout="responsive"
             alt="{{.alt}}"
           ></img>
         </figure>
         <hgroup class="text-center">
-          <h4>{{.description}}</h4>
+          <h2>{{.description}}</h2>
         </hgroup>
       </a>
       {{ end }}
