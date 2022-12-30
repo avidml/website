@@ -18,6 +18,8 @@ You can use our Vulnerability Reporting Form to report an AI failure mode in the
 <!-- need a button -->
 [Vulnerability Reporting Form](https://airtable.com/shrOCPagOzxNpgV96)
 
+You can also open a pull pequest to directly add a report or vulnerability to our [GitHub](https://github.com/avidml/avid-db).
+
 ## Suggest Improvements
 We welcome comments, feedback, and inputs for our taxonomy and database structure. Please [e-mail](mailto:avid.mldb@gmail.com) us wuth your comments and we'll get back to you!
 

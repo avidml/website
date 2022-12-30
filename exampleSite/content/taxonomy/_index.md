@@ -6,7 +6,7 @@ layout: page
 
 <!-- The AVID taxonomy consists of categories and subcategories of potential harms encompassing coordinates of responsible AI,such as fairness, robustness, privacy, explainablity, reliability, and alignment. Similar to the [MITRE ATT&CK](http://attack.mitre.org/) framework for cybersecurity risks and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial ML threats, the AVID taxonomy will set a common, open standard to evaluate ML systems for downstream responsible behavior. Compared to MITRE ATLAS which pertains to intentional attacks on ML systems, the AVID taxonomy will cover the area of *ML failures* that are often unintentional in nature. -->
 
-The AVID taxonomy is intended to serve as a common foundation for data science/ML, product, and policy teams to manage potential risks at different stages of a ML workflow. In spirit, this taxonomy is analogous to [MITRE ATT&CK](http://attack.mitre.org/) for cybersecurity vulnerabilities, and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial attacks on ML systems.
+The AVID taxonomy is intended to serve as a common foundation for data science/AI engineering, product, and policy teams to manage potential risks at different stages of a developing an AI system. In spirit, this taxonomy is analogous to [MITRE ATT&CK](http://attack.mitre.org/) for cybersecurity vulnerabilities, and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial attacks on ML systems.
 
 At a high level, the AVID taxonomy consists of two views, intended to facilitate the work of two different user personas.
 
