@@ -17,7 +17,7 @@ This domain is intended to codify the landscape of threats to a ML system.
 | S0400 | | [Model Bypass](https://atlas.mitre.org/techniques/AML.T0015/) | Intentionally try to make a model perform poorly |
 | | S0401 | Bad Features | The model uses features that are easily gamed by the attacker |
 | | S0402 | Insufficient Training Data | The bypass is not represented in the training data |
-| | S0403 | Adversarial Example | Potential Cause: Over permissive API |
+| | S0403 | Adversarial Example | Input data points intentionally supplied to draw mispredictions. Potential Cause: Over permissive API |
 | S0500 | | [Exfiltration](https://atlas.mitre.org/techniques/AML.T0024/) | Directly or indirectly exfiltrate ML artifacts |
 | | S0501 | Model inversion | Reconstruct training data through strategic queries |
 | | S0502 | Model theft | Extract model functionality  through strategic queries |
