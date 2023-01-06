@@ -27,7 +27,7 @@ The AVID community also evaluates models and datasets for vulnerabilities with r
 We hope AVID helps organizations make AI applications and products safer and more inclusive. 
 
 We always welcome contributions from the community. You can reach out by joining 
-our [discord server](https://discord.gg/FcXYZzmv3T), or through the interest form [here](https://www.avidml.org/get-involved).
+our [discord server](https://discord.gg/FcXYZzmv3T), or through the interest form [here](https://www.avidml.org/contribute).
 
 ## About the Author
 

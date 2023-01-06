@@ -35,7 +35,7 @@ Please see our detailed response covering these areas, as well as some direct re
 
 
 As we build AVID in operationalizing the RMF and similar responsible ML principles, we welcome contributions from the community. Reach out to us by joining 
-our [discord server](https://discord.gg/FcXYZzmv3T), or through the interest form [here](https://www.avidml.org/get-involved).
+our [discord server](https://discord.gg/FcXYZzmv3T), or through the interest form [here](https://www.avidml.org/contribute).
 
 ## About the Author
 [Nathan Butters](https://www.linkedin.com/in/nathanbutters/) is a product manager based in Seattle, Washington. He is passionate about using his proximity to power to support the voices of those in the Global South. His interests bridge the humanities and computer science fields, focusing on what humans believe, and why, in the context of how systems are built, understood, and contested. He collaborates with people to make tools, and inform policy decisions, aimed directly at promoting the flourishing of all life on Earth (not just humans) in a world full of AI.
