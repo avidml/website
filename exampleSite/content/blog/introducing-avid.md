@@ -15,7 +15,6 @@ disableAnchoredHeadings: true
 We at AI Vulnerability Database (AVID) are proud to unveil the very first ever release (v0.1) of our taxonomy and database of AI failures to the public.
 This was the result of many hours of collaborations, debates, and meetings, inside and outside the AVID community. I am grateful to the contributors to this exercise.
 
-## Components
 As a short introduction to AVID, we have two main focus areas: the Taxonomy and The Database.
 
 ### Taxonomy
@@ -39,7 +38,9 @@ We are starting small with 13 vulnerabilities and 5 reports, but will expand qui
 To check out the database, and vulnerabilities and reports therein, go to: https://avidml.org/database. 
 
 ## How can you help
-If there's AI failure you'd like to be included in AVID (e.g. examples of a large language model malfunctioning), you can do so *today* using our [Vulnerability Reporting Form](https://airtable.com/shrOCPagOzxNpgV96). You can collaborate with us by joining our [discord server](https://discord.gg/FcXYZzmv3T), and other avenues [here](https://www.avidml.org/get-involved).
+If there's AI failure you'd like to be included in AVID (e.g. examples of a large language model malfunctioning), you can do so *today* using our [Vulnerability Reporting Form](https://airtable.com/shrOCPagOzxNpgV96) or opening a pull request in the [github repository](https://github.com/avidml/avid-db) housing all vulnerabilities and reports.
+
+You can collaborate with us by joining our [discord server](https://discord.gg/FcXYZzmv3T), and through other avenues [here](https://www.avidml.org/get-involved).
 
 ## About the Author
 [Subho Majumdar](https://www.subhomajumdar.com) is a technical leader in applied trustworthy machine learning who believes in a community-centric approach to data-driven decision making. He has pioneered the use of responsible ML methods in industry settings, wrote a [book](https://learning.oreilly.com/library/view/practicing-trustworthy-machine/9781098120269), and founded multiple nonprofit efforts in this area---[TrustML](https://www.trustworthyml.org), [Bias Buccaneers](https://biasbounty.ai), and AVID. Currently, Subho is a ML scientist in Twitch, where he leads applied science efforts in Responsible AI.
