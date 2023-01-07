@@ -12,16 +12,16 @@ ShowBreadCrumbs: false
 disableAnchoredHeadings: true
 ---
 
-We at AI Vulnerability Database (AVID) are proud to unveil the very first ever release (v0.1) of our taxonomy and database of AI failures to the public.
+We at AI Vulnerability Database (AVID) are proud to unveil the very first release (v0.1) of our taxonomy and database of AI failures to the public.
 This was the result of many hours of collaborations, debates, and meetings, inside and outside the AVID community. I am grateful to the contributors to this exercise.
 
 As a short introduction to AVID, we have two main focus areas: the Taxonomy and The Database.
 
 ### Taxonomy
-This is intended to serve as a common foundation for data science/AI engineering, product, and policy teams to manage potential risks at different stages of a developing an AI system. In spirit, this taxonomy is analogous to [MITRE ATT&CK](http://attack.mitre.org/) for cybersecurity vulnerabilities, and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial attacks on ML systems.
+This is intended to serve as a common foundation for data science/AI engineering, product, and policy teams to manage potential risks at different stages of developing an AI system. In spirit, this taxonomy is analogous to [MITRE ATT&CK](http://attack.mitre.org/) for cybersecurity vulnerabilities, and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial attacks on AI systems.
 
 The AVID Taxonomy has two views: an effect view, aimed at the *auditor* user persona, and an lifecycle view, aimed at the *developer* persona of users.
-The effect view has three domains of harms Security, Ethics, and Performance. Each domain is divided into multiple categories and subcategories.
+The effect view has three domains of harms: Security, Ethics, and Performance. Each domain is divided into multiple categories and subcategories.
 The lifecycle view represents sequential steps of a typical AI development workflow, adapted from the [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining) framework.
 
 For more details about the taxonomy, go to: https://avidml.org/taxonomy.
@@ -38,7 +38,7 @@ We are starting small with 13 vulnerabilities and 5 reports, but will expand qui
 To check out the database, and vulnerabilities and reports therein, go to: https://avidml.org/database. 
 
 ## How can you help
-If there's AI failure you'd like to be included in AVID (e.g. examples of a large language model malfunctioning), you can do so *today* using our [Vulnerability Reporting Form](https://airtable.com/shrOCPagOzxNpgV96) or opening a pull request in the [github repository](https://github.com/avidml/avid-db) housing all vulnerabilities and reports.
+If there's an AI failure you'd like to be included in AVID (e.g. examples of a large language model malfunctioning), you can do so *today* using our [Vulnerability Reporting Form](https://airtable.com/shrOCPagOzxNpgV96) or opening a pull request in the [github repository](https://github.com/avidml/avid-db) housing all vulnerabilities and reports.
 
 You can collaborate with us by joining our [discord server](https://discord.gg/FcXYZzmv3T), and through other avenues [here](https://www.avidml.org/get-involved).
 
