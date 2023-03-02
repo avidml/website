@@ -1,7 +1,7 @@
 ---
 author: "Carol Anderson"
 title: "Guardrails on Large Language Models, Part 1: Dataset Preparation"
-date: "2022-03-02"
+date: "2023-03-02"
 description: "A non-technical introduction to the major guardrails on systems like ChatGPT. Part 1 of a four-part series."
 tags: ["generative AI","LLMs","vulnerabilities", "safety"]
 categories: ["general"]
@@ -28,11 +28,11 @@ The first stage of training a language model, which is known as “pretraining�
 ## Points of control
 
 ### Data sourcing
-Ideally, pretraining would use datasets specifically created for this purpose and free of any unwanted content. In reality, the amount of data required is so huge that developers rely on web scraping. OpenAI hasn’t released details of the training datasets used for ChatGPT and its siblings, but the training data for their predecessor, GPT-3, was about [80% web-scraped data](https://proceedings.neurips.cc/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf) (the remainder being books and English Wikipedia). 
+Ideally, pretraining would use datasets specifically created for this purpose and free of any unwanted content. In reality, the amount of data required is so huge that developers rely on web scraping. [OpenAI](https://openai.com) hasn’t released details of the training datasets used for ChatGPT and its siblings, but the training data for their predecessor, GPT-3, was about [80% web-scraped data](https://proceedings.neurips.cc/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf) (the remainder being books and English Wikipedia). 
 
 ### Data cleaning 
 
-Model developers, including [OpenAI](https://openai.com), usually try to clean up the pretraining data to remove low-quality or objectionable content. But doing this by hand would be a monumental task, so the cleanup process relies on algorithms. This raises a few issues:
+Model developers, including OpenAI, usually try to clean up the pretraining data to remove low-quality or objectionable content. But doing this by hand would be a monumental task, so the cleanup process relies on algorithms. This raises a few issues:
 
 * Problematic content can be difficult to detect algorithmically.
 
