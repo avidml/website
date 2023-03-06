@@ -78,10 +78,12 @@ params:
     heroUpperTitle: AI Vulnerability Database
     heroTitle: 
     heroDescription: An open-source, extensible knowledge base of AI failures
-    heroCTAPrimaryText: Efforts
+    heroCTAPrimaryText: Our Efforts
     heroCTAPrimaryUrl: "#efforts"
-    heroCTASecondaryText: "Contribute"
+    heroCTASecondaryText: "Join Us"
     heroCTASecondaryUrl: "/contribute"
+    heroCTATertiaryText: "Submit an AI Vulnerability!"
+    heroCTATertiaryUrl: "https://airtable.com/shrOCPagOzxNpgV96"
     heroBackgroundImage: "/uploads/avid.png"
     # heroBackgroundImage: "/uploads/portfolio-1.webp"
     # Blog Section
@@ -165,8 +167,8 @@ menus:
     # parent: resources
     url: /resources/faq
     weight: "3"
-  - name: Contribute
-    title: Contribute
+  - name: Join Us
+    title: Join Us
     url: "/contribute"
     weight: "4"
   - name: Blog

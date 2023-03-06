@@ -18,12 +18,21 @@ url('{{.Site.Params.homepage.heroBackgroundImage}}'); ">
         >{{.Site.Params.homepage.heroCTAPrimaryText}}</a
       >
       <!-- class="contrast outline" -->
-      <a
+      <!-- <a
         class="hero-buttons"
-        style="background-color: transparent; border: 1px solid white; color: white"
         href="{{ .Site.Params.homepage.heroCTASecondaryUrl | relURL }}"
         role="button"
         >{{.Site.Params.homepage.heroCTASecondaryText}}</a
+      > -->
+    </div>
+    <div style="display: flex; justify-content: center">
+      <a
+        class="hero-buttons"
+        style="background-color: transparent; border: 1px solid white; color: white"
+        href="{{ .Site.Params.homepage.heroCTATertiaryUrl }}"
+        role="button"
+        target="_blank"
+        >{{.Site.Params.homepage.heroCTATertiaryText}}</a
       >
     </div>
   </header>

@@ -1,5 +1,5 @@
 ---
-title: Contribute
+title: Come Join Us!
 description: 
 layout: page
 ---
