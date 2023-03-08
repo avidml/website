@@ -48,7 +48,7 @@ To date, no developers of general-purpose language models have invested the time
 Language models mimic their pretraining data, which is mostly pulled from the web. Model developers try to clean it up, but lots of problematic content remains, and many human perspectives are underrepresented. 
 
 ---
-This post was originally published at [www.carol-anderson.com] (https://www.carol-anderson.com/blog/guardrails-on-large-language-models-part-1-dataset-preparation). Stay tuned for additional installments in the series.
+This post was originally published at [www.carol-anderson.com](https://www.carol-anderson.com/blog/guardrails-on-large-language-models-part-1-dataset-preparation). Stay tuned for additional installments in the series.
 
 
 ## About the Author
