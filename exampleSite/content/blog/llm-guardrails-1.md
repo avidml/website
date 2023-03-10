@@ -44,7 +44,7 @@ Model developers, including OpenAI, usually try to clean up the pretraining data
 
 To date, no developers of general-purpose language models have invested the time or money needed to thoroughly curate pretraining data. With current practices, there’s still plenty of objectionable content left in the dataset after cleaning, as well as representational problems. (_Who decides what’s objectionable_ is an ethical issue that I’ll leave aside for today.)  
 
-**TL;DR:** 
+**TL;DR:**  
 Language models mimic their pretraining data, which is mostly pulled from the web. Model developers try to clean it up, but lots of problematic content remains, and many human perspectives are underrepresented. 
 
 ---
@@ -52,4 +52,4 @@ This post was originally published at [www.carol-anderson.com](https://www.carol
 
 
 ## About the Author
-[Carol Anderson](https://www.linkedin.com/in/carolmanderson/) a data scientist and machine learning practitioner with expertise in natural language processing (NLP), biological data, and AI ethics. She previously worked as a data scientist at [NVIDIA](https://www.nvidia.com/en-us/), [ConcertAI](https://www.concertai.com), and [Ancestry](https://www.ancestry.com/), and prior to that as an academic molecular biologist at [UCSF](https://www.ancestry.com/) and [Indiana University](https://www.indiana.edu). Currently, her main interest is operationalizing AI ethics and safety, especially in the area of generative AI.
+[Carol Anderson](https://www.linkedin.com/in/carolmanderson/) is a data scientist and machine learning practitioner with expertise in natural language processing (NLP), biological data, and AI ethics. She previously worked as a data scientist at [NVIDIA](https://www.nvidia.com/en-us/), [ConcertAI](https://www.concertai.com), and [Ancestry](https://www.ancestry.com/), and prior to that as an academic molecular biologist at [UCSF](https://www.ancestry.com/) and [Indiana University](https://www.indiana.edu). Currently, her main interest is operationalizing AI ethics and safety, especially in the area of generative AI.
