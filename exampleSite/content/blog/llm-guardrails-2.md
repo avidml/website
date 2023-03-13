@@ -68,7 +68,7 @@ Both phases of fine tuning use human input to teach the model what kinds of answ
 
 When first described by OpenAI, the fine tuning process was used primarily to make LLMs better at following human instructions, and the resulting model was named InstructGPT. With ChatGPT, OpenAI appears to have placed much more focus on reducing harmful output, as we can see in this comparison from OpenAI’s website:
 
-![Screenshot of different responses from InstructGPT and ChatGPT to a user requesting a violent story](images/llm-guardrails-2-image.png)
+![Screenshot of different responses from InstructGPT and ChatGPT to a user requesting a violent story](/uploads/llm-guardrails-2-image.png)
 
 Not everyone agrees with OpenAI’s choices, as we see with right-wing commentators [accusing ChatGPT of being woke](https://www.vice.com/en/article/93a4qe/conservatives-panicking-about-ai-bias-years-too-late-think-chatgpt-has-gone-woke). This raises broader questions about whose values are being encoded in supposedly general-purpose models, as discussed in a recent [OpenAI blog post](https://openai.com/blog/how-should-ai-systems-behave). These questions will be important to wrestle with as these models come into wider use. OpenAI has said that in the long run, they hope to provide models that can be adjusted to provide different kinds of output, depending on customer preferences. But there may never be a single LLM appropriate for every use case, and the best solution might be multiple competing LLMs that align with different worldviews.
 
@@ -79,7 +79,7 @@ Another limitation of fine tuning is that it only covers a finite number of scen
 Fine tuning teaches the model to follow instructions and to give responses aligned with its developers’ values, but it can’t cover all possible scenarios and can’t be aligned with everyone’s values.
 
 ---
-This series is cross-posted at [www.carol-anderson.com] (https://www.carol-anderson.com/blog/guardrails-on-large-language-models-part-2). Stay tuned for parts 3 and 4, coming over the next couple of weeks.
+This series is cross-posted at [www.carol-anderson.com](https://www.carol-anderson.com/blog/guardrails-on-large-language-models-part-2). Stay tuned for parts 3 and 4, coming over the next couple of weeks.
 
 
 ## About the Author
