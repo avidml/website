@@ -28,7 +28,7 @@ In commercial use, system designers typically create what I’ll call a **prompt
 
 For example, let's say I want to make an app that uses a LLM to unscramble words. The front end of my app might look something like this:
 
-![Text input box for a word-unscrambling app](/Users/carolanderson/Dropbox/repos/website/exampleSite/static/uploads/llm-guardrails-3/unscrambler.png)
+![Text input box for a word-unscrambling app](/uploads/llm-guardrails-3/unscrambler.png)
 
 
 On the back end of my app, my prompt template might be something like:
@@ -58,7 +58,7 @@ Example 1: Translating text from English to Spanish
 
 Sample app user interface (not part of the LLM):  
 
-![Text input box for a translation app](/Users/carolanderson/Dropbox/repos/website/exampleSite/static/uploads/llm-guardrails-3/translate.png)
+![Text input box for a translation app](/uploads/llm-guardrails-3/translate.png)
 
 Prompt template: 
 
@@ -175,7 +175,7 @@ A simple prompt template in this kind of system might look like:
 Here's a simple, made-up example of how this would work during a conversation:  
 
 
-![Example chat about the Eiffel Tower](/Users/carolanderson/Dropbox/repos/website/exampleSite/static/uploads/llm-guardrails-3/eiffel_chat.png)
+![Example chat about the Eiffel Tower](/uploads/llm-guardrails-3/eiffel_chat.png)
 
 
 As you can see, the prompt grows longer and longer as the conversation goes on. The length of the prompt is limited by something called the **context length** or **context window**, which is the maximum length of text the model can handle at once, including the prompt and any output. This is measured in tokens, which are units of text that correspond to words, subwords, or punctuation marks. For ChatGPT, the context window length is [4096 tokens](https://platform.openai.com/docs/guides/chat/managing-tokens), which is roughly 3,000 words. A version of GPT-4 has been developed with an ultra-long context window of 32,000 tokens, which is about 24,000 words or 50 pages worth of text. 
@@ -185,7 +185,7 @@ To keep prompts from getting too long, system designers may limit the amount of 
 ### Giving the LLM access to external knowledge
 In the new AI-powered Bing, search results are incorporated into the prompt so that the LLM can answer with up-to-date information. The exact design of Bing's system hasn't been publicly shared, but the following is a simple example of how this type of system typically works. Let's say a user is searching for car sales information, and issues the following query:
 
-![Search query for best-selling car in 2022](/Users/carolanderson/Dropbox/repos/website/exampleSite/static/uploads/llm-guardrails-3/car_search.png)
+![Search query for best-selling car in 2022](/uploads/llm-guardrails-3/car_search.png)
 
 A standard web search would first run on the back end. Let's say the top search result for this query is a page containing the [following text](https://www.statista.com/statistics/239229/most-sold-car-models-worldwide/):
 
