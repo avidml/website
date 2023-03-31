@@ -27,6 +27,17 @@ Vulnerabilities are linked to the taxonomy through multiple tags, denoting the A
 | [AVID-2022-V009](/database/AVID-2022-V009) | [AVID-2022-V010](/database/AVID-2022-V010) | [AVID-2022-V011](/database/AVID-2022-V011) | [AVID-2022-V012](/database/AVID-2022-V012) |
 | [AVID-2022-V013](/database/AVID-2022-V013) | | | |
 
+##### 2023
+| | | | |
+|---|---|---|---|
+| [AVID-2023-V001](/database/AVID-2023-V001) | [AVID-2023-V002](/database/AVID-2023-V002) | [AVID-2023-V003](/database/AVID-2023-V003) | [AVID-2023-V004](/database/AVID-2023-V004) |
+| [AVID-2023-V005](/database/AVID-2023-V005) | [AVID-2023-V006](/database/AVID-2023-V006) | [AVID-2023-V007](/database/AVID-2023-V007) | [AVID-2023-V008](/database/AVID-2023-V008) |
+| [AVID-2023-V009](/database/AVID-2023-V009) | [AVID-2023-V010](/database/AVID-2023-V010) | [AVID-2023-V011](/database/AVID-2023-V011) | [AVID-2023-V012](/database/AVID-2023-V012) |
+| [AVID-2023-V013](/database/AVID-2023-V013) | [AVID-2023-V014](/database/AVID-2023-V014) | [AVID-2023-V015](/database/AVID-2023-V015) | [AVID-2023-V016](/database/AVID-2023-V016) |
+| [AVID-2023-V017](/database/AVID-2023-V017) | [AVID-2023-V018](/database/AVID-2023-V018) | [AVID-2023-V019](/database/AVID-2023-V019) | [AVID-2023-V020](/database/AVID-2023-V020) |
+| [AVID-2023-V021](/database/AVID-2023-V021) | [AVID-2023-V022](/database/AVID-2023-V022) | [AVID-2023-V023](/database/AVID-2023-V023) | [AVID-2023-V024](/database/AVID-2023-V024) |
+| [AVID-2023-V025](/database/AVID-2023-V025) | [AVID-2023-V026](/database/AVID-2023-V026) | [AVID-2023-V027](/database/AVID-2023-V027) | [AVID-2023-V028](/database/AVID-2023-V028) |
+
 ## Reports
 Reports are occurrences of a vulnerability. Based on the references provided in a specific report, reports can potentially more granular and reproducible than vulnerabilities. We classify reports in four types, in increasing degree of quantitative evidence:
 1. *Issue*: qualitative evaluation based on a single sample or handful of samples,
@@ -43,3 +54,8 @@ These types are reminiscent of the [three levels of AI Auditing](https://informa
 |---|---|---|---|
 | [AVID-2022-R0001](/database/AVID-2022-R0001) | [AVID-2022-R0002](/database/AVID-2022-R0002) | [AVID-2022-R0003](/database/AVID-2022-R0003) | [AVID-2022-R0004](/database/AVID-2022-R0004) |
 | [AVID-2022-R0005](/database/AVID-2022-R0005) | | | |
+
+#### 2023
+| | | | |
+|---|---|---|---|
+| [AVID-2023-R0001](/database/AVID-2023-R0001) | [AVID-2023-R0002](/database/AVID-2023-R0002) | [AVID-2023-R0003](/database/AVID-2023-R0003) | [AVID-2023-R0004](/database/AVID-2023-R0004) |

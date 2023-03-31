@@ -13,10 +13,11 @@ This domain is intended to codify deficiencies such as privacy leakage or lack o
 | | P0103 | Data entanglement | Cases of spurious correlation and proxy features |
 | | P0104 | Data quality issues | Missing or low-quality features in data |
 | | P0105 | Feedback loops | Unaccounted for effects of an AI affecting future data collection |
-| P0200 | | Robustness | Ability for the AI to perform as intended in diverse circumstances |
+| P0200 | | Model issues | Ability for the AI to perform as intended |
 | | P0201 | Resilience/stability | Ability for outputs to not be affected by small change in inputs |
 | | P0202 | OOD generalization | Test performance doesn’t deteriorate on unseen data in training |
 | | P0203 | Scaling | Training and inference can scale to high data volumes |
+| | P0204 | Accuracy | Model performance accurately reflects realistic expectations |
 | P0300 | | Privacy | Protect leakage of user information as required by rules and regulations |
 | | P0301 | Anonymization | Protects through anonymizing user identity |
 | | P0302 | Randomization | Protects by injecting noise in data, eg. differential privacy |
@@ -26,6 +27,3 @@ This domain is intended to codify deficiencies such as privacy leakage or lack o
 | | P0402 | Physical safety | Safety from physical actions driven by a AI system |
 | | P0403 | Socioeconomic safety | Safety from socioeconomic harms, e.g. harms to job prospects or social status |
 | | P0404 | Environmental safety | Safety from environmental harms driven by AI systems |
-
-
-
