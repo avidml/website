@@ -40,7 +40,7 @@ Data poisoning	| Ingest Poisoning ||||	Encryption |
 
 Each domain is divided into a number of categories and subcategories, each of which is assigned a unique identifier. Figure 1 presents a holistic view of this AVID taxonomy matrix. See the individual pages for [Security](./security), [Ethics](./ethics), [Performance](./performance) for more details.
 
-| ![matrix.png](/uploads/matrix.png) |
+| ![matrix.png](/uploads/matrix2.png) |
 |:--:|
 | *Figure 1.* The AVID Taxonomy Matrix. |
 
