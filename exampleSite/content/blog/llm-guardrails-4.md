@@ -1,6 +1,6 @@
 ---
 author: "Carol Anderson"
-title: "Guardrails on Large Language Models, Part 4: Content Modersation"
+title: "Guardrails on Large Language Models, Part 4: Content Moderation"
 date: "2023-04-11"
 description: "A non-technical introduction to the major guardrails on systems like ChatGPT. Part 4 of a four-part series."
 tags: ["generative AI","LLMs","vulnerabilities", "safety"]
@@ -50,30 +50,30 @@ As another example, OpenAI offers a system it calls the [Moderation endpoint](ht
 Developers using OpenAI’s LLMs, such as ChatGPT, can send their input or output to the Moderation endpoint for no additional charge. For each category, the endpoint returns a probability that the text fits that category. Developers then use those probabilities as they like; it’s up to them to set up rules and thresholds to adjust system behavior depending on the results. 
 
 Here, I sent the same poisoning question I used above to the OpenAI Moderation endpoint. This is the response I got:
->```
-{
-  "categories": {
-    "hate": false,
-    "hate/threatening": false,
-    "self-harm": false,
-    "sexual": false,
-    "sexual/minors": false,
-    "violence": false,
-    "violence/graphic": false
-  },
-  "category_scores": {
-    "hate": 1.4306267985375598e-05,
-    "hate/threatening": 1.3055506542514195e-06,
-    "self-harm": 0.00014912273036316037,
-    "sexual": 8.579966561228503e-06,
-    "sexual/minors": 9.36092055781046e-06,
-    "violence": 0.5843867659568787,
-    "violence/graphic": 2.745344772847602e-06
-  },
-  "flagged": false
-}
-```
 
+```
+{  
+  "categories": {  
+    "hate": false,  
+   "hate/threatening": false,  
+    "self-harm": false,  
+    "sexual": false,  
+   "sexual/minors": false,  
+    "violence": false,  
+    "violence/graphic": false  
+  },  
+  "category_scores": {  
+    "hate": 1.4306267985375598e-05,  
+   "hate/threatening": 1.3055506542514195e-06,  
+    "self-harm": 0.00014912273036316037,  
+    "sexual": 8.579966561228503e-06,  
+    "sexual/minors": 9.36092055781046e-06,  
+    "violence": 0.5843867659568787,  
+    "violence/graphic": 2.745344772847602e-06  
+  },  
+  "flagged": false  
+}  
+```
 
 
 The endpoint returned a score for each category as well as a true/false answer indicating whether the text exceeded OpenAI’s safety threshold. The score for “violence” was decently high at 0.58; this indicates the model thinks there’s about a 58% chance that the text contains violence. But apparently OpenAI uses a threshold higher than 0.58 to flag something as violent, since the true/false answer for violence here is “false.”
