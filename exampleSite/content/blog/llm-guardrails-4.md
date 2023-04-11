@@ -55,16 +55,16 @@ Here, I sent the same poisoning question I used above to the OpenAI Moderation e
 {  
   "categories": {  
     "hate": false,  
-   "hate/threatening": false,  
+    "hate/threatening": false,  
     "self-harm": false,  
     "sexual": false,  
-   "sexual/minors": false,  
+    "sexual/minors": false,  
     "violence": false,  
     "violence/graphic": false  
   },  
   "category_scores": {  
     "hate": 1.4306267985375598e-05,  
-   "hate/threatening": 1.3055506542514195e-06,  
+    "hate/threatening": 1.3055506542514195e-06,  
     "self-harm": 0.00014912273036316037,  
     "sexual": 8.579966561228503e-06,  
     "sexual/minors": 9.36092055781046e-06,  
