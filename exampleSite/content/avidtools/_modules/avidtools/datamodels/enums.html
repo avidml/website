@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>avidtools.datamodels.enums &mdash; avidtools 0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/autodoc_pydantic.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/tabs.js"></script>
+        <script src="../../../_static/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            avidtools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/report.html">Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/vulnerability.html">Vulnerability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/components.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/enums.html">Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/connectors.html">Connectors</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">avidtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">avidtools.datamodels.enums</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for avidtools.datamodels.enums</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Enumerations used in AVID report and vulnerability datamodels.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+<div class="viewcode-block" id="ArtifactTypeEnum"><a class="viewcode-back" href="../../../reference/enums.html#avidtools.datamodels.enums.ArtifactTypeEnum">[docs]</a><span class="k">class</span> <span class="nc">ArtifactTypeEnum</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Whether the artifact is a dataset, model, or system.&quot;&quot;&quot;</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="s1">&#39;Dataset&#39;</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="s1">&#39;Model&#39;</span>
+    <span class="n">system</span> <span class="o">=</span> <span class="s1">&#39;System&#39;</span></div>
+    
+<div class="viewcode-block" id="SepEnum"><a class="viewcode-back" href="../../../reference/enums.html#avidtools.datamodels.enums.SepEnum">[docs]</a><span class="k">class</span> <span class="nc">SepEnum</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;All (sub)categories of the SEP view of the AVID taxonomy.&quot;&quot;&quot;</span>
+    <span class="n">S0100</span> <span class="o">=</span> <span class="s1">&#39;S0100: Software Vulnerability&#39;</span>
+    <span class="n">S0200</span> <span class="o">=</span> <span class="s1">&#39;S0200: Supply Chain Compromise&#39;</span>
+    <span class="n">S0201</span> <span class="o">=</span> <span class="s1">&#39;S0201: Model Compromise&#39;</span>
+    <span class="n">S0202</span> <span class="o">=</span> <span class="s1">&#39;S0202: Software Compromise&#39;</span>
+    <span class="n">S0300</span> <span class="o">=</span> <span class="s1">&#39;S0300: Over-permissive API&#39;</span>
+    <span class="n">S0301</span> <span class="o">=</span> <span class="s1">&#39;S0301: Information Leak&#39;</span>
+    <span class="n">S0302</span> <span class="o">=</span> <span class="s1">&#39;S0302: Excessive Queries&#39;</span>
+    <span class="n">S0400</span> <span class="o">=</span> <span class="s1">&#39;S0400: Model Bypass&#39;</span>
+    <span class="n">S0401</span> <span class="o">=</span> <span class="s1">&#39;S0401: Bad Features&#39;</span>
+    <span class="n">S0402</span> <span class="o">=</span> <span class="s1">&#39;S0402: Insufficient Training Data&#39;</span>
+    <span class="n">S0403</span> <span class="o">=</span> <span class="s1">&#39;S0403: Adversarial Example&#39;</span>
+    <span class="n">S0500</span> <span class="o">=</span> <span class="s1">&#39;S0500: Exfiltration&#39;</span>
+    <span class="n">S0501</span> <span class="o">=</span> <span class="s1">&#39;S0501: Model inversion&#39;</span>
+    <span class="n">S0502</span> <span class="o">=</span> <span class="s1">&#39;S0502: Model theft&#39;</span>
+    <span class="n">S0600</span> <span class="o">=</span> <span class="s1">&#39;S0600: Data Poisoning&#39;</span>
+    <span class="n">S0601</span> <span class="o">=</span> <span class="s1">&#39;S0601: Ingest Poisoning&#39;</span>
+    <span class="n">E0100</span> <span class="o">=</span> <span class="s1">&#39;E0100: Bias/ Discrimination&#39;</span>
+    <span class="n">E0101</span> <span class="o">=</span> <span class="s1">&#39;E0101: Group fairness&#39;</span>
+    <span class="n">E0102</span> <span class="o">=</span> <span class="s1">&#39;E0102: Individual fairness&#39;</span>
+    <span class="n">E0200</span> <span class="o">=</span> <span class="s1">&#39;E0200: Explainability&#39;</span>
+    <span class="n">E0201</span> <span class="o">=</span> <span class="s1">&#39;E0201: Global explanations&#39;</span>
+    <span class="n">E0202</span> <span class="o">=</span> <span class="s1">&#39;E0202: Local explanations&#39;</span>
+    <span class="n">E0300</span> <span class="o">=</span> <span class="s1">&#39;E0300: User actions&#39;</span>
+    <span class="n">E0301</span> <span class="o">=</span> <span class="s1">&#39;E0301: Toxicity&#39;</span>
+    <span class="n">E0302</span> <span class="o">=</span> <span class="s1">&#39;E0302: Polarization/ Exclusion&#39;</span>
+    <span class="n">E0400</span> <span class="o">=</span> <span class="s1">&#39;E0400: Misinformation&#39;</span>
+    <span class="n">E0401</span> <span class="o">=</span> <span class="s1">&#39;E0401: Deliberative Misinformation&#39;</span>
+    <span class="n">E0402</span> <span class="o">=</span> <span class="s1">&#39;E0402: Generative Misinformation&#39;</span>
+    <span class="n">P0100</span> <span class="o">=</span> <span class="s1">&#39;P0100: Data issues&#39;</span>
+    <span class="n">P0101</span> <span class="o">=</span> <span class="s1">&#39;P0101: Data drift&#39;</span>
+    <span class="n">P0102</span> <span class="o">=</span> <span class="s1">&#39;P0102: Concept drift&#39;</span>
+    <span class="n">P0103</span> <span class="o">=</span> <span class="s1">&#39;P0103: Data entanglement&#39;</span>
+    <span class="n">P0104</span> <span class="o">=</span> <span class="s1">&#39;P0104: Data quality issues&#39;</span>
+    <span class="n">P0105</span> <span class="o">=</span> <span class="s1">&#39;P0105: Feedback loops&#39;</span>
+    <span class="n">P0200</span> <span class="o">=</span> <span class="s1">&#39;P0200: Model issues&#39;</span>
+    <span class="n">P0201</span> <span class="o">=</span> <span class="s1">&#39;P0201: Resilience/ Stability&#39;</span>
+    <span class="n">P0202</span> <span class="o">=</span> <span class="s1">&#39;P0202: OOD generalization&#39;</span>
+    <span class="n">P0203</span> <span class="o">=</span> <span class="s1">&#39;P0203: Scaling&#39;</span>
+    <span class="n">P0204</span> <span class="o">=</span> <span class="s1">&#39;P0204: Accuracy&#39;</span>
+    <span class="n">P0300</span> <span class="o">=</span> <span class="s1">&#39;P0300: Privacy&#39;</span>
+    <span class="n">P0301</span> <span class="o">=</span> <span class="s1">&#39;P0301: Anonymization&#39;</span>
+    <span class="n">P0302</span> <span class="o">=</span> <span class="s1">&#39;P0302: Randomization&#39;</span>
+    <span class="n">P0303</span> <span class="o">=</span> <span class="s1">&#39;P0303: Encryption&#39;</span>
+    <span class="n">P0400</span> <span class="o">=</span> <span class="s1">&#39;P0400: Safety&#39;</span>
+    <span class="n">P0401</span> <span class="o">=</span> <span class="s1">&#39;P0401: Psychological Safety&#39;</span>
+    <span class="n">P0402</span> <span class="o">=</span> <span class="s1">&#39;P0402: Physical safety&#39;</span>
+    <span class="n">P0403</span> <span class="o">=</span> <span class="s1">&#39;P0403: Socioeconomic safety&#39;</span>
+    <span class="n">P0404</span> <span class="o">=</span> <span class="s1">&#39;P0404: Environmental safety&#39;</span></div>
+        
+<div class="viewcode-block" id="LifecycleEnum"><a class="viewcode-back" href="../../../reference/enums.html#avidtools.datamodels.enums.LifecycleEnum">[docs]</a><span class="k">class</span> <span class="nc">LifecycleEnum</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;All (sub)categories of the lifecycle view of the AVID taxonomy.&quot;&quot;&quot;</span>
+    <span class="n">L01</span> <span class="o">=</span> <span class="s1">&#39;L01: Business Understanding&#39;</span>
+    <span class="n">L02</span> <span class="o">=</span> <span class="s1">&#39;L02: Data Understanding&#39;</span>
+    <span class="n">L03</span> <span class="o">=</span> <span class="s1">&#39;L03: Data Preparation&#39;</span>
+    <span class="n">L04</span> <span class="o">=</span> <span class="s1">&#39;L04: Model Development&#39;</span>
+    <span class="n">L05</span> <span class="o">=</span> <span class="s1">&#39;L05: Evaluation&#39;</span>
+    <span class="n">L06</span> <span class="o">=</span> <span class="s1">&#39;L06: Deployment&#39;</span></div>
+
+<div class="viewcode-block" id="ClassEnum"><a class="viewcode-back" href="../../../reference/enums.html#avidtools.datamodels.enums.ClassEnum">[docs]</a><span class="k">class</span> <span class="nc">ClassEnum</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;All report/vulnerability classes.&quot;&quot;&quot;</span>
+    <span class="n">aiid</span> <span class="o">=</span> <span class="s1">&#39;AIID Incident&#39;</span>
+    <span class="n">atlas</span> <span class="o">=</span> <span class="s1">&#39;ATLAS Case Study&#39;</span>
+    <span class="n">cve</span> <span class="o">=</span> <span class="s1">&#39;CVE Entry&#39;</span>
+    <span class="n">llm</span> <span class="o">=</span> <span class="s1">&#39;LLM Evaluation&#39;</span><span class="p">,</span>
+    <span class="n">na</span> <span class="o">=</span> <span class="s1">&#39;Undefined&#39;</span></div>
+        
+<div class="viewcode-block" id="TypeEnum"><a class="viewcode-back" href="../../../reference/enums.html#avidtools.datamodels.enums.TypeEnum">[docs]</a><span class="k">class</span> <span class="nc">TypeEnum</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;All report/vulnerability types.&quot;&quot;&quot;</span>
+    <span class="n">issue</span> <span class="o">=</span> <span class="s1">&#39;Issue&#39;</span>
+    <span class="n">advisory</span> <span class="o">=</span> <span class="s1">&#39;Advisory&#39;</span>
+    <span class="n">measurement</span> <span class="o">=</span> <span class="s1">&#39;Measurement&#39;</span>
+    <span class="n">detection</span> <span class="o">=</span> <span class="s1">&#39;Detection&#39;</span></div>
+    
+<div class="viewcode-block" id="MethodEnum"><a class="viewcode-back" href="../../../reference/enums.html#avidtools.datamodels.enums.MethodEnum">[docs]</a><span class="k">class</span> <span class="nc">MethodEnum</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The values a detection method can take.&quot;&quot;&quot;</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="s1">&#39;Significance Test&#39;</span>
+    <span class="n">thres</span> <span class="o">=</span> <span class="s1">&#39;Static Threshold&#39;</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, AI Risk and Vulnerability Alliance.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
