@@ -1,9 +1,11 @@
 {{- if not (.Param "hideFooter") }}
 <footer class="text-center">
     {{- if .Site.Copyright }}
-    <span>{{ .Site.Copyright | markdownify }} &copy; {{ now.Format "2006"}} {{ .Site.Title }}</span>
+    <span>{{ .Site.Copyright | markdownify }} &copy; {{ now.Format "2006"}} AI Risk and Vulnerability Alliance</span>
+    <!-- <span>{{ .Site.Copyright | markdownify }} &copy; {{ now.Format "2006"}} {{ .Site.Title }}</span> -->
     {{- else }}
-    <span>&copy; {{ now.Format "2006"}} <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a></span>
+    <span>&copy; {{ now.Format "2006"}} <a href="{{ "" | absLangURL }}arva"> AI Risk and Vulnerability Alliance</a></span>
+    <!-- <span>&copy; {{ now.Format "2006"}} <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a></span> -->
     {{- end }}
     <div>
         <a href="{{ "/legal/privacy" | absLangURL }}">Privacy Policy</a> 
