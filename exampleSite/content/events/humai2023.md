@@ -8,7 +8,7 @@ layout: page
 We intend to bring together the FAccT community around the topic of AI for Humanitarian Development, in order to enable deep exploration of the challenges of developing, implementing, and regulating AI for the Global South. We will explore the above topic through a case study of a social enterprise supported by an international non-governmental organization (NGO) who are building AI to highlight the environmental and health challenges faced by children. The case study will discuss the implementation of AI to measure children's exposure in the global south to harmful air pollutants that can lead to respiratory illness. We will discuss several implementation challenges for this case study, including ground truthing, privacy and autonomy, and infrastructure constraints. At the end of the session, we want participants to have a better shared understanding of the path forward in co-developing humanitarian AI solutions for the Global South while tackling the above challenges collaboratively.
 
 ## Schedule
-This CRAFT session will be held virtually, on **June 15, 2023** 10:15 - 11:45 US Central time. The collaborative activities will be aimed at facilitating a participatory conversation. We enable this through a mix of large group discussions and small group breakout sessions.
+This CRAFT session will be held virtually, on **June 15, 2023 10:15 - 11:45 US Central time**. The collaborative activities will be aimed at facilitating a participatory conversation. We enable this through a mix of large group discussions and small group breakout sessions.
 
 
 | Time (CT) | Event |
