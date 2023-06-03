@@ -40,4 +40,4 @@ We reach out to those who hold different values, and have different needs, to fi
 - [Brian Pendleton](https://www.linkedin.com/in/bwpen/), Treasurer
 - [Rumman Chowdhury](http://www.rummanchowdhury.com/), Director
 - [Kush Varshney](https://krvarshney.github.io/), Director
-- [Borhane-Blili Hamelin](https://borhane.xyz/), Secretary
+- [Borhane Blili-Hamelin](https://borhane.xyz/), Secretary
