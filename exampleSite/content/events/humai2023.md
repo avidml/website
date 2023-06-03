@@ -23,8 +23,8 @@ This CRAFT session will be held virtually, on **June 15, 2023 10:15 - 11:45 US C
 
 ### Panelists
 - [Rockwell F. Clancy](http://rockwellfclancy.com/), Virginia Tech
-- [Vipul Siddharth](https://www.linkedin.com/in/siddharthvipul/0), UNICEF
 - [Mahealani Kauahi](https://www.linkedin.com/in/mahealani-kauahi), Ancestral Knowledge and Hawaiian Languages
+- [Vipul Siddharth](https://www.linkedin.com/in/siddharthvipul/0), UNICEF
 
 ## Organizers
 - [Christina Last](https://christinalast.com/), Massachusetts Institute of Technology, AQAI
