@@ -60,6 +60,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.atlas.convert_case_study"><code class="docutils literal notranslate"><span class="pre">convert_case_study()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#module-avidtools.connectors.cve"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.cve</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.cve.import_cve"><code class="docutils literal notranslate"><span class="pre">import_cve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.cve.convert_cve"><code class="docutils literal notranslate"><span class="pre">convert_cve()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -91,7 +96,7 @@
   <section id="connectors">
 <h1>Connectors<a class="headerlink" href="#connectors" title="Permalink to this heading"></a></h1>
 <p>Connectors help import reported data from other data sources, such as ATLAS Case studies, NIST CVEs, AIID incidents.</p>
-<p>Currently, <code class="code docutils literal notranslate"><span class="pre">avidtools</span></code> supports the connector to MITRE ATLAS case study.</p>
+<p>Currently, <code class="code docutils literal notranslate"><span class="pre">avidtools</span></code> supports the connector to MITRE ATLAS case study and NIST CVEs.</p>
 <section id="module-avidtools.connectors.atlas">
 <span id="avidtools-connectors-atlas"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.atlas<a class="headerlink" href="#module-avidtools.connectors.atlas" title="Permalink to this heading"></a></h2>
 <dl class="py function">
@@ -124,6 +129,43 @@
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="report.html#avidtools.datamodels.report.Report" title="avidtools.datamodels.report.Report">Report</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-avidtools.connectors.cve">
+<span id="avidtools-connectors-cve"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.cve<a class="headerlink" href="#module-avidtools.connectors.cve" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.cve.import_cve">
+<span class="sig-name descname"><span class="pre">import_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#import_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.import_cve" title="Permalink to this definition"></a></dt>
+<dd><p>Import a CVE from the NVD API and return a JSON dump object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cve_id</strong> (<em>str</em>) – Identifier of the CVE to be imported. Has the format CVE-2XXX-XXXXX</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>cve</strong> – JSON dump object containing the imported CVE information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nvdlib.classes.CVE</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.cve.convert_cve">
+<span class="sig-name descname"><span class="pre">convert_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#convert_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.convert_cve" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a CVE into an AVID report object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cve</strong> (<em>nvdlib.classes.CVE</em>) – JSON dump object containing the imported CVE information.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>vuln</strong> – an AVID vulnerability object containing information in the CVE.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="vulnerability.html#avidtools.datamodels.vulnerability.Vulnerability" title="avidtools.datamodels.vulnerability.Vulnerability">Vulnerability</a></p>
 </dd>
 </dl>
 </dd></dl>
