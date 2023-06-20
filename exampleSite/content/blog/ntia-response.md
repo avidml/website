@@ -43,9 +43,9 @@ We also point out the need for such an adjudicating body to translate this work 
 
 - **Informing communities** – make the people affected by the AI system in question aware that they can be targeted or impacted by the vulnerability.
 - **Preventing future harm** – provide access to developers of systems in a way that allows them to mitigate the vulnerability or choose safer options for their systems.
-- **Enabling contestation and dialogue** – bringing people together to discuss how the AI is being used and who it benefits to offer recourse to those negatively affected and address inequalities in the way benefits are distributed by the use of AI.
+- **Enabling contestation and dialogue** – bringing people together to discuss how the AI is being used and who it benefits to offer recourse to those negatively affected and address inequalities in the way benefits are distributed by the use of AI.  
 
-<br>
+---
 
 We appreciate the opportunity to provide these comments to the NTIA, and welcome the agency’s interest in fostering accountability in the AI ecosystem. 
 
