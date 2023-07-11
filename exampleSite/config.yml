@@ -137,60 +137,66 @@ params:
     - content
   plugins:
     css:
+    - link: css/menu.css
     - link: plugins/css/pico.min.css
     js:
     - link: plugins/js/feather.min.js
 menus:
   main: # Main Menu
-  - name: Taxonomy
-    title: Taxonomy
-    # pre: pen-tool
-    url: "/taxonomy"
-    weight: "1"
   - name: Database
     title: Database
     # pre: pen-tool
     url: "/database"
-    weight: "2" 
-  # - name: Resources
-  #   title: Resources
-  #   identifier: resources
-  #   url: /resources
-  #   weight: "3"
-  # - name: Getting Started
-  #   title: Getting Started
-  #   parent: resources
-  #   url: /resources/faq
-  #   weight: "1"
+    weight: "1" 
+  - name: About
+    title: About
+    identifier: resources
+    weight: "2"
   - name: FAQ
     title: FAQ
-    # parent: resources
+    parent: resources
     url: /resources/faq
-    weight: "3"
+    weight: "30"
+  - name: Events
+    title: Events
+    parent: resources
+    url: "/events"
+    weight: "31"
+  - name: ARVA
+    title: ARVA
+    parent: resources
+    url: "/arva"
+    weight: "32"
   - name: Join Us
     title: Join Us
+    parent: resources
     url: "/contribute"
-    weight: "4"
+    weight: "33"
   - name: Blog
     title: Blog
     pre: pen-tool
     url: "/blog"
-    weight: "5"
+    weight: "3"
   - name: Search
     title: Search
     pre: search
     url: "/search"
-    weight: "6"
+    weight: "4"
   - name: Contact
     title: Contact
     pre: mail
     url: "/contact"
-    weight: "7"
+    weight: "5"
+  - name: Docs
+    title: Docs
+    pre: pen-tool
+    url: "https://avidml.gitbook.io"
+    weight: "6"
   - name: Github
     title: 
     pre: github
     url: https://github.com/avidml
-    weight: "8"
+    weight: "7"
   search: # Search page's quick links
   - name: Categories
     title: Categories
