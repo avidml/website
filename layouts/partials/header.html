@@ -5,9 +5,20 @@
 /* .desktop-navigation li .dropdown {
   float: left;
 } */
+/* Dropdown button */
+.desktop-navigation li .dropbtn {
+  /* font-size: 16px; */
+  border: none;
+  outline: none;
+  /* color: white; */
+  /* padding: 14px 16px; */
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  color: inherit;
+  margin: 0; /* Important for vertical align on mobile phones */
+}
 
 .desktop-navigation li ul.dropdown-content {
-  margin-left: -1em;
   position: absolute;
   background-color: #ffffff !important;
   width: inherit;
@@ -95,8 +106,8 @@
     {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
     <li>
       {{ if .HasChildren }}
-      <a class="dropdown" href="#">{{ .Name }}</a>
-      <!-- <div class="dropdown-arrow"></div> -->
+      <!-- <button class="dropbtn">{{ .Name }}<i class="fa fa-caret-down" style="color: #ffffff;"></i></button> -->
+      <a class="dropdown" href="#">{{ .Name }}<i class="fa fa-caret-down" style="color: #ffffff;"></i></a>
       <ul class="dropdown-content">
       {{ range .Children }}
       <li><a href="{{ .URL }}"><i class="{{ .Identifier }}">&nbsp;</i>{{ .Name }}</a></li>

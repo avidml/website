@@ -145,13 +145,16 @@ menus:
   main: # Main Menu
   - name: Database
     title: Database
-    # pre: pen-tool
     url: "/database"
     weight: "1" 
-  - name: About
-    title: About
-    identifier: resources
+  - name: Docs
+    title: Docs
+    url: "https://avidml.gitbook.io"
     weight: "2"
+  - name: Resources
+    title: Resources
+    identifier: resources
+    weight: "3"
   - name: FAQ
     title: FAQ
     parent: resources
@@ -162,35 +165,30 @@ menus:
     parent: resources
     url: "/events"
     weight: "31"
+  - name: About
+    title: About
+    parent: resources
+    url: "/contribute"
+    weight: "33"
   - name: ARVA
     title: ARVA
     parent: resources
     url: "/arva"
     weight: "32"
-  - name: Join Us
-    title: Join Us
-    parent: resources
-    url: "/contribute"
-    weight: "33"
   - name: Blog
     title: Blog
     pre: pen-tool
     url: "/blog"
-    weight: "3"
+    weight: "4"
   - name: Search
     title: Search
     pre: search
     url: "/search"
-    weight: "4"
+    weight: "5"
   - name: Contact
     title: Contact
     pre: mail
     url: "/contact"
-    weight: "5"
-  - name: Docs
-    title: Docs
-    pre: pen-tool
-    url: "https://avidml.gitbook.io"
     weight: "6"
   - name: Github
     title: 
