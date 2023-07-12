@@ -1,45 +1,37 @@
 <!-- Nav -->
 
 <style>
-/* for dropdown menu */
-/* .desktop-navigation li .dropdown {
-  float: left;
+/* .desktop-navigation li {
+  display: flex;
 } */
-/* Dropdown button */
-.desktop-navigation li .dropbtn {
-  /* font-size: 16px; */
-  border: none;
-  outline: none;
-  /* color: white; */
-  /* padding: 14px 16px; */
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  color: inherit;
-  margin: 0; /* Important for vertical align on mobile phones */
+
+.desktop-navigation li a.navitem {
+  width: inherit;
 }
 
 .desktop-navigation li ul.dropdown-content {
   position: absolute;
   background-color: #ffffff !important;
   width: inherit;
-  padding-left: 0.5em !important;
-  padding-right: 0.5em !important;
+  /* padding-left: 0.5em !important; */
+  padding-right: 2.5em !important;
   margin-left: none !important;
   display: inline-block;
+  margin-top: 1em;
 }
 
-.desktop-navigation li ul.dropdown-content li {
+/* .desktop-navigation li ul.dropdown-content li {
   padding-left: 0.5em !important;
   padding-right: 0.5em !important;
   display: none;
-}
+} */
 
-.desktop-navigation li ul li {
-  display: flex;
+.desktop-navigation li ul.dropdown-content li {
+  display: none;
   width: inherit;
   float:none !important;
   height:auto;
-  line-height:40px;
+  /* line-height:40px; */
   text-align: left;
   margin-left: 0;
   border-left: none;
@@ -49,15 +41,9 @@
   padding-top: 1em;
 }
 
-.desktop-navigation li .dropdown-arrow {
-  height: 0;
-  width: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 10px solid #ffffff;
-  position: relative;
-  top: 45px;
-  left: 350px;
+.desktop-navigation li:hover > a.navitem {
+    background-color: #415462;
+    color: #1095c1;
 }
 
 .desktop-navigation li:hover > ul.dropdown-content li {
@@ -65,12 +51,9 @@
     flex-direction: column;
 }
 
-.desktop-navigation li:hover > .dropdown-arrow {
-  top: 35px;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-bottom: 10px solid #ffffff;
-  border-top: 10px solid transparent;
+.desktop-navigation li ul.dropdown-content li:hover > a {
+    /* background-color: #1095c1; */
+    color: black;
 }
 </style>
 
@@ -102,31 +85,34 @@
   <ul class="desktop-navigation">
     {{ range .Site.Menus.main }}
     {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
-    {{- $page_url:= $currentPage.Permalink | absLangURL }}
+    {{- $page_url := $currentPage.Permalink | absLangURL }}
     {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
     <li>
       {{ if .HasChildren }}
-      <!-- <button class="dropbtn">{{ .Name }}<i class="fa fa-caret-down" style="color: #ffffff;"></i></button> -->
-      <a class="dropdown" href="#">{{ .Name }}<i class="fa fa-caret-down" style="color: #ffffff;"></i></a>
-      <ul class="dropdown-content">
-      {{ range .Children }}
-      <li><a href="{{ .URL }}"><i class="{{ .Identifier }}">&nbsp;</i>{{ .Name }}</a></li>
-      {{ end }}
-      </ul>
-      {{ else }}
-      <a 
-        href="{{ .URL }}" title="{{ .Name | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
-        {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}
-      >
-      {{- if .Pre }}
-      <i data-feather="{{ .Pre | safeHTML }}"></i>
-      {{ end }} 
-        <span {{- if eq $menu_item_url $page_url }} class="menu-active" {{- end }}>
-          {{- if .Title }}
-          {{ .Title | safeHTML }}     
+        {{- if .Pre }}
+          <a class="navitem" href="#">{{ .Name }}<i data-feather="{{ .Pre | safeHTML }}"></i></a>
+        {{ else }}
+          <a class="navitem" href="#">{{ .Name }}&nbsp;</a>
+        {{ end }} 
+        <ul class="dropdown-content">
+          {{ range .Children }}
+            <li><a href="{{ .URL }}"><i class="{{ .Identifier }}">&nbsp;</i>{{ .Name }}</a></li>
           {{ end }}
-        </span>
-      </a>
+        </ul>
+      {{ else }}
+        <a class="navitem"
+          href="{{ .URL }}" title="{{ .Name | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
+          {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}
+        >
+          <span {{- if eq $menu_item_url $page_url }} class="menu-active" {{- end }}>
+            {{- if .Title }}
+            {{ .Title | safeHTML }}     
+            {{ end }}
+          </span>
+          {{- if .Pre }}
+            <i data-feather="{{ .Pre | safeHTML }}"></i>
+          {{ end }}
+        </a>
       {{ end }}
     </li>
     {{ end }}
@@ -151,10 +137,14 @@
       <ul>
         {{ range .Site.Menus.main }}
         {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
-        {{- $page_url:= $currentPage.Permalink | absLangURL }}
+        {{- $page_url := $currentPage.Permalink | absLangURL }}
         {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
+        {{- $is_external := eq .Pre "external-link" }}
         <li>
-          <a href="{{ .URL }}" title="{{ .Name | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
+          <!-- TODO: make the external link opening work -->
+          <a href="{{ .URL }}"
+          {{- if eq .Pre `external-link` }} target="_blank" {{- end }}
+          title="{{ .Name | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
           {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
             <span {{- if eq $menu_item_url $page_url }} class="menu-active" {{- end }}>
               {{- if .Pre }}

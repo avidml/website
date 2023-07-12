@@ -149,11 +149,13 @@ menus:
     weight: "1" 
   - name: Docs
     title: Docs
+    pre: external-link
     url: "https://avidml.gitbook.io"
     weight: "2"
   - name: Resources
     title: Resources
     identifier: resources
+    pre: chevron-down
     weight: "3"
   - name: FAQ
     title: FAQ
@@ -195,6 +197,16 @@ menus:
     pre: github
     url: https://github.com/avidml
     weight: "7"
+  - name: LinkedIn 
+    title: 
+    pre: linkedin
+    url: https://www.linkedin.com/company/avidml
+    weight: "8"
+  - name: Twitter
+    title: 
+    pre: twitter
+    url: https://twitter.com/AvidMldb
+    weight: "9"
   search: # Search page's quick links
   - name: Categories
     title: Categories
