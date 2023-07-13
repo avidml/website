@@ -18,7 +18,7 @@ AVID's leadership team composed of seasoned AI professionals and researchers.
 td {
   text-align: center;
 }
-.center tbody td img {
+.people {
     width: 150px;
 }
 </style>
@@ -26,10 +26,10 @@ td {
 <table class="center">
   <tbody>
     <tr>
-      <td><img src="/uploads/carol.jpg"></td>
-      <td><img src="/uploads/bo.jpg"></td>
-      <td><img src="/uploads/nathan.jpg"></td>
-      <td><img src="/uploads/jekaterina.jpg"></td>
+      <td><img class="people" src="/uploads/people/carol.jpg"></td>
+      <td><img class="people" src="/uploads/people/bo.jpg"></td>
+      <td><img class="people" src="/uploads/people/nathan.jpg"></td>
+      <td><img class="people" src="/uploads/people/jekaterina.jpg"></td>
     </tr>
     <tr>
       <td><a href="https://www.linkedin.com/in/carolmanderson">Carol Anderson</a></td>
@@ -38,9 +38,15 @@ td {
       <td><a href="https://jeknov.github.io">Jekaterina Novikova</a></td>
     </tr>
     <tr>
-      <td><img src="/uploads/will.png"></td>
-      <td><img src="/uploads/yaga.jpg"></td>
-      <td><img src="/uploads/subho.png"></td>
+      <td>Machine Learning</td>
+      <td>Taxonomy</td>
+      <td>Operations</td>
+      <td>Science</td>
+    </tr>
+    <tr>
+      <td><img class="people" src="/uploads/people/will.png"></td>
+      <td><img class="people" src="/uploads/people/yaga.jpg"></td>
+      <td><img class="people" src="/uploads/people/subho.png"></td>
       <td></td>
     </tr>
     <tr>
@@ -49,15 +55,51 @@ td {
       <td><a href="https://subhomajumdar.com">Subho Majumdar</a></td>
       <td></td>
     </tr>
+    <tr>
+      <td>Cybersecurity</td>
+      <td>Policy</td>
+      <td>Founder, Comms</td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
 {{< /rawhtml >}}
 
-## Collaborations and Partnerships
-
+<!-- ## Collaborations and Partnerships
+TODO: to be finalized later
 {{< rawhtml >}}
+<style>
+.wrapper
+{
+  text-align: center;
+  width: 630px;
+  margin: auto;
+}
+.inner
+{
+  display:inline-block;
+}
+.logo {
+    width: 200px;
+    padding: 1em;
+}
+</style>
 
-{{< /rawhtml >}}
+<div class='wrapper'>
+    <div class='inner'>
+        <img class="logo" src="/uploads/logos/hf2.png">
+    </div>
+    <div class='inner'>
+        <img class="logo" src="/uploads/logos/priam.PNG">
+    </div>
+    <div class='inner'>
+        <img class="logo" src="/uploads/logos/apollo.png">
+    </div>
+    <div class='inner'>
+        <img class="logo" src="/uploads/logos/fiddler.png">
+    </div>
+</div>
+{{< /rawhtml >}} -->
 
 ## Get Involved!
 

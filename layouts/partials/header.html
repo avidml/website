@@ -54,6 +54,7 @@
 .desktop-navigation li ul.dropdown-content li:hover > a {
     /* background-color: #1095c1; */
     color: black;
+    font-weight: 600;
 }
 </style>
 
@@ -90,9 +91,9 @@
     <li>
       {{ if .HasChildren }}
         {{- if .Pre }}
-          <a class="navitem" href="#">{{ .Name }}<i data-feather="{{ .Pre | safeHTML }}"></i></a>
+          <a class="navitem" href="">{{ .Name }}<i data-feather="{{ .Pre | safeHTML }}"></i></a>
         {{ else }}
-          <a class="navitem" href="#">{{ .Name }}&nbsp;</a>
+          <a class="navitem" href="">{{ .Name }}&nbsp;</a>
         {{ end }} 
         <ul class="dropdown-content">
           {{ range .Children }}
