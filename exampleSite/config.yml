@@ -160,23 +160,28 @@ menus:
   - name: FAQ
     title: FAQ
     parent: resources
-    url: /resources/faq
+    url: /faq
     weight: "30"
   - name: Events
     title: Events
     parent: resources
     url: "/events"
     weight: "31"
-  - name: About
-    title: About
+  - name: Community
+    title: Community
     parent: resources
-    url: "/contribute"
-    weight: "33"
+    url: "/community"
+    weight: "32"
   - name: ARVA
     title: ARVA
     parent: resources
     url: "/arva"
-    weight: "32"
+    weight: "33"
+  - name: Contact Us
+    title: Contact Us
+    parent: resources
+    url: "/contact"
+    weight: "34"
   - name: Blog
     title: Blog
     pre: pen-tool
@@ -187,11 +192,6 @@ menus:
     pre: search
     url: "/search"
     weight: "5"
-  - name: Contact
-    title: Contact
-    pre: mail
-    url: "/contact"
-    weight: "6"
   - name: Github
     title: 
     pre: github
