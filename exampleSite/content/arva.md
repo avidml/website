@@ -2,6 +2,7 @@
 title: AI Risk and Vulnerability Alliance
 description: 
 layout: page
+url: /arva
 ---
 
 AVID is the flagship effort of the non-profit organization **AI Risk and Vulnerability Alliance** (ARVA).
