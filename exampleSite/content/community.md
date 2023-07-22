@@ -6,7 +6,7 @@ url: /community
 ---
 
 ## Team
-AVID's leadership team composed of seasoned AI professionals and researchers.
+AVID's leadership team is composed of seasoned AI professionals and researchers.
 
 {{< rawhtml >}}
 <style>

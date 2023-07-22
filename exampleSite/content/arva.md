@@ -36,9 +36,54 @@ In all situations we treat each other with dignity. Different cultures, experien
 We reach out to those who hold different values, and have different needs, to find mutually beneficial solutions. Our effort to bridge gaps and break down barriers leads us to build tools and conduct research inclusive of individuals from all walks of life.
 
 ## Board of Directors
-- [Subhabrata Majumdar](https://subhomajumdar.com/), President
-- [Nathan Butters](https://www.linkedin.com/in/nathanbutters/), Vice-president
-- [Brian Pendleton](https://www.linkedin.com/in/bwpen/), Treasurer
-- [Rumman Chowdhury](http://www.rummanchowdhury.com/), Director
-- [Kush Varshney](https://krvarshney.github.io/), Director
-- [Borhane Blili-Hamelin](https://borhane.xyz/), Secretary
+
+{{< rawhtml >}}
+<style>
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+td {
+  text-align: center;
+}
+.people {
+    width: 200px;
+}
+</style>
+
+<table class="center">
+  <tbody>
+    <tr>
+      <td><img class="people" src="/uploads/people/subho.png"></td>
+      <td><img class="people" src="/uploads/people/nathan.jpg"></td>
+      <td><img class="people" src="/uploads/people/yaga.jpg"></td>
+    </tr>
+    <tr>
+      <td><a href="https://subhomajumdar.com">Subho Majumdar</a></td>
+      <td><a href="https://www.linkedin.com/in/nathanbutters">Nathan Butters</a></td>
+      <td><a href="https://www.linkedin.com/in/bwpen">Brian Pendleton</a></td>
+    </tr>
+    <tr>
+      <td>President</td>
+      <td>Vice-president</td>
+      <td>Treasurer</td>
+    </tr>
+    <tr>
+      <td><img class="people" src="/uploads/people/rumman.jpg"></td>
+      <td><img class="people" src="/uploads/people/kush.png"></td>
+      <td><img class="people" src="/uploads/people/bo.jpg"></td>
+    </tr>
+    <tr>
+      <td><a href="http://www.rummanchowdhury.com">Rumman Chowdhury</a></td>
+      <td><a href="https://krvarshney.github.io">Kush Varshney</a></td>
+      <td><a href="https://borhane.xyz">Borhane Blili-Hamelin</a></td>
+    </tr>
+    <tr>
+      <td>Director</td>
+      <td>Director</td>
+      <td>Secretary</td>
+    </tr>
+  </tbody>
+</table>
+{{< /rawhtml >}}
