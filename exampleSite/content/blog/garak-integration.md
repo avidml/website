@@ -1,8 +1,8 @@
 ---
 author: "Leon Derczynski"
-title: "AVID announces integration with garak, a vulnerability scanner for LLMs"
+title: "AVID Announces Integration with garak, a Vulnerability Scanner for LLMs"
 date: "2023-07-24"
-description: "The integration between garak and AVID allows vulnerabilities found by garak to be converted easily into AVID reports"
+description: "Vulnerabilities found by garak can now be converted easily into AVID reports."
 tags: ["vulnerabilities","security", "ethics", "performance"]
 categories: ["general"]
 layout: single
@@ -41,9 +41,6 @@ The next step is to process that report using the report_avid script:
 `📜 AVID reports generated at garak.ea8ba884-0192-4869-a0c0-de0c53d7fff7.avid.jsonl`
 
 The result is a report ready to be submitted to AVID! To do so, you can currently use our AI Vulnerability reporting form. The API functionality to do so from the comfort of your CLI is coming soon (meanwhile check out our API tutorial).
-
-
-
 
 ## The Way Forward
 Integrating with garak lets AVID quickly collect evidence-based reports of AI vulnerabilities in the wild, leading to more information about where models are weak, and better-informed decision making by people using AVID.
