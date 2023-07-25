@@ -1,5 +1,5 @@
 ---
-author: "Leon Derczynski, Subho Majumdar, and Carol Anderson"
+author: "Leon Derczynski, Carol Anderson, and Subho Majumdar"
 title: "AVID Announces Integration with garak, a Vulnerability Scanner for LLMs"
 date: "2023-07-24"
 description: "Vulnerabilities found by garak can now be converted easily into AVID reports."
@@ -51,6 +51,6 @@ This integration is the beginning of a new way of baking transparency and common
 ## About the Authors
 [Leon Derczynski](https://www.derczynski.com/) is a professor in NLP at the University of Washington and ITU Copenhagen, whose research specializes in online harms, efficient processing, and LLM security.
 
-[Subho Majumdar](https://www.subhomajumdar.com) is a technical leader in applied trustworthy machine learning who believes in a community-centric approach to data-driven decision making. He has pioneered the use of responsible ML methods in industry settings, wrote a [book](https://learning.oreilly.com/library/view/practicing-trustworthy-machine/9781098120269), and founded multiple nonprofit efforts in this area---[TrustML](https://www.trustworthyml.org), [Bias Buccaneers](https://biasbounty.ai), and AVID. 
-
 [Carol Anderson](https://www.linkedin.com/in/carolmanderson/) is a data scientist and machine learning practitioner with expertise in natural language processing (NLP), biological data, and AI ethics. She serves as AVID's machine learning lead. 
+
+[Subho Majumdar](https://www.subhomajumdar.com) is a technical leader in applied trustworthy machine learning who believes in a community-centric approach to data-driven decision making. He has pioneered the use of responsible ML methods in industry settings, wrote a [book](https://learning.oreilly.com/library/view/practicing-trustworthy-machine/9781098120269), and founded multiple nonprofit efforts in this area---[TrustML](https://www.trustworthyml.org), [Bias Buccaneers](https://biasbounty.ai), and AVID. 
