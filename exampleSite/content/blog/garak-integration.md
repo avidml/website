@@ -33,7 +33,7 @@ This will generate a report, and the name of the report is printed out near the 
 
 `📜 report closed :) garak.ea8ba884-0192-4869-a0c0-de0c53d7fff7.report.jsonl`
 
-The next step is to process that report using the report_avid script:
+The next step is to process that report by calling garak one more time in the CLI:
 
 `python3 -m garak –r garak.ea8ba884-0192-4869-a0c0-de0c53d7fff7.report.jsonl`
 
