@@ -137,60 +137,76 @@ params:
     - content
   plugins:
     css:
+    - link: css/menu.css
     - link: plugins/css/pico.min.css
     js:
     - link: plugins/js/feather.min.js
 menus:
   main: # Main Menu
-  - name: Taxonomy
-    title: Taxonomy
-    # pre: pen-tool
-    url: "/taxonomy"
-    weight: "1"
   - name: Database
     title: Database
-    # pre: pen-tool
     url: "/database"
-    weight: "2" 
-  # - name: Resources
-  #   title: Resources
-  #   identifier: resources
-  #   url: /resources
-  #   weight: "3"
-  # - name: Getting Started
-  #   title: Getting Started
-  #   parent: resources
-  #   url: /resources/faq
-  #   weight: "1"
+    weight: "1" 
+  - name: Docs
+    title: Docs
+    pre: external-link
+    url: "https://avidml.gitbook.io"
+    weight: "2"
+  - name: Resources
+    title: Resources
+    identifier: resources
+    pre: chevron-down
+    weight: "3"
   - name: FAQ
     title: FAQ
-    # parent: resources
-    url: /resources/faq
-    weight: "3"
-  - name: Join Us
-    title: Join Us
-    url: "/contribute"
-    weight: "4"
+    parent: resources
+    url: /faq
+    weight: "30"
+  - name: Events
+    title: Events
+    parent: resources
+    url: "/events"
+    weight: "31"
+  - name: Community
+    title: Community
+    parent: resources
+    url: "/community"
+    weight: "32"
+  - name: ARVA
+    title: ARVA
+    parent: resources
+    url: "/arva"
+    weight: "33"
+  - name: Contact Us
+    title: Contact Us
+    parent: resources
+    url: "/contact"
+    weight: "34"
   - name: Blog
     title: Blog
     pre: pen-tool
     url: "/blog"
-    weight: "5"
+    weight: "4"
   - name: Search
     title: Search
     pre: search
     url: "/search"
-    weight: "6"
-  - name: Contact
-    title: Contact
-    pre: mail
-    url: "/contact"
-    weight: "7"
+    weight: "5"
   - name: Github
     title: 
     pre: github
     url: https://github.com/avidml
+    weight: "7"
+  - name: LinkedIn 
+    title: 
+    pre: linkedin
+    url: https://www.linkedin.com/company/avidml
     weight: "8"
+  - name: Twitter
+    title: 
+    pre: twitter
+    url: https://twitter.com/AvidMldb
+    weight: "9"
   search: # Search page's quick links
   - name: Categories
     title: Categories

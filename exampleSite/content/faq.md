@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions (FAQ)
 layout: legal # is necessary
-url: /resources/faq
+url: /faq
 ---
 
 ### What is an AI Vulnerability?
