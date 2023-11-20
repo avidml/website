@@ -23,7 +23,7 @@ We are targeting gender bias with **BiasAware**, recognizing that gender bias is
 
 Hosted on Hugging Face (https://huggingface.co/spaces/avid-ml/biasaware), BiasAware provides an interactive platform where anyone can assess local/hosted datasets. BiasAware's intuitive interface coupled with a set of  analysis capabilities makes it a valuable tool for individuals, researchers, and organizations aspiring for alignment of their datasets with principles of fairness and inclusivity.
 
-![BiasAware Flow](../../static/uploads/biasaware-1/BiasAware.png)
+![BiasAware Flow](/uploads/biasaware-1/BiasAware.png)
 
 Now, let's dive into the methodologies that BiasAware employs to tackle gender bias in datasets.
 
