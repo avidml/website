@@ -11,10 +11,10 @@ showToc: false
 ShowBreadCrumbs: false
 ---
 
-During the 2022 holiday season, a small group of us coded up the first version of the AVID website, compiled the first set of reports and vulnerabilities, and put together our taxonomy based on the discussions in the past months. This body of work went live in January 2023. In the months that followed, AI became a household name: alongwith which the need for rigorous approaches to managing the risks of this emergent technology became obvious to the general public, companies, and governments around the world. AVID provided an outlet to this groundswell of interest. During the rest of 2023, we launched a slew of public events to channel this interest to productive outlets, partnered with like-minded organizations in community efforts, and had a number of releases seeding technical resources that would be indispensable to AI risk practitioners for decades to come.
+During the 2022 holiday season, a small group of us coded up the first version of the AVID website, compiled the first set of reports and vulnerabilities, and put together our taxonomy based on discussions in the past months. This body of work went live in January 2023. In the months that followed, AI became a household name: alongwith which came the need for rigorous approaches to managing the risks of this emergent technology became obvious to the general public, companies, and governments around the world. AVID provided an outlet to this groundswell of interest. During the rest of 2023, we launched a slew of public events to channel this interest to productive outlets, partnered with like-minded organizations in community efforts, and had a number of releases seeding technical resources that would be indispensable to AI risk practitioners for decades to come.
 
 ## A Message of Gratitude
-Before diving into what we did and achieved in 2023, let's take a moment to acknowledge our collaborators and supporters. It's hard to not pinch ourselves and be in awe of how far we have come in just one year, that too as a purely grassroots effort. All this wouldn't be possible without our friends.
+Before diving into what we did and achieved in 2023, let's take a moment to acknowledge our collaborators and supporters. It's hard to not pinch ourselves and be in awe of how far we have come in just one year, that too as a purely grassroots effort with no deep pockets backing us. This progress wouldn't be possible without our friends.
 
 There are too many folks to thank individually, so we'll go by organizations we have collaborated with. In alphabetical order, we are grateful to
 - [AI Incident Database](https://incidentdatabase.ai/)
@@ -34,7 +34,7 @@ Last but not the least, we thank AVID leads Carol Anderson, Jekaterina Novikova,
 
 ## Timeline and Accomplishments
 
-AVID started out as a database and a taxonomy for AI failure modes, but has grown to become so much more than that. It's now a living, breathing community of like-minded people interested in managing the risks of AI. Here is a summary of what the AVID community has done and achieved in 2023.
+AVID started out as a database and a taxonomy for AI failure modes, but has grown to become so much more than that. It's now a living, breathing community of like-minded people interested in managing realistic and concrete risks of AI. Here is a summary of what the AVID community has done and achieved in 2023.
 
 | Month | What we did |
 | --- | --- |
@@ -42,18 +42,18 @@ AVID started out as a database and a taxonomy for AI failure modes, but has grow
 | Feb 2023 |  Organized a community workshop around Ethics and Performance
 | Mar 2023 |  Organized a participatory workshop in Mozilla Festival 2023
 | Apr 2023 |  ARVA is recognized as a United States nonprofit organization
-| May 2023 |  Awarded the [Magic Grant](https://brown.columbia.edu/portfolio/avid-a-community-driven-approach-to-mitigating-ai-failures/) by the Brown Institute for Media Innovation
-| Jun 2023 |  Organized two [CRAFT workshops](https://facctconference.org/2023/acceptedcraft) in the FAccT conference (in collaboration with HuggingFace, UNICEF, and Northwestern)
+| May 2023 |  Awarded the [Magic Grant](https://brown.columbia.edu/portfolio/avid-a-community-driven-approach-to-mitigating-ai-failures/) by Brown Institute for Media Innovation
+| Jun 2023 |  Organized two [CRAFT workshops](https://facctconference.org/2023/acceptedcraft) in FAccT 2023 (in collaboration with Hugging Face, UNICEF, and Northwestern)
 | | [Responded](https://avidml.org/blog/ntia-response/) to the NTIA AI Accountability Policy Request
 | | Our joint research with Data & Society on AI red teaming was funded by Omidyar Network
-| July 2023 | Announced integration with [garak](garak.ai) nd first release of `avidtools`
+| July 2023 | Announced integration with [garak](garak.ai), released first version of our Python SDK `avidtools` and our API
 | | Kicked off our taxonomy Working Group
 | Aug 2023 | Partnered with AI Village to organize the largest ever [AI red teaming event](https://www.hackthefuture.com/defcon)
-| | Tech Policy Press [Op-ed](https://www.techpolicy.press/can-we-red-team-our-way-to-ai-accountability/) on Generative AI Red Teaming
+| | Published an [Op-ed](https://www.techpolicy.press/can-we-red-team-our-way-to-ai-accountability/)  in Tech Policy Press on Generative AI Red Teaming
 | Oct 2023 | Announced integration with [Apollo](https://apolloapi.io/)
 | | Released a [Policy Brief](https://datasociety.net/library/ai-red-teaming-is-not-a-one-stop-solution-to-ai-harms-recommendations-for-using-red-teaming-for-ai-accountability/) on AI red teaming with Data & Society
 | Nov 2023 | Released [Biasaware](https://huggingface.co/spaces/avid-ml/biasaware) as an open-source tool for dataset bias detection
-| Dec 2023 | Our builders Cohort 2 starts work on the AVID API/DB and Editorial UI
+| Dec 2023 | Our builders Cohort 2 started work on the AVID API/DB and Editorial UI
 
 ## Looking ahead to 2024
 
@@ -64,13 +64,13 @@ If 2023 was the year of AI, 2024 will be the year of trusted AI. To that end, we
 - We'll organize a number of public events to build awareness on AI risk management and standard setting approaches.
 - On the technical front, we will announce integrations with a number of developer tools, and continue to enrich our database with curated and contributed vulnerability reports.
 
-In short, this is going to be a busy year, and we can't wait to get started. Keep an eye out for more details in our social channels during the next few weeks!
+In short, this is going to be a busy year, and we can't wait to get started. Keep an eye out for more details in our social channels during the next weeks!
 
 ---
 
-## How you can Support Us
+## How you can Help Us
 
-You can support and accelerate our activities by donating to ARVA through [Open Collective](https://opencollective.com/arva). All contributions will be made public, and will go towards event logistics, membership fees, and project-specific support to our researchers and engineers.
+You can support and accelerate our activities by donating to ARVA through [Open Collective](https://opencollective.com/arva). All contributions will be made public (anonymized if you prefer), and will go towards event logistics, membership fees, and project-specific support to our researchers and engineers.
 
 If you are passionate about limiting the downsides of AI, join our Discord or drop an email to get in touch! On social media, consider giving us a follow on [LinkedIn](https://www.linkedin.com/company/82830184) and [Twitter](https://twitter.com/AvidMldb).
 
