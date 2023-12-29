@@ -21,7 +21,7 @@ Recognizing the urgency of addressing this issue, we developed BiasAware as a sp
 
 We are targeting gender bias with **BiasAware**, recognizing that gender bias is a pervasive issue in AI that deserves immediate attention. Gender bias in AI can manifest in various ways, from biased language models that produce sexist or derogatory content to algorithms that disproportionately target or exclude individuals based on their gender. This bias not only perpetuates harmful stereotypes but also reinforces existing inequalities and discrimination.
 
-Hosted on Hugging Face (https://huggingface.co/spaces/avid-ml/biasaware), BiasAware provides an interactive platform where anyone can assess local/hosted datasets. BiasAware's intuitive interface coupled with a set of  analysis capabilities makes it a valuable tool for individuals, researchers, and organizations aspiring for alignment of their datasets with principles of fairness and inclusivity.
+Hosted on Hugging Face [(https://huggingface.co/spaces/avid-ml/biasaware)](https://huggingface.co/spaces/avid-ml/biasaware), BiasAware provides an interactive platform where anyone can assess local/hosted datasets. BiasAware's intuitive interface coupled with a set of  analysis capabilities makes it a valuable tool for individuals, researchers, and organizations aspiring for alignment of their datasets with principles of fairness and inclusivity.
 
 ![BiasAware Flow](/uploads/biasaware-1/BiasAware.png)
 
