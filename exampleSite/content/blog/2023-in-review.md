@@ -11,7 +11,7 @@ showToc: false
 ShowBreadCrumbs: false
 ---
 
-During the 2022 holiday season, a small group of us coded up the first version of our website, compiled the first set of reports and vulnerabilities, and put together our taxonomy based on the discussions in the past months. This body of work went live in January 2023. In the months that followed, AI became a household name: alongwith which the need for rigorous approaches to managing the risks of this emergent technology became obvious to the general public, companies, and governments around the world. AVID provided an outlet to this groundswell of interest. During the rest of 2023, we launched a slew of public events to channel this interest to productive outlets, partnered with like-minded organizations in community efforts, and had a number of releases seeding technical resources that would be indispensable to AI risk practitioners for decades to come.
+During the 2022 holiday season, a small group of us coded up the first version of the AVID website, compiled the first set of reports and vulnerabilities, and put together our taxonomy based on the discussions in the past months. This body of work went live in January 2023. In the months that followed, AI became a household name: alongwith which the need for rigorous approaches to managing the risks of this emergent technology became obvious to the general public, companies, and governments around the world. AVID provided an outlet to this groundswell of interest. During the rest of 2023, we launched a slew of public events to channel this interest to productive outlets, partnered with like-minded organizations in community efforts, and had a number of releases seeding technical resources that would be indispensable to AI risk practitioners for decades to come.
 
 ## A Message of Gratitude
 Before diving into what we did and achieved in 2023, let's take a moment to acknowledge our collaborators and supporters. It's hard to not pinch ourselves and be in awe of how far we have come in just one year, that too as a purely grassroots effort. All this wouldn't be possible without our friends.
@@ -36,8 +36,8 @@ Last but not the least, we thank AVID leads Carol Anderson, Jekaterina Novikova,
 
 AVID started out as a database and a taxonomy for AI failure modes, but has grown to become so much more than that. It's now a living, breathing community of like-minded people interested in managing the risks of AI. Here is a summary of what the AVID community has done and achieved in 2023.
 
-| Month        | What we did |
-|--------------|-------------|
+| Month | What we did |
+| --- | --- |
 | Jan 2023 |  Released v0.1 of AVID taxonomy and database
 | Feb 2023 |  Organized a community workshop around Ethics and Performance
 | Mar 2023 |  Organized a participatory workshop in Mozilla Festival 2023
@@ -76,7 +76,7 @@ If you are passionate about limiting the downsides of AI, join our Discord or dr
 
 
 ## About the Authors
-[Subho Majumdar](https://www.subhomajumdar.com/) is a technical leader in applied trustworthy AI who believes in a community-centric approach to data-driven decision-making. He has pioneered the use of responsible AI methods in industry settings, wrote a [book](https://www.amazon.com/Practicing-Trustworthy-Machine-Learning-Transparent/dp/1098120272), and founded multiple nonprofit efforts in this area---TrustML, Bias Buccaneers, and AVID. Currently, Subho is Co-founder and Head of AI at Vijil, an AI software startup on a mission to help developers build and operate intelligent agents that people can trust.
+[Subho Majumdar](https://www.subhomajumdar.com/) is a technical leader in applied trustworthy AI who believes in a community-centric approach to data-driven decision-making. He has pioneered the use of responsible AI methods in industry settings, wrote a [book](https://www.amazon.com/Practicing-Trustworthy-Machine-Learning-Transparent/dp/1098120272), and founded multiple nonprofit efforts in this area---TrustML, Bias Buccaneers, and AVID. Currently, Subho is Co-founder and Head of AI at [Vijil](http://vijil.ai/), an AI software startup on a mission to help developers build and operate intelligent agents that people can trust.
 
 [Nathan Butters](https://www.linkedin.com/in/nathanbutters/) is Senior Product Manager at Salesforce, where he support the product teams building out Salesforce's Trust Layer to make sure their products adhere to their Trustworthy AI Principles and guidelines for the responsible development of generative AI. A founding director of ARVA, Nathan is passionate about using his proximity to power to support the voices of those in the Global South. His interests bridge the humanities and computer science fields, focusing on what humans believe, and why, in the context of how systems are built, understood, and contested.
 
