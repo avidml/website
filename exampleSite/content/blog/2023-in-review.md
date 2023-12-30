@@ -72,7 +72,7 @@ In short, this is going to be a busy year, and we can't wait to get started. Kee
 
 You can support and accelerate our activities by donating to ARVA through [Open Collective](https://opencollective.com/arva). All contributions will be made public (anonymized if you prefer), and will go towards event logistics, membership fees, and project-specific support to our researchers and engineers.
 
-If you are passionate about limiting the downsides of AI, join our Discord or drop an email to get in touch! On social media, consider giving us a follow on [LinkedIn](https://www.linkedin.com/company/82830184) and [Twitter](https://twitter.com/AvidMldb).
+If you are passionate about limiting the downsides of AI, join our [Discord](https://discord.gg/T6uvDBjF5v) or [drop an email](mailto:info@avidml.org) to get in touch! On social media, consider giving us a follow on [LinkedIn](https://www.linkedin.com/company/82830184) and [Twitter](https://twitter.com/AvidMldb).
 
 
 ## About the Authors
