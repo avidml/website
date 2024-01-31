@@ -1,7 +1,7 @@
 ---
 author: "Matteo Dora, Subho Majumdar"
 title: "AVID Announces Integration with Giskard Scan"
-date: "2023-12-29"
+date: "2024-01-31"
 description: "Giskard Scan results can now be exported as AVID reports."
 tags: ["vulnerabilities","security", "ethics", "performance"]
 categories: ["general"]
