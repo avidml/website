@@ -1,11 +1,9 @@
 ---
-title: Tools
-description: AVID's collection of web apps for vulnerability discovery.
+title: Tools for vulnerability discovery
+description:
 layout: page
 url: /tools
 ---
-
-# Tools for vulnerability discovery 
 AVID is pleased to host a small but growing collection of tools to enable evaluation of models, datasets, and algorithmic systems. Our tools are hosted on [HuggingFace](https://huggingface.co/avid-ml) and described below. 
 
 
