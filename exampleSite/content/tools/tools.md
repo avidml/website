@@ -7,9 +7,21 @@ url: /tools
 AVID is pleased to host a small but growing collection of tools to enable evaluation of models, datasets, and algorithmic systems. Our tools are hosted on [HuggingFace](https://huggingface.co/avid-ml) and described below. 
 
 
+## [IndieLabel](https://huggingface.co/spaces/avid-ml/indie-label)
+[IndieLabel]((https://huggingface.co/spaces/avid-ml/indie-label)
+), developed by [Michelle Lam and colleagues](https://hci.stanford.edu/publications/2022/Lam_EndUserAudits_CSCW22.pdf) at the [Stanford Human-Computer Interaction Group](https://hci.stanford.edu/), is a novel and powerful tool to enable individual users without computational expertise to perform algorithmic audits. IndieLabel allows users to investigate the Perspective API, a toxicity detection tool widely used for online content moderation. Previous work has shown that the Perspective API can sometimes over-flag, i.e. label benign comments as toxic, and this is especially true in discussions among or about marginalized communities. IndieLabel helps users to investigate topics of particular interest to them and to generate audit reports based on their findings. AVID’s deployment of IndieLabel, which is the only public-facing, live deployment of IndieLabel to date, also allows users to submit vulnerability reports directly to AVID.
+
+
+## [BiasAware](https://huggingface.co/spaces/avid-ml/biasaware) 
+
+[BiasAware]((https://huggingface.co/spaces/avid-ml/biasaware) 
+) is a web app for evaluating gender bias in datasets.  Developed in-house at AVID by [a team of volunteers](https://avidml.org/blog/biasaware-1/), the app allows anyone to upload their own dataset and run automatic evaluations of gender bias by three different methods. Datasets hosted on the HuggingFace Hub can also be evaluated easily. Biasaware also generates reports that can be submitted to AVID.
+
 ## [Plug-and-Play Bias Detection](https://huggingface.co/spaces/avid-ml/bias-detection)
 
-This app, developed at AVID by Subho Majumdar, allows users to evaluate language models for various types of bias in just a few clicks. Models are loaded automatically from the HuggingFace Hub, and various evaluation methods are available: 
+[Plug-and-Play Bias Detection]((https://huggingface.co/spaces/avid-ml/bias-detection)
+)
+, developed at AVID by Subho Majumdar, allows users to evaluate language models for various types of bias in just a few clicks. Models are loaded automatically from the HuggingFace Hub, and various evaluation methods are available: 
 
 For masked language models (e.g. BERT): 
 
@@ -23,32 +35,6 @@ For generative language models (e.g. EleutherAI/gpt-neo-125M):
 
  
 The app also generates vulnerability reports that can be submitted to AVID.  
-
-<iframe src="https://avid-ml-bias-detection.hf.space"
-    frameborder="0"
-    width="850"
-    height="450">
-</iframe>
-   
-
-## [BiasAware](https://huggingface.co/spaces/avid-ml/biasaware) 
-
-BiasAware is a web app for evaluating gender bias in datasets.  Developed in-house at AVID by [a team of volunteers](https://avidml.org/blog/biasaware-1/), the app allows anyone to upload their own dataset and run automatic evaluations of gender bias by three different methods. Datasets hosted on the HuggingFace Hub can also be evaluated easily. Biasaware also generates reports that can be submitted to AVID.
-
-<iframe src="https://avid-ml-biasaware.hf.space"
-    frameborder="0"
-    width="850"
-    height="450">
-</iframe>
-
-## [IndieLabel](https://huggingface.co/spaces/avid-ml/indie-label)
-IndieLabel, developed by [Michelle Lam and colleagues](https://hci.stanford.edu/publications/2022/Lam_EndUserAudits_CSCW22.pdf) at the [Stanford Human-Computer Interaction Group](https://hci.stanford.edu/), is a novel and powerful tool to enable individual users without computational expertise to perform algorithmic audits. IndieLabel allows users to investigate the Perspective API, a toxicity detection tool widely used for online content moderation. Previous work has shown that the Perspective API can sometimes over-flag, i.e. label benign comments as toxic, and this is especially true in discussions among or about marginalized communities. IndieLabel helps users to investigate topics of particular interest to them and to generate audit reports based on their findings. AVID’s deployment of IndieLabel, which is the only public-facing, live deployment of IndieLabel to date, also allows users to submit vulnerability reports directly to AVID.
-
-<iframe src="https://avid-ml-indie-label.hf.space"
-    frameborder="0"
-    width="850"
-    height="450">
-</iframe>
 
 ### Call for collaborations
 Know a tool we should showcase here? Or want to help us develop new ones? Please [get in touch](https://avidml.org/contact/)!
