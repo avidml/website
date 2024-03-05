@@ -177,11 +177,16 @@ menus:
     parent: resources
     url: "/arva"
     weight: "33"
+  - name: Tools
+    title: Tools
+    parent: resources
+    url: "/tools"
+    weight: "34"
   - name: Contact Us
     title: Contact Us
     parent: resources
     url: "/contact"
-    weight: "34"
+    weight: "35"
   - name: Blog
     title: Blog
     pre: pen-tool
