@@ -23,6 +23,8 @@ In spite of notable success stories like this, user-driven discovery of harm rem
 ## How IndieLabel empowers users
 IndieLabel, a web app developed by Michelle Lam and colleagues at the Stanford HCI Group, enables _end-users_ to _discover_ potential harms, _gather_ robust evidence, and _share_ their findings. As its core case study, IndieLabel allows users to investigate the [Perspective API](https://perspectiveapi.com), a toxicity-detection system used widely in online content moderation. Previous research found evidence of bias in the Perspective API, for example giving higher toxicity scores to text containing [racial or gender identity terms](https://dl.acm.org/doi/10.1145/3278721.3278729) or [phrases associated with African American English.](https://aclanthology.org/P19-1163/) In the context of a content-moderation tool, these kinds of biases can cause real harm, as they may lead to suppression of speech within or about marginalized communities. 
 
+![Screenshot of the IndieLabel app](/uploads/indielabel_arva.png)
+
 IndieLabel uses a novel approach to guide users in auditing the Perspective API. Users are prompted to assign toxicity scores to a small number of text examples (i.e., 20 social media posts). A lightweight model is then trained to predict the user’s opinion on a much larger number of examples (on the order of thousands of posts), and these predictions are used to surface potential areas of disagreement between the user and the Perspective API. For example, the system might surface that, relative to the user, the Perspective API is over-flagging posts related to marginalized racial identities, or that it is under-flagging veiled forms of hate speech. Users are then able to explore areas of potential disagreement, iteratively test hunches about the system’s behavior, and create reports documenting their findings. 
 
 ## Try it out!
@@ -31,10 +33,10 @@ We’re happy to provide the first public-facing deployment of IndieLabel, allow
 Please [try it out](https://huggingface.co/spaces/avid-ml/indie-label) or [view the demo](https://youtu.be/Je0DCDnJ6KQ?feature=shared) and [let us know what you think](https://forms.gle/vDXchpbBFjDeKjJA6)! 
 
 
-## About the Authors
+## About the authors
 [Michelle Lam](http://michelle123lam.github.io/ ) is a PhD Candidate at Stanford University in the HCI Group. Her research focuses on building systems that empower everyday users to surface their expertise to design and evaluate AI systems.
 
-[Christina Pan](https://www.christinaapan.com/) started her career building machine learning (ML) models at Google, which inspired her passion for design thinking and AI ethics.
+[Christina A. Pan](https://www.christinaapan.com/) started her career building machine learning (ML) models at Google, which inspired her passion for design thinking and AI ethics.
 
 [Carol Anderson](https://www.linkedin.com/in/carolmanderson/) is a data scientist and machine learning practitioner with expertise in natural language processing (NLP), biological data, and AI ethics. She serves as AVID’s machine learning lead.
 
