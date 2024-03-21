@@ -1,7 +1,7 @@
 ---
 author: "Michelle S. Lam, Christina A. Pan, Carol Anderson, Nathan Butters, and Borhane Blili-Hamelin"
 title: "Anyone Can Audit! Users Can Lead Their Own Algorithmic Audits with IndieLabel"
-date: "2024-03-20"
+date: "2024-03-21"
 description: "ARVA publicly launches IndieLabel, a prototype tool that guides everyday users to perform algorithmic audits."
 tags: ["vulnerabilities", "audits"]
 categories: ["general"]
