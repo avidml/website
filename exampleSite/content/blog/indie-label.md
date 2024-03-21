@@ -2,7 +2,7 @@
 author: "Michelle S. Lam, Christina A. Pan, Carol Anderson, Nathan Butters, and Borhane Blili-Hamelin"
 title: "Anyone Can Audit! Users Can Lead Their Own Algorithmic Audits with IndieLabel"
 date: "2024-03-20"
-description: "ARVA publicly launches IndieLabel, a tool that guides everyday users to perform algorithmic audits."
+description: "ARVA publicly launches IndieLabel, a prototype tool that guides everyday users to perform algorithmic audits."
 tags: ["vulnerabilities", "audits"]
 categories: ["general"]
 layout: single
@@ -11,7 +11,7 @@ showToc: false
 ShowBreadCrumbs: false
 ---
 
-We’re delighted to announce the release of the [IndieLabel Space](https://huggingface.co/spaces/avid-ml/indie-label) on HuggingFace, a collaboration between researchers at the [Stanford HCI Group](https://hci.stanford.edu) and [ARVA](https://avidml.org/arva/) (The AI Risk and Vulnerability Alliance). IndieLabel is a tool designed to support end-user audits — user-led evaluations of AI systems. It was the centerpiece of the [End-User Audits](https://dl.acm.org/doi/10.1145/3555625) paper, published at [CSCW](https://dl.acm.org/conference/cscw) 2022. 
+We’re delighted to announce the release of the [IndieLabel Space](https://huggingface.co/spaces/avid-ml/indie-label) on HuggingFace, a collaboration between researchers at the [Stanford HCI Group](https://hci.stanford.edu) and [ARVA](https://avidml.org/arva/) (The AI Risk and Vulnerability Alliance). IndieLabel is a prototype tool designed to support end-user audits — user-led evaluations of AI systems. It was the centerpiece of the [End-User Audits](https://dl.acm.org/doi/10.1145/3555625) paper, published at [CSCW](https://dl.acm.org/conference/cscw) 2022. 
 
 
 ## Why user-led audits?
