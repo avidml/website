@@ -38,6 +38,11 @@ Reports are occurrences of a vulnerability. Based on the references provided in 
 
 ### List of Reports
 
+#### 2025
+| | | | |
+|---|---|---|---|
+| [AVID-2025-R0001](/database/AVID-2025-R0001) | [AVID-2025-R0002](/database/AVID-2025-R0002) | | |
+
 #### 2023
 | | | | |
 |---|---|---|---|
