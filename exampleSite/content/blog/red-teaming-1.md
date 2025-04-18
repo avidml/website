@@ -1,7 +1,7 @@
 ---
 author: "Subho Majumdar, Brian Pendleton, Abhishek Gupta"
 title: "Red Teaming is a Critical Thinking Exercise: Part 1"
-date: "2023-12-29"
+date: "2025-04-16"
 description: ""
 tags: ["red teaming","ai vulnerabilities"]
 categories: ["general"]
@@ -41,27 +41,27 @@ As we move forward in defining AI governance and risk management practices, let'
 
 ## References
 
-[^1] [AI Village at DEF CON announces largest-ever public Generative AI Red Team](https://aivillage.org/generative%20red%20team/generative-red-team/). Cattell, Chowdhury, and Carson, 2023.
+[^1]: [AI Village at DEF CON announces largest-ever public Generative AI Red Team](https://aivillage.org/generative%20red%20team/generative-red-team/). Cattell, Chowdhury, and Carson, 2023.
 
-[^2] [Don't expect quick fixes in 'red-teaming' of AI models. Security was an afterthought](https://apnews.com/article/ai-cybersecurity-malware-microsoft-google-openai-redteaming-1f4c8d874195c9ffcc2cdffa71e4f44b). Bajak, 2023.
+[^2]: [Don't expect quick fixes in 'red-teaming' of AI models. Security was an afterthought](https://apnews.com/article/ai-cybersecurity-malware-microsoft-google-openai-redteaming-1f4c8d874195c9ffcc2cdffa71e4f44b). Bajak, 2023.
 
-[^3] [Summon a demon and bind it: A grounded theory of LLM red teaming](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0314658). Inie *et al*, PLOS One, 2025.
+[^3]: [Summon a demon and bind it: A grounded theory of LLM red teaming](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0314658). Inie *et al*, PLOS One, 2025.
 
-[^4] [Revisiting AI Red-Teaming](https://cset.georgetown.edu/article/revisiting-ai-red-teaming). Ji and Shea-Blymyer, 2024.
+[^4]: [Revisiting AI Red-Teaming](https://cset.georgetown.edu/article/revisiting-ai-red-teaming). Ji and Shea-Blymyer, 2024.
 
-[^5] [Scaling Up Mischief: Red-Teaming AI and Distributing Governance](https://hdsr.mitpress.mit.edu/pub/ded4vcwl/release/2). Metcalf and Singh, 2024.
+[^5]: [Scaling Up Mischief: Red-Teaming AI and Distributing Governance](https://hdsr.mitpress.mit.edu/pub/ded4vcwl/release/2). Metcalf and Singh, 2024.
 
-[^6] [Red-Teaming in the Public Interest](https://datasociety.net/library/red-teaming-in-the-public-interest). Singh *et al*, 2025.
+[^6]: [Red-Teaming in the Public Interest](https://datasociety.net/library/red-teaming-in-the-public-interest). Singh *et al*, 2025.
 
-[^7] [How to Red Team a Gen AI Model](https://hbr.org/2024/01/how-to-red-team-a-gen-ai-model). Burt, 2024.
+[^7]: [How to Red Team a Gen AI Model](https://hbr.org/2024/01/how-to-red-team-a-gen-ai-model). Burt, 2024.
 
-[^8] [Secure AI? Dream on, says AI red team](https://www.infoworld.com/article/3805151/secure-ai-dream-on-says-ai-red-team.html). Barker, 2025.
+[^8]: [Secure AI? Dream on, says AI red team](https://www.infoworld.com/article/3805151/secure-ai-dream-on-says-ai-red-team.html). Barker, 2025.
 
-[^9] [The Expanding Role of Red Teaming in Defending AI Systems](https://www.technewsworld.com/story/the-expanding-role-of-red-teaming-in-defending-ai-systems-179669.html). Patwa, 2025.
+[^9]: [The Expanding Role of Red Teaming in Defending AI Systems](https://www.technewsworld.com/story/the-expanding-role-of-red-teaming-in-defending-ai-systems-179669.html). Patwa, 2025.
 
-[^10] [Challenges in red teaming AI systems](https://www.anthropic.com/news/challenges-in-red-teaming-ai-systems). Anthropic, 2024.
+[^10]: [Challenges in red teaming AI systems](https://www.anthropic.com/news/challenges-in-red-teaming-ai-systems). Anthropic, 2024.
 
-[^11] [OpenAI enhances AI safety with new red teaming methods](https://www.artificialintelligence-news.com/news/openai-enhances-ai-safety-new-red-teaming-methods/). Daws, 2024.
+[^11]: [OpenAI enhances AI safety with new red teaming methods](https://www.artificialintelligence-news.com/news/openai-enhances-ai-safety-new-red-teaming-methods/). Daws, 2024.
 
 ## About the Authors
 [Subho Majumdar](https://www.subhomajumdar.com/) is a technical leader in applied trustworthy AI who believes in a community-centric approach to data-driven decision-making. He has pioneered the use of responsible AI methods in industry settings, wrote a [book](https://www.amazon.com/Practicing-Trustworthy-Machine-Learning-Transparent/dp/1098120272), and founded multiple nonprofit efforts in this area---TrustML, Bias Buccaneers, and AVID. Currently, Subho is Co-founder and Head of AI at [Vijil](http://vijil.ai/), an AI software startup on a mission to help developers build and operate intelligent agents that people can trust.
