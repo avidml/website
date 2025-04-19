@@ -11,6 +11,7 @@ showToc: false
 ShowBreadCrumbs: false
 ---
 
+> 
 > **Note from Brian**
 
 > The genesis of this series of blog posts and paper about Red Teaming came about because Abhishek Gupta asked me (Brian) to write a paper with him about the topic. During our time working on the paper, Abhi never told me that he was severely ill, only that he had returned home to India to have some medical procedures done. I also faced some personal medical issues as well and we stopped working on the paper. Once I was able to do so again, I reached out to Abhi: only to hear the sad news of his passing.
