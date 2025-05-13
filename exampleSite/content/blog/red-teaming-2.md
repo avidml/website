@@ -11,8 +11,6 @@ showToc: false
 ShowBreadCrumbs: false
 ---
 
-## Introduction
-
 Red teaming has evolved from its origins in military strategy to become a widely discussed methodology across multiple domains, including cybersecurity and AI. In [Part 1](https://avidml.org/blog/red-teaming-1/), we outlined how, despite its current popularity in AI governance discussions, there appears to be a significant gap between the original intent of red teaming and its practical applications. In this Part 2, we set the context for this discussion by tracing the evolution of red teaming across different fields, with a particular focus on how it has been adapted to AI systems and the limitations of red teaming in its most recent incarnation.
 
 ## Military origins
