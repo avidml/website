@@ -19,18 +19,19 @@ In this third installment, let’s dive deeper into the question of implementing
 
 Just like technical debt in ML systems can arise from system components other than code[^1], the figure below shows that ML (and AI) failures can stem from decisions made long before the first line of code is written.
 
-![Technical and nontechnical components of a ML system, with those with potential trust considerations marked by blue circles[^2].](/uploads/red-teaming-3/system.png)
+![](/uploads/red-teaming-3/system.png)
+*Fig. 1: Technical and nontechnical components of a ML system, with those with potential trust considerations marked by blue circles[^2].*
 
 
 In such complex systems, effective risk mitigation requires critical thinking at multiple stages of the process of planning, building and deploying such systems. With this motivation, we break down AI red teaming considerations into seven stages: inception, design, data, development, deployment, maintenance, and retirement. Let’s look into each stage in detail below and what unique red teaming considerations are warranted in each stage.
 
 ### Inception
 
-The inception stage is critical, given this is where stakeholders first envision an AI solution to address a particular challenge. During this stage, the job of macro-level red teaming is to challenge fundamental assumptions about problem framing and solution appropriateness. Red teams at this stage should ask probing questions: Is AI actually necessary to solve this problem, or are we succumbing to "AI solutionism"? What are the stakeholder motivations driving this project, and how might different constituencies be affected? What adjacent problems might we inadvertently create? How might adversaries exploit or manipulate this system once deployed?[3]
+The inception stage is critical, given this is where stakeholders first envision an AI solution to address a particular challenge. During this stage, the job of macro-level red teaming is to challenge fundamental assumptions about problem framing and solution appropriateness. Red teams at this stage should ask probing questions: Is AI actually necessary to solve this problem, or are we succumbing to "AI solutionism"? What are the stakeholder motivations driving this project, and how might different constituencies be affected? What adjacent problems might we inadvertently create? How might adversaries exploit or manipulate this system once deployed?[^3]
 
 The red team should also examine the broader ecosystem in which the proposed solution will operate. This includes understanding regulatory landscapes, competitive dynamics, societal contexts, and potential downstream effects. A red team might simulate scenarios where the AI solution succeeds technically but fails commercially, ethically, or socially. They should also consider how the solution might be weaponized, misused, or have unintended consequences at scale.
 
-Critically, they should help everyone be on the same page to answer the question “what does good look like?” To this end, stakeholders need to articulate not just what they want the system to do, but what they absolutely cannot allow it to do. This negative space definition often reveals assumptions and constraints that weren't initially apparent [11].
+Critically, they should help everyone be on the same page to answer the question “what does good look like?” To this end, stakeholders need to articulate not just what they want the system to do, but what they absolutely cannot allow it to do. This negative space definition often reveals assumptions and constraints that weren't initially apparent [^11].
 
 ### Design
 
