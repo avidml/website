@@ -13,7 +13,7 @@ ShowBreadCrumbs: false
 
 In the first two posts of this series ([Part 1](https://avidml.org/blog/red-teaming-1), [Part 2](https://avidml.org/blog/red-teaming-2)) we established that red teaming is fundamentally a critical thinking exercise that extends far beyond the narrow technical focus currently dominating AI discourse. We argued that effective red teaming must bring together multifunctional and cross-functional teams to proactively look for novel failure modes in user-facing systems, going back to its origin story to motivate this framing that goes beyond simple adversarial probing.
 
-In this third installment, let’s dive deeper into the question of implementing this holistic view of red teaming across the AI development lifecycle. We propose that AI red teaming be operationalized at two complementary levels: macro-level (or system) red teaming that spans the entire AI development lifecycle, and micro-level (or model) red teaming that focuses on the model powering the AI system.
+In this third installment, let’s dive deeper into the question of implementing this holistic view of red teaming across the AI development lifecycle. We propose that AI red teaming be operationalized at two complementary levels: **macro-level** (or system) red teaming that spans the entire AI development lifecycle, and **micro-level** (or model) red teaming that focuses on the model powering the AI system.
 
 ## Macro-level (or System) Red Teaming
 
@@ -70,7 +70,7 @@ User interaction patterns in production often differ significantly from developm
 ### Maintenance
 Red teams must evaluate monitoring and alerting systems as the first line of defense against diverse failure modes. Many organizations track basic technical metrics but fail to monitor for gradual performance degradation, bias drift, or safety-relevant behavioral changes that may indicate systemic problems. Anomaly detection systems often generate false positives leading to alert fatigue, potentially masking genuine security incidents, reliability issues, or safety concerns. Comprehensive monitoring requires tracking output quality trends, fairness metrics, and safety-critical performance indicators.
 
-Model drift is a fundamental threat to system reliability and safety beyond security concerns[^9]. AI system performance typically degrades over time as real-world conditions diverge from training assumptions, potentially leading to incorrect decisions in safety-critical contexts. This degradation can manifest as gradual accuracy loss, increased bias, or failures in edge cases that compromise reliability, security, and safety. The decision of when to retrain models also involves balancing multiple risks: maintaining degraded performance, introducing new failure modes through updates, and ensuring continuity of service.
+Model drift is a fundamental threat to system reliability and safety beyond security concerns[^9]. AI system performance typically degrades over time as real-world conditions diverge from training assumptions, potentially leading to incorrect decisions in safety-critical contexts. This degradation can manifest as gradual accuracy loss, increased (statistical) bias and variance, or failures in edge cases that compromise reliability, security, and safety. The decision of when to retrain models also involves balancing multiple risks: maintaining degraded performance, introducing new failure modes through updates, and ensuring continuity of service.
 
 Risks created by organization-specific operational practices evolve with organizational maturity. Incident response procedures designed for traditional IT systems may be inadequate for AI-specific failures that require domain expertise to diagnose whether problems are security-related, reliability issues, or safety concerns. System changes often lack comprehensive testing for all failure modes, creating opportunities for introducing reliability issues or safety hazards alongside security vulnerabilities.
 
@@ -86,7 +86,13 @@ Concerns due to legacy risks persist for a while after retirement. Based on the 
 
 Inie *et al*[^10] proposed a grounded theory of LLM red teaming—based on interviews with a diverse group of AI and security practitioners—in a recent paper. We follow them to summarize best practices for red teaming the generative models underlying AI systems.
 
-Fundamentally, the goals of model red teaming are three-fold: boundary seeking to identify the limits of model capabilities, generating content that reveals unexpected capabilities or limitations, and discovering risks inherent to the models before they manifest in real-world deployments. To achieve these goals, Inie *et al*. developed a taxonomy of 12 strategies and 35 techniques, organized into five categories that combine technical knowledge with creative problem-solving. Conceptually, this structure is reminiscent of the Tactics, Techniques and Procedures (TTP) framework in cybersecurity.
+Fundamentally, the goals of model red teaming are three-fold.
+
+1. Boundary seeking to identify the limits of model capabilities,
+2. Generating content that reveals unexpected capabilities or limitations, and
+3. Discovering risks inherent to the models before they manifest in real-world deployments.
+
+To achieve these goals, Inie *et al*. developed a taxonomy of 12 strategies and 35 techniques, organized into five categories that combine technical knowledge with creative problem-solving. Conceptually, this structure is reminiscent of the Tactics, Techniques and Procedures (TTP) framework in cybersecurity.
 
 Finally, effective model red teaming requires incorporating diverse user perspectives and community voices into the evaluation process[^11]. Red teaming should go beyond system-centric testing to consider how different communities experience AI systems and what constitutes harm from their perspectives. This approach recognizes that AI vulnerabilities often manifest differently across demographic groups and use contexts, making diverse participation essential for comprehensive risk discovery.
 
