@@ -11,8 +11,6 @@ showToc: false
 ShowBreadCrumbs: false
 ---
 
-# Red Teaming is a Critical Thinking Exercise: Part 4
-
 As we finalize this series of blog posts, let's recap what we've previously discussed. In [part 1](https://avidml.org/blog/red-teaming-1) of the series, we described what red teaming is and what it isn't. The most important idea being that red teaming is not just a security exercise but a broader and deeper critical thinking exercise that helps organizations question assumptions, identify potential gaps in planning, and highlight risks that might be created by their plans.
 
 In [part 2](https://avidml.org/blog/red-teaming-2), we discussed the history of red teaming, its adoption in the cybersecurity space back in the 1980s and now in AI. One key idea is that AI red teaming and AI security has failed to look at the decades of research and practical experience from cybersecurity. The best example of this being the adoption of red teaming as a security measure without understanding where it fits in the overall security lifecycle for any system being developed and put into operation.
