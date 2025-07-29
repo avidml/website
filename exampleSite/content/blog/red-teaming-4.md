@@ -1,5 +1,5 @@
 ---
-author: "Brian Pendleton Abhishek Gupta, Subho Majumdar"
+author: "Brian Pendleton, Abhishek Gupta, Subho Majumdar"
 title: "Red Teaming is a Critical Thinking Exercise: Part 4"
 date: "2025-07-29"
 description: ""
