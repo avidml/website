@@ -238,6 +238,93 @@ def render_file(source_path: Path, output_path: Path):
     print(f"Rendered {source_path} -> {output_path}")
 
 
+def _build_reports_year_table(year: str, report_ids):
+    lines = [
+        f"#### {year}",
+        "| | | | |",
+        "|---|---|---|---|",
+    ]
+
+    row = []
+    for report_id in report_ids:
+        row.append(f"[{report_id}](/database/{report_id})")
+        if len(row) == 4:
+            lines.append("| " + " | ".join(row) + " |")
+            row = []
+
+    if row:
+        row.extend([""] * (4 - len(row)))
+        lines.append("| " + " | ".join(row) + " |")
+
+    return "\n".join(lines)
+
+
+def _sync_reports_index_for_year(website_root: Path, year: str):
+    if not year.isdigit() or len(year) != 4:
+        return
+
+    reports_dir = (
+        website_root
+        / "exampleSite"
+        / "content"
+        / "database"
+        / "reports"
+        / year
+    )
+    if not reports_dir.exists() or not reports_dir.is_dir():
+        return
+
+    report_ids = sorted(
+        path.stem
+        for path in reports_dir.glob("AVID-*.md")
+        if path.is_file()
+    )
+    if not report_ids:
+        return
+
+    index_path = (
+        website_root
+        / "exampleSite"
+        / "content"
+        / "database"
+        / "_index.md"
+    )
+    if not index_path.exists():
+        return
+
+    content = index_path.read_text(encoding="utf-8")
+
+    section_pattern = re.compile(
+        rf"(?ms)^####\s+{re.escape(year)}\n"
+        r"\| \| \| \| \|\n"
+        r"\|---\|---\|---\|---\|\n"
+        r".*?(?=^####\s+\d{4}\n|\Z)"
+    )
+
+    replacement = _build_reports_year_table(year, report_ids) + "\n\n"
+
+    if section_pattern.search(content):
+        updated = section_pattern.sub(replacement, content, count=1)
+    else:
+        reports_marker = "### List of Reports"
+        marker_pos = content.find(reports_marker)
+        if marker_pos == -1:
+            return
+        insert_pos = content.find("\n", marker_pos)
+        if insert_pos == -1:
+            insert_pos = len(content)
+        updated = (
+            content[: insert_pos + 1]
+            + "\n"
+            + replacement
+            + content[insert_pos + 1:]
+        )
+
+    if updated != content:
+        index_path.write_text(updated, encoding="utf-8")
+        print(f"Updated report links in {index_path} for year {year}")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description=(
@@ -279,6 +366,16 @@ def main():
         if args.output and args.output.exists() and args.output.is_dir():
             output_path = output_path / f"{input_path.stem}.md"
         render_file(input_path, output_path)
+
+        reports_root = (
+            website_root / "exampleSite" / "content" / "database" / "reports"
+        )
+        try:
+            rel = output_path.resolve().relative_to(reports_root)
+            if len(rel.parts) >= 2 and rel.parts[0].isdigit():
+                _sync_reports_index_for_year(website_root, rel.parts[0])
+        except ValueError:
+            pass
         return
 
     json_files = sorted(
@@ -307,6 +404,16 @@ def main():
     for json_file in json_files:
         output_path = output_base / f"{json_file.stem}.md"
         render_file(json_file, output_path)
+
+    reports_root = (
+        website_root / "exampleSite" / "content" / "database" / "reports"
+    )
+    try:
+        rel = output_base.resolve().relative_to(reports_root)
+        if rel.parts and rel.parts[0].isdigit():
+            _sync_reports_index_for_year(website_root, rel.parts[0])
+    except ValueError:
+        pass
 
 
 if __name__ == "__main__":
