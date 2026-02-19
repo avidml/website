@@ -1,0 +1,3 @@
+[submodule "avid-db"]
+	path = avid-db
+	url = https://github.com/avidml/avid-db.git
