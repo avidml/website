@@ -678,23 +678,514 @@ def render_file(source_path: Path, output_path: Path):
     print(f"Rendered {source_path} -> {output_path}")
 
 
-def _build_reports_year_table(year: str, report_ids):
+def _extract_report_index_row(report_path: Path):
+    report_id = report_path.stem
+    description = ""
+    report_type = ""
+    reported_date = ""
+
+    content = report_path.read_text(encoding="utf-8")
+    lines = content.splitlines()
+
+    in_description = False
+    in_other_info = False
+    for line in lines:
+        stripped = line.strip()
+
+        if stripped == "## Description":
+            in_description = True
+            in_other_info = False
+            continue
+
+        if stripped.startswith("## ") and stripped != "## Description":
+            in_description = False
+            in_other_info = stripped == "## Other information"
+
+        if in_description and stripped and not stripped.startswith("---"):
+            description = stripped
+            in_description = False
+            continue
+
+        if in_other_info:
+            if stripped.startswith("- **Report Type:**"):
+                report_type = stripped.replace("- **Report Type:**", "", 1).strip()
+            elif stripped.startswith("- **Date Reported:**"):
+                reported_date = stripped.replace(
+                    "- **Date Reported:**",
+                    "",
+                    1,
+                ).strip()
+
+    description = description.replace("|", "\\|")
+    report_type = report_type.replace("|", "\\|")
+    reported_date = reported_date.replace("|", "\\|")
+    return report_id, description, report_type, reported_date
+
+
+def _extract_vulnerability_index_row(vuln_path: Path):
+    vuln_id = vuln_path.stem
+    description = ""
+
+    try:
+        content = vuln_path.read_text(encoding="utf-8")
+    except OSError:
+        return vuln_id, description
+
+    in_description = False
+    for line in content.splitlines():
+        stripped = line.strip()
+
+        if stripped == "## Description":
+            in_description = True
+            continue
+
+        if stripped.startswith("## ") and stripped != "## Description":
+            in_description = False
+
+        if in_description and stripped and not stripped.startswith("---"):
+            description = stripped
+            break
+
+    description = description.replace("|", "\\|")
+    return vuln_id, description
+
+
+def _build_vulnerabilities_year_table(year: str, vuln_paths):
+    rows = [_extract_vulnerability_index_row(path) for path in vuln_paths]
+    table_id = f"vulnerabilities-{year}"
+    page_size_id = f"{table_id}-page-size"
+    pager_id = f"{table_id}-pager"
+
     lines = [
-        f"#### {year}",
-        "| | | | |",
-        "|---|---|---|---|",
+        f"<!-- vulnerabilities-year:{year}:start -->",
+        f"##### {year}",
+        "",
+        "<div class=\"avid-report-controls\">",
+        "  <label>",
+        "    Rows per page:",
+        (
+            f"    <select id=\"{page_size_id}\">"
+            "<option value=\"10\">10</option>"
+            "<option value=\"20\" selected>20</option>"
+            "<option value=\"50\">50</option>"
+            "</select>"
+        ),
+        "  </label>",
+        "</div>",
+        (
+            f"<table class=\"avid-report-table\" id=\"{table_id}\" "
+            "style=\"table-layout: fixed; width: 100%;\">"
+        ),
+        "  <colgroup>",
+        "    <col style=\"width: 28%;\">",
+        "    <col style=\"width: 72%;\">",
+        "  </colgroup>",
+        "  <thead>",
+        "    <tr>",
+        (
+            "      <th data-sort-col=\"0\" "
+            "style=\"white-space: nowrap;\">Vulnerability ID</th>"
+        ),
+        (
+            "      <th data-sort-col=\"1\" "
+            "style=\"overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\">"
+            "Description</th>"
+        ),
+        "    </tr>",
+        "  </thead>",
+        "  <tbody>",
     ]
 
-    row = []
-    for report_id in report_ids:
-        row.append(f"[{report_id}](/database/{report_id})")
-        if len(row) == 4:
-            lines.append("| " + " | ".join(row) + " |")
-            row = []
+    for vuln_id, description in rows:
+        lines.append(
+            "    <tr>"
+            f"<td><a href=\"/database/{vuln_id}\">{vuln_id}</a></td>"
+            f"<td style=\"overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\">{description}</td>"
+            "</tr>"
+        )
 
-    if row:
-        row.extend([""] * (4 - len(row)))
-        lines.append("| " + " | ".join(row) + " |")
+    lines.extend(
+        [
+            "  </tbody>",
+            "</table>",
+            f"<div class=\"avid-report-pager\" id=\"{pager_id}\"></div>",
+            "",
+            "<script>",
+            "if (!window.__avidReportTableInit) {",
+            "  window.__avidReportTableInit = function (tableId) {",
+            "    var table = document.getElementById(tableId);",
+            "    if (!table) return;",
+            "    var tbody = table.querySelector('tbody');",
+            "    if (!tbody) return;",
+            "    var pageSizeSelect = document.getElementById(tableId + '-page-size');",
+            "    var pager = document.getElementById(tableId + '-pager');",
+            "    if (!pageSizeSelect || !pager) return;",
+            "",
+            "    var state = {",
+            "      page: 1,",
+            "      pageSize: Number(pageSizeSelect.value) || 20,",
+            "    };",
+            "",
+            "    function getRows() {",
+            "      return Array.from(tbody.querySelectorAll('tr'));",
+            "    }",
+            "",
+            "    function renderPager(totalPages) {",
+            "      pager.innerHTML = '';",
+            "",
+            "      function appendButton(label, pageNo, disabled) {",
+            "        var button = document.createElement('button');",
+            "        button.type = 'button';",
+            "        button.textContent = label;",
+            "        button.disabled = !!disabled;",
+            "        if (!button.disabled) {",
+            "          button.addEventListener('click', function () {",
+            "            state.page = pageNo;",
+            "            render();",
+            "          });",
+            "        }",
+            "        pager.appendChild(button);",
+            "      }",
+            "",
+            "      function appendEllipsis() {",
+            "        var span = document.createElement('span');",
+            "        span.textContent = '...';",
+            "        span.className = 'avid-pager-ellipsis';",
+            "        pager.appendChild(span);",
+            "      }",
+            "",
+            "      appendButton('‹', Math.max(1, state.page - 1), state.page <= 1);",
+            "",
+            "      if (totalPages <= 3) {",
+            "        for (var i = 1; i <= totalPages; i += 1) {",
+            "          appendButton(String(i), i, i === state.page);",
+            "        }",
+            "      } else {",
+            "        appendButton('1', 1, state.page === 1);",
+            "        appendButton('2', 2, state.page === 2);",
+            "        appendEllipsis();",
+            "        appendButton(String(totalPages), totalPages, state.page === totalPages);",
+            "      }",
+            "",
+            "      appendButton('›', Math.min(totalPages, state.page + 1), state.page >= totalPages);",
+            "    }",
+            "",
+            "    function syncSortIndicators() {",
+            "      table.querySelectorAll('th[data-sort-col]').forEach(function (th) {",
+            "        var arrow = th.querySelector('.avid-sort-arrow');",
+            "        if (!arrow) {",
+            "          arrow = document.createElement('span');",
+            "          arrow.className = 'avid-sort-arrow';",
+            "          arrow.style.marginLeft = '0.35rem';",
+            "          th.appendChild(arrow);",
+            "        }",
+            "        var dir = th.getAttribute('data-sort-dir');",
+            "        if (dir === 'asc') {",
+            "          arrow.textContent = '↑';",
+            "        } else if (dir === 'desc') {",
+            "          arrow.textContent = '↓';",
+            "        } else {",
+            "          arrow.textContent = '↕';",
+            "        }",
+            "      });",
+            "    }",
+            "",
+            "    function render() {",
+            "      var rows = getRows();",
+            "      var totalRows = rows.length;",
+            "      var totalPages = Math.max(1, Math.ceil(totalRows / state.pageSize));",
+            "      if (state.page > totalPages) state.page = totalPages;",
+            "      if (state.page < 1) state.page = 1;",
+            "",
+            "      var start = (state.page - 1) * state.pageSize;",
+            "      var end = start + state.pageSize;",
+            "      rows.forEach(function (row, idx) {",
+            "        row.style.display = idx >= start && idx < end ? '' : 'none';",
+            "      });",
+            "",
+            "      renderPager(totalPages);",
+            "    }",
+            "",
+            "    if (!table.dataset.avidSortBound) {",
+            "      table.dataset.avidSortBound = 'true';",
+            "      table.addEventListener('click', function (event) {",
+            "        var th = event.target.closest('th[data-sort-col]');",
+            "        if (!th || !table.contains(th)) return;",
+            "",
+            "        var col = Number(th.getAttribute('data-sort-col'));",
+            "        var current = th.getAttribute('data-sort-dir') || '';",
+            "        var next = current === 'asc' ? 'desc' : 'asc';",
+            "",
+            "        table.querySelectorAll('th[data-sort-col]').forEach(function (h) {",
+            "          h.removeAttribute('data-sort-dir');",
+            "        });",
+            "        th.setAttribute('data-sort-dir', next);",
+            "        syncSortIndicators();",
+            "",
+            "        var rows = getRows();",
+            "        rows.sort(function (a, b) {",
+            "          var av = (a.children[col] && a.children[col].innerText || '').trim();",
+            "          var bv = (b.children[col] && b.children[col].innerText || '').trim();",
+            "          var ad = Date.parse(av);",
+            "          var bd = Date.parse(bv);",
+            "          var cmp;",
+            "          if (!Number.isNaN(ad) && !Number.isNaN(bd)) {",
+            "            cmp = ad - bd;",
+            "          } else {",
+            "            cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });",
+            "          }",
+            "          return next === 'asc' ? cmp : -cmp;",
+            "        });",
+            "        rows.forEach(function (row) { tbody.appendChild(row); });",
+            "        state.page = 1;",
+            "        render();",
+            "      });",
+            "    }",
+            "",
+            "    if (!pageSizeSelect.dataset.avidPageSizeBound) {",
+            "      pageSizeSelect.dataset.avidPageSizeBound = 'true';",
+            "      pageSizeSelect.addEventListener('change', function () {",
+            "        state.pageSize = Number(pageSizeSelect.value) || 20;",
+            "        state.page = 1;",
+            "        render();",
+            "      });",
+            "    }",
+            "",
+            "    syncSortIndicators();",
+            "    render();",
+            "  };",
+            "}",
+            f"window.__avidReportTableInit('{table_id}');",
+            "</script>",
+            f"<!-- vulnerabilities-year:{year}:end -->",
+        ]
+    )
+
+    return "\n".join(lines)
+
+
+def _build_reports_year_table(year: str, report_paths):
+    rows = [_extract_report_index_row(path) for path in report_paths]
+    table_id = f"reports-{year}"
+    page_size_id = f"{table_id}-page-size"
+    pager_id = f"{table_id}-pager"
+
+    lines = [
+        f"<!-- reports-year:{year}:start -->",
+        f"#### {year}",
+        "",
+        "<div class=\"avid-report-controls\">",
+        "  <label>",
+        "    Rows per page:",
+        (
+            f"    <select id=\"{page_size_id}\">"
+            "<option value=\"10\">10</option>"
+            "<option value=\"20\" selected>20</option>"
+            "<option value=\"50\">50</option>"
+            "</select>"
+        ),
+        "  </label>",
+        "</div>",
+        (
+            f"<table class=\"avid-report-table\" id=\"{table_id}\" "
+            "style=\"table-layout: fixed; width: 100%;\">"
+        ),
+        "  <colgroup>",
+        "    <col style=\"width: 18%;\">",
+        "    <col style=\"width: 52%;\">",
+        "    <col style=\"width: 15%;\">",
+        "    <col style=\"width: 15%;\">",
+        "  </colgroup>",
+        "  <thead>",
+        "    <tr>",
+        (
+            "      <th data-sort-col=\"0\" "
+            "style=\"white-space: nowrap;\">Report ID</th>"
+        ),
+        (
+            "      <th data-sort-col=\"1\" "
+            "style=\"overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\">"
+            "Description</th>"
+        ),
+        (
+            "      <th data-sort-col=\"2\" "
+            "style=\"white-space: nowrap;\">Report Type</th>"
+        ),
+        (
+            "      <th data-sort-col=\"3\" "
+            "style=\"white-space: nowrap;\">Date Reported</th>"
+        ),
+        "    </tr>",
+        "  </thead>",
+        "  <tbody>",
+    ]
+
+    for report_id, description, report_type, reported_date in rows:
+        lines.append(
+            "    <tr>"
+            f"<td><a href=\"/database/{report_id}\">{report_id}</a></td>"
+            f"<td style=\"overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\">{description}</td>"
+            f"<td>{report_type}</td>"
+            f"<td>{reported_date}</td>"
+            "</tr>"
+        )
+
+    lines.extend(
+        [
+            "  </tbody>",
+            "</table>",
+            f"<div class=\"avid-report-pager\" id=\"{pager_id}\"></div>",
+            "",
+            "<script>",
+            "if (!window.__avidReportTableInit) {",
+            "  window.__avidReportTableInit = function (tableId) {",
+            "    var table = document.getElementById(tableId);",
+            "    if (!table) return;",
+            "    var tbody = table.querySelector('tbody');",
+            "    if (!tbody) return;",
+            "    var pageSizeSelect = document.getElementById(tableId + '-page-size');",
+            "    var pager = document.getElementById(tableId + '-pager');",
+            "    if (!pageSizeSelect || !pager) return;",
+            "",
+            "    var state = {",
+            "      page: 1,",
+            "      pageSize: Number(pageSizeSelect.value) || 20,",
+            "    };",
+            "",
+            "    function getRows() {",
+            "      return Array.from(tbody.querySelectorAll('tr'));",
+            "    }",
+            "",
+            "    function renderPager(totalPages) {",
+            "      pager.innerHTML = '';",
+            "",
+            "      function appendButton(label, pageNo, disabled) {",
+            "        var button = document.createElement('button');",
+            "        button.type = 'button';",
+            "        button.textContent = label;",
+            "        button.disabled = !!disabled;",
+            "        if (!button.disabled) {",
+            "          button.addEventListener('click', function () {",
+            "            state.page = pageNo;",
+            "            render();",
+            "          });",
+            "        }",
+            "        pager.appendChild(button);",
+            "      }",
+            "",
+            "      function appendEllipsis() {",
+            "        var span = document.createElement('span');",
+            "        span.textContent = '...';",
+            "        span.className = 'avid-pager-ellipsis';",
+            "        pager.appendChild(span);",
+            "      }",
+            "",
+            "      appendButton('‹', Math.max(1, state.page - 1), state.page <= 1);",
+            "",
+            "      if (totalPages <= 3) {",
+            "        for (var i = 1; i <= totalPages; i += 1) {",
+            "          appendButton(String(i), i, i === state.page);",
+            "        }",
+            "      } else {",
+            "        appendButton('1', 1, state.page === 1);",
+            "        appendButton('2', 2, state.page === 2);",
+            "        appendEllipsis();",
+            "        appendButton(String(totalPages), totalPages, state.page === totalPages);",
+            "      }",
+            "",
+            "      appendButton('›', Math.min(totalPages, state.page + 1), state.page >= totalPages);",
+            "    }",
+            "",
+            "    function syncSortIndicators() {",
+            "      table.querySelectorAll('th[data-sort-col]').forEach(function (th) {",
+            "        var arrow = th.querySelector('.avid-sort-arrow');",
+            "        if (!arrow) {",
+            "          arrow = document.createElement('span');",
+            "          arrow.className = 'avid-sort-arrow';",
+            "          arrow.style.marginLeft = '0.35rem';",
+            "          th.appendChild(arrow);",
+            "        }",
+            "        var dir = th.getAttribute('data-sort-dir');",
+            "        if (dir === 'asc') {",
+            "          arrow.textContent = '↑';",
+            "        } else if (dir === 'desc') {",
+            "          arrow.textContent = '↓';",
+            "        } else {",
+            "          arrow.textContent = '↕';",
+            "        }",
+            "      });",
+            "    }",
+            "",
+            "    function render() {",
+            "      var rows = getRows();",
+            "      var totalRows = rows.length;",
+            "      var totalPages = Math.max(1, Math.ceil(totalRows / state.pageSize));",
+            "      if (state.page > totalPages) state.page = totalPages;",
+            "      if (state.page < 1) state.page = 1;",
+            "",
+            "      var start = (state.page - 1) * state.pageSize;",
+            "      var end = start + state.pageSize;",
+            "      rows.forEach(function (row, idx) {",
+            "        row.style.display = idx >= start && idx < end ? '' : 'none';",
+            "      });",
+            "",
+            "      renderPager(totalPages);",
+            "    }",
+            "",
+            "    if (!table.dataset.avidSortBound) {",
+            "      table.dataset.avidSortBound = 'true';",
+            "      table.addEventListener('click', function (event) {",
+            "        var th = event.target.closest('th[data-sort-col]');",
+            "        if (!th || !table.contains(th)) return;",
+            "",
+            "        var col = Number(th.getAttribute('data-sort-col'));",
+            "        var current = th.getAttribute('data-sort-dir') || '';",
+            "        var next = current === 'asc' ? 'desc' : 'asc';",
+            "",
+            "        table.querySelectorAll('th[data-sort-col]').forEach(function (h) {",
+            "          h.removeAttribute('data-sort-dir');",
+            "        });",
+            "        th.setAttribute('data-sort-dir', next);",
+            "        syncSortIndicators();",
+            "",
+            "        var rows = getRows();",
+            "        rows.sort(function (a, b) {",
+            "          var av = (a.children[col] && a.children[col].innerText || '').trim();",
+            "          var bv = (b.children[col] && b.children[col].innerText || '').trim();",
+            "          var ad = Date.parse(av);",
+            "          var bd = Date.parse(bv);",
+            "          var cmp;",
+            "          if (!Number.isNaN(ad) && !Number.isNaN(bd)) {",
+            "            cmp = ad - bd;",
+            "          } else {",
+            "            cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });",
+            "          }",
+            "          return next === 'asc' ? cmp : -cmp;",
+            "        });",
+            "        rows.forEach(function (row) { tbody.appendChild(row); });",
+            "        state.page = 1;",
+            "        render();",
+            "      });",
+            "    }",
+            "",
+            "    if (!pageSizeSelect.dataset.avidPageSizeBound) {",
+            "      pageSizeSelect.dataset.avidPageSizeBound = 'true';",
+            "      pageSizeSelect.addEventListener('change', function () {",
+            "        state.pageSize = Number(pageSizeSelect.value) || 20;",
+            "        state.page = 1;",
+            "        render();",
+            "      });",
+            "    }",
+            "",
+            "    syncSortIndicators();",
+            "    render();",
+            "  };",
+            "}",
+            f"window.__avidReportTableInit('{table_id}');",
+            "</script>",
+            f"<!-- reports-year:{year}:end -->",
+        ]
+    )
 
     return "\n".join(lines)
 
@@ -714,12 +1205,12 @@ def _sync_reports_index_for_year(website_root: Path, year: str):
     if not reports_dir.exists() or not reports_dir.is_dir():
         return
 
-    report_ids = sorted(
-        path.stem
+    report_paths = sorted(
+        path
         for path in reports_dir.glob("AVID-*.md")
         if path.is_file()
     )
-    if not report_ids:
+    if not report_paths:
         return
 
     index_path = (
@@ -735,13 +1226,12 @@ def _sync_reports_index_for_year(website_root: Path, year: str):
     content = index_path.read_text(encoding="utf-8")
 
     section_pattern = re.compile(
-        rf"(?ms)^####\s+{re.escape(year)}\n"
-        r"\| \| \| \| \|\n"
-        r"\|---\|---\|---\|---\|\n"
-        r".*?(?=^####\s+\d{4}\n|\Z)"
+        rf"(?ms)(?:^<!--\s*reports-year:{re.escape(year)}:start\s*-->\n"
+        rf".*?^<!--\s*reports-year:{re.escape(year)}:end\s*-->\n?)"
+        rf"|(?:^####\s+{re.escape(year)}\n.*?(?=^####\s+\d{{4}}\n|\Z))"
     )
 
-    replacement = _build_reports_year_table(year, report_ids) + "\n\n"
+    replacement = _build_reports_year_table(year, report_paths) + "\n\n"
 
     if section_pattern.search(content):
         updated = section_pattern.sub(replacement, content, count=1)
@@ -763,6 +1253,109 @@ def _sync_reports_index_for_year(website_root: Path, year: str):
     if updated != content:
         index_path.write_text(updated, encoding="utf-8")
         print(f"Updated report links in {index_path} for year {year}")
+
+
+def _sync_reports_index_for_all_years(website_root: Path):
+    reports_root = (
+        website_root / "exampleSite" / "content" / "database" / "reports"
+    )
+    if not reports_root.exists() or not reports_root.is_dir():
+        return
+
+    years = sorted(
+        [
+            path.name
+            for path in reports_root.iterdir()
+            if path.is_dir() and path.name.isdigit()
+        ],
+        reverse=True,
+    )
+
+    for year in years:
+        _sync_reports_index_for_year(website_root, year)
+
+
+def _sync_vulnerabilities_index_for_year(website_root: Path, year: str):
+    if not year.isdigit() or len(year) != 4:
+        return
+
+    vulns_dir = (
+        website_root
+        / "exampleSite"
+        / "content"
+        / "database"
+        / "vulnerabilities"
+        / year
+    )
+    if not vulns_dir.exists() or not vulns_dir.is_dir():
+        return
+
+    vuln_paths = sorted(
+        path for path in vulns_dir.glob("AVID-*.md") if path.is_file()
+    )
+    if not vuln_paths:
+        return
+
+    index_path = (
+        website_root
+        / "exampleSite"
+        / "content"
+        / "database"
+        / "_index.md"
+    )
+    if not index_path.exists():
+        return
+
+    content = index_path.read_text(encoding="utf-8")
+
+    section_pattern = re.compile(
+        rf"(?ms)(?:^<!--\s*vulnerabilities-year:{re.escape(year)}:start\s*-->\n"
+        rf".*?^<!--\s*vulnerabilities-year:{re.escape(year)}:end\s*-->\n?)"
+        rf"|(?:^#####\s+{re.escape(year)}\n.*?(?=^#####\s+\d{{4}}\n|^##\s+Reports\n|\Z))"
+    )
+
+    replacement = _build_vulnerabilities_year_table(year, vuln_paths) + "\n\n"
+
+    if section_pattern.search(content):
+        updated = section_pattern.sub(replacement, content, count=1)
+    else:
+        vulns_marker = "### List of Vulnerabilities"
+        marker_pos = content.find(vulns_marker)
+        if marker_pos == -1:
+            return
+        insert_pos = content.find("\n", marker_pos)
+        if insert_pos == -1:
+            insert_pos = len(content)
+        updated = (
+            content[: insert_pos + 1]
+            + "\n"
+            + replacement
+            + content[insert_pos + 1:]
+        )
+
+    if updated != content:
+        index_path.write_text(updated, encoding="utf-8")
+        print(f"Updated vulnerability links in {index_path} for year {year}")
+
+
+def _sync_vulnerabilities_index_for_all_years(website_root: Path):
+    vulns_root = (
+        website_root / "exampleSite" / "content" / "database" / "vulnerabilities"
+    )
+    if not vulns_root.exists() or not vulns_root.is_dir():
+        return
+
+    years = sorted(
+        [
+            path.name
+            for path in vulns_root.iterdir()
+            if path.is_dir() and path.name.isdigit()
+        ],
+        reverse=True,
+    )
+
+    for year in years:
+        _sync_vulnerabilities_index_for_year(website_root, year)
 
 
 def main():
@@ -807,15 +1400,8 @@ def main():
             output_path = output_path / f"{input_path.stem}.md"
         render_file(input_path, output_path)
 
-        reports_root = (
-            website_root / "exampleSite" / "content" / "database" / "reports"
-        )
-        try:
-            rel = output_path.resolve().relative_to(reports_root)
-            if len(rel.parts) >= 2 and rel.parts[0].isdigit():
-                _sync_reports_index_for_year(website_root, rel.parts[0])
-        except ValueError:
-            pass
+        _sync_reports_index_for_all_years(website_root)
+        _sync_vulnerabilities_index_for_all_years(website_root)
         return
 
     json_files = sorted(
@@ -845,15 +1431,8 @@ def main():
         output_path = output_base / f"{json_file.stem}.md"
         render_file(json_file, output_path)
 
-    reports_root = (
-        website_root / "exampleSite" / "content" / "database" / "reports"
-    )
-    try:
-        rel = output_base.resolve().relative_to(reports_root)
-        if rel.parts and rel.parts[0].isdigit():
-            _sync_reports_index_for_year(website_root, rel.parts[0])
-    except ValueError:
-        pass
+    _sync_reports_index_for_all_years(website_root)
+    _sync_vulnerabilities_index_for_all_years(website_root)
 
 
 if __name__ == "__main__":
