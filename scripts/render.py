@@ -760,7 +760,7 @@ def _build_vulnerabilities_year_table(year: str, vuln_paths):
         f"<!-- vulnerabilities-year:{year}:start -->",
         f"##### {year}",
         "",
-        "<div class=\"avid-report-controls\" style=\"display: flex; justify-content: flex-end; margin: 0.5rem 0;\">",
+        "<div class=\"avid-report-controls\" style=\"display: flex; justify-content: flex-start; margin: 0.5rem 0;\">",
         "  <label style=\"display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;\">",
         "    Rows per page:",
         (
@@ -810,7 +810,7 @@ def _build_vulnerabilities_year_table(year: str, vuln_paths):
             "</table>",
             (
                 f"<div class=\"avid-report-pager\" id=\"{pager_id}\" "
-                "style=\"display: flex; justify-content: flex-end; align-items: center; "
+                "style=\"display: flex; justify-content: flex-start; align-items: center; "
                 "gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;\"></div>"
             ),
             "",
@@ -981,7 +981,7 @@ def _build_reports_year_table(year: str, report_paths):
         f"<!-- reports-year:{year}:start -->",
         f"#### {year}",
         "",
-        "<div class=\"avid-report-controls\" style=\"display: flex; justify-content: flex-end; margin: 0.5rem 0;\">",
+        "<div class=\"avid-report-controls\" style=\"display: flex; justify-content: flex-start; margin: 0.5rem 0;\">",
         "  <label style=\"display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;\">",
         "    Rows per page:",
         (
@@ -1043,7 +1043,7 @@ def _build_reports_year_table(year: str, report_paths):
             "</table>",
             (
                 f"<div class=\"avid-report-pager\" id=\"{pager_id}\" "
-                "style=\"display: flex; justify-content: flex-end; align-items: center; "
+                "style=\"display: flex; justify-content: flex-start; align-items: center; "
                 "gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;\"></div>"
             ),
             "",
