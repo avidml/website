@@ -17,6 +17,11 @@ outputs:
   - HTML
   - RSS
   - JSON
+markup:
+  goldmark:
+    renderer:
+      # Required so database index raw HTML tables/scripts are rendered in Hugo/Netlify.
+      unsafe: true
 minify:
   disableCSS: false
   disableHTML: false
