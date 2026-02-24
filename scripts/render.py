@@ -41,9 +41,7 @@ def _metrics_row(metric):
     if isinstance(metric, dict):
         scorer = metric.get("scorer", "")
         metric_name = metric.get("metrics", metric.get("metric", ""))
-        value = metric.get("value", "")
-        if isinstance(value, (int, float)):
-            value = f"{value:.2f}"
+        value = _format_inspect_metric_value(metric.get("value", ""))
         return str(scorer), str(metric_name), str(value)
 
     if isinstance(metric, list):
@@ -51,6 +49,171 @@ def _metrics_row(metric):
 
     return "", "", str(metric)
 
+
+def _render_test_scores_metrics(metrics):
+    if not isinstance(metrics, list) or not metrics:
+        return None
+
+    first_metric = metrics[0]
+    if not isinstance(first_metric, dict):
+        return None
+
+    results = first_metric.get("results")
+    if not isinstance(results, dict):
+        return None
+
+    test_scores = results.get("Test Scores")
+    if not isinstance(test_scores, list):
+        return None
+
+    score_rows = [row for row in test_scores if isinstance(row, dict)]
+    if not score_rows:
+        return None
+
+    headers = []
+    seen = set()
+    for row in score_rows:
+        for key in row.keys():
+            if key in seen:
+                continue
+            seen.add(key)
+            headers.append(str(key))
+
+    detection_name = _get_value(
+        first_metric,
+        "detection_method",
+        "name",
+        default="",
+    )
+    if detection_name:
+        lead_line = f"{detection_name} obtained the following test scores."
+    else:
+        lead_line = "The following test scores were obtained."
+
+    lines = [
+        lead_line,
+        "",
+        "| " + " | ".join(headers) + " |",
+        "| " + " | ".join(["---"] * len(headers)) + " |",
+    ]
+
+    for row in score_rows:
+        values = [_format_metric_value(row.get(header, "")) for header in headers]
+        lines.append("| " + " | ".join(values) + " |")
+
+    return lines
+
+
+def _render_detector_failure_metrics(metrics):
+    if not isinstance(metrics, list) or not metrics:
+        return None
+
+    first_metric = metrics[0]
+    if not isinstance(first_metric, dict):
+        return None
+
+    results = first_metric.get("results")
+    if not isinstance(results, dict):
+        return None
+
+    rows = results.get("rows")
+    if not isinstance(rows, list):
+        return None
+
+    row_dicts = [row for row in rows if isinstance(row, dict)]
+    if not row_dicts:
+        return None
+
+    headers = []
+    seen = set()
+    for row in row_dicts:
+        for key in row.keys():
+            if key in seen:
+                continue
+            seen.add(key)
+            headers.append(str(key))
+
+    lines = [
+        "Number of failures were counted for each detector in the probe.",
+        "",
+        "| " + " | ".join(_metric_header_label(header) for header in headers) + " |",
+        "| " + " | ".join(["---"] * len(headers)) + " |",
+    ]
+
+    for row in row_dicts:
+        values = []
+        for header in headers:
+            raw_value = row.get(header, "")
+            normalized_header = str(header).strip().lower()
+            if normalized_header in {"passed", "total"}:
+                values.append(_format_whole_number(raw_value))
+            elif normalized_header == "score":
+                values.append(_format_defcon_score(raw_value))
+            else:
+                values.append(_format_metric_value(raw_value))
+        lines.append("| " + " | ".join(values) + " |")
+
+    return lines
+
+
+def _metric_header_label(key):
+    raw = str(key).strip()
+    if not raw:
+        return ""
+    return _title_case_key(raw.split("_", 1)[0])
+
+
+def _format_metric_value(value):
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, int):
+        return str(value)
+    if isinstance(value, float):
+        return str(value)
+    if isinstance(value, str):
+        return value
+    return _stringify_value(value)
+
+
+def _format_inspect_metric_value(value):
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, int):
+        return f"{float(value):.3f}"
+    if isinstance(value, float):
+        return f"{value:.3f}"
+    if isinstance(value, str):
+        stripped = value.strip()
+        try:
+            return f"{float(stripped):.3f}"
+        except ValueError:
+            return value
+    return _stringify_value(value)
+
+
+def _format_whole_number(value):
+    try:
+        return str(int(round(float(value))))
+    except (TypeError, ValueError):
+        return _stringify_value(value)
+
+
+def _format_defcon_score(value):
+    try:
+        score = float(value)
+    except (TypeError, ValueError):
+        return _stringify_value(value)
+
+    # ABSOLUTE_DEFCON_BOUNDS * 100 from garak/analyze/__init__.py
+    if score < 5:
+        return f"🔴 {score:.1f}"
+    if score < 40:
+        return f"🟠 {score:.1f}"
+    if score < 80:
+        return f"🟡 {score:.1f}"
+    if score < 99:
+        return f"🟢 {score:.1f}"
+    return f"🔵 {score:.1f}"
 
 def _split_measurement_details(details: str):
     if not isinstance(details, str):
@@ -64,6 +227,280 @@ def _split_measurement_details(details: str):
     main_details = details[:match.start()].strip()
     measurement_details = details[match.end():].strip()
     return main_details, measurement_details
+
+
+def _stringify_value(value):
+    if value is None:
+        return ""
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    return str(value)
+
+
+def _severity_colorize(value):
+    text = _stringify_value(value)
+    lowered = text.strip().lower()
+    if lowered == "critical":
+        return "🔴 Critical"
+    if lowered == "high":
+        return "🔴 High"
+    if lowered == "medium":
+        return "🟠 Medium"
+    if lowered == "low":
+        return "🟢 Low"
+    return text
+
+
+def _format_table_cell(value):
+    if isinstance(value, list):
+        return ", ".join(_stringify_value(item) for item in value)
+    if isinstance(value, dict):
+        return json.dumps(value, ensure_ascii=False)
+    return _severity_colorize(value)
+
+
+def _title_case_key(key):
+    raw = str(key).strip()
+    if not raw:
+        return ""
+
+    normalized = re.sub(r"[_\-]+", " ", raw)
+    normalized = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", normalized)
+    words = normalized.split()
+
+    out_words = []
+    for word in words:
+        lowered = word.lower()
+        if lowered == "cvss":
+            out_words.append("CVSS")
+        elif lowered == "cwe":
+            out_words.append("CWE")
+        elif lowered == "id":
+            out_words.append("ID")
+        else:
+            out_words.append(lowered.capitalize())
+    return " ".join(out_words)
+
+
+def _render_nested_bullets(value, indent: int = 0):
+    prefix = "  " * indent
+    lines = []
+
+    if isinstance(value, dict):
+        if not value:
+            lines.append(f"{prefix}- _(empty)_")
+            return lines
+
+        for key, nested in value.items():
+            if isinstance(nested, (dict, list)):
+                lines.append(f"{prefix}- **{key}:**")
+                lines.extend(_render_nested_bullets(nested, indent + 1))
+            else:
+                lines.append(
+                    f"{prefix}- **{key}:** {_stringify_value(nested)}"
+                )
+        return lines
+
+    if isinstance(value, list):
+        if not value:
+            lines.append(f"{prefix}- _(empty)_")
+            return lines
+
+        for index, item in enumerate(value, start=1):
+            if isinstance(item, (dict, list)):
+                lines.append(f"{prefix}- **Item {index}:**")
+                lines.extend(_render_nested_bullets(item, indent + 1))
+            else:
+                lines.append(f"{prefix}- {_stringify_value(item)}")
+        return lines
+
+    lines.append(f"{prefix}- {_stringify_value(value)}")
+    return lines
+
+
+def _render_impact_avid(value):
+    risk_domains = _as_csv(_get_value(value, "risk_domain", default=[]))
+    sep_subcategories = _as_csv(_get_value(value, "sep_view", default=[]))
+    lifecycle_stages = _as_csv(
+        _get_value(value, "lifecycle_view", default=[])
+    )
+    return [
+        "### AVID Taxonomy Categorization",
+        "",
+        f"- **Risk domains:** {risk_domains}",
+        f"- **SEP subcategories:** {sep_subcategories}",
+        f"- **Lifecycle stages:** {lifecycle_stages}",
+        "",
+    ]
+
+
+def _render_impact_cvss(value):
+    lines = [
+        "### CVSS",
+        "",
+    ]
+
+    if not isinstance(value, dict) or not value:
+        lines.extend(["- _(none)_", ""])
+        return lines
+
+    lines.extend(
+        [
+            "<table>",
+            "<tbody>",
+        ]
+    )
+
+    for key, nested_value in value.items():
+        lines.append(
+            "<tr>"
+            f"<td>{_title_case_key(key)}</td>"
+            f"<td>{_format_table_cell(nested_value)}</td>"
+            "</tr>"
+        )
+
+    lines.extend(
+        [
+            "</tbody>",
+            "</table>",
+        ]
+    )
+
+    lines.append("")
+    return lines
+
+
+def _render_impact_cwe(value):
+    lines = [
+        "### CWE",
+        "",
+    ]
+
+    if not isinstance(value, list) or not value:
+        lines.extend(["- _(none)_", ""])
+        return lines
+
+    dict_items = [item for item in value if isinstance(item, dict)]
+    if not dict_items:
+        lines.extend(["- _(none)_", ""])
+        return lines
+
+    lines.append("| ID | Description |")
+    lines.append("| --- | --- |")
+
+    for item in dict_items:
+        cwe_id = item.get("cweId", item.get("id", ""))
+        description = item.get("description", "")
+        if isinstance(description, dict):
+            description = description.get("value", "")
+        lines.append(
+            f"| {_format_table_cell(cwe_id)} | {_format_table_cell(description)} |"
+        )
+
+    lines.append("")
+    return lines
+
+
+def _render_impact_odin(value):
+    lines = [
+        "### 0DIN",
+        "",
+    ]
+
+    if not isinstance(value, dict) or not value:
+        lines.extend(["- _(none)_", ""])
+        return lines
+
+    for key, nested_value in value.items():
+        if key == "JailbreakTaxonomy" and isinstance(nested_value, list):
+            rows = [item for item in nested_value if isinstance(item, dict)]
+            lines.append(f"- **{_title_case_key(key)}:**")
+            if not rows:
+                lines.append("  - _(none)_")
+                continue
+
+            headers = []
+            seen = set()
+            for row in rows:
+                for header in row.keys():
+                    if header in seen:
+                        continue
+                    seen.add(header)
+                    headers.append(str(header))
+
+            lines.append("")
+            lines.append("| " + " | ".join(_title_case_key(h) for h in headers) + " |")
+            lines.append("| " + " | ".join(["---"] * len(headers)) + " |")
+            for row in rows:
+                values = [_stringify_value(row.get(header, "")) for header in headers]
+                lines.append("| " + " | ".join(values) + " |")
+            lines.append("")
+            continue
+
+        if isinstance(nested_value, (dict, list)):
+            lines.append(f"- **{_title_case_key(key)}:**")
+            lines.extend(_render_nested_bullets(nested_value, indent=1))
+        else:
+            lines.append(
+                f"- **{_title_case_key(key)}:** {_stringify_value(nested_value)}"
+            )
+
+    lines.append("")
+    return lines
+
+
+def _render_impact_section(impact):
+    lines = [
+        "## Impact",
+        "",
+    ]
+
+    if not isinstance(impact, dict) or not impact:
+        lines.extend(["- _(none)_", ""])
+        return lines
+
+    for key, value in impact.items():
+        normalized_key = str(key).strip().lower()
+        if normalized_key == "avid":
+            lines.extend(_render_impact_avid(value))
+            continue
+        if normalized_key == "odin":
+            lines.extend(_render_impact_odin(value))
+            continue
+        if normalized_key == "cvss":
+            lines.extend(_render_impact_cvss(value))
+            continue
+        if normalized_key == "cwe":
+            lines.extend(_render_impact_cwe(value))
+            continue
+
+        lines.extend(
+            [
+                f"### {key}",
+                "",
+            ]
+        )
+        lines.extend(_render_nested_bullets(value))
+        lines.append("")
+
+    return lines
+
+
+def _is_odin_disclosure(report: dict) -> bool:
+    impact = report.get("impact")
+    if isinstance(impact, dict) and "odin" in impact:
+        return True
+
+    references = report.get("references") or []
+    for reference in references:
+        if not isinstance(reference, dict):
+            continue
+        label = _stringify_value(reference.get("label", "")).lower()
+        url = _stringify_value(reference.get("url", "")).lower()
+        if "0din" in label or "0din" in url:
+            return True
+
+    return False
 
 
 def render_report_markdown(report: dict, source_path: Path) -> str:
@@ -86,21 +523,12 @@ def render_report_markdown(report: dict, source_path: Path) -> str:
     metrics = report.get("metrics") or []
     references = report.get("references") or []
 
-    risk_domains = _as_csv(
-        _get_value(report, "impact", "avid", "risk_domain", default=[])
-    )
-    sep_subcategories = _as_csv(
-        _get_value(report, "impact", "avid", "sep_view", default=[])
-    )
-    lifecycle_stages = _as_csv(
-        _get_value(report, "impact", "avid", "lifecycle_view", default=[])
-    )
-
     developer = _as_csv(_get_value(report, "affects", "developer", default=[]))
     deployer = _as_csv(_get_value(report, "affects", "deployer", default=[]))
     artifacts = _get_value(report, "affects", "artifacts", default=[])
 
     report_type = _get_value(report, "problemtype", "type")
+    impact = report.get("impact")
     credits = _as_csv(
         [
             credit.get("value")
@@ -141,16 +569,24 @@ def render_report_markdown(report: dict, source_path: Path) -> str:
             lines.append("")
 
         if metrics:
-            lines.extend(
-                [
-                    "| Scorer | Metric | Value |",
-                    "| --- | --- | --- |",
-                ]
-            )
+            test_scores_lines = _render_test_scores_metrics(metrics)
+            if test_scores_lines is not None:
+                lines.extend(test_scores_lines)
+            else:
+                detector_failure_lines = _render_detector_failure_metrics(metrics)
+                if detector_failure_lines is not None:
+                    lines.extend(detector_failure_lines)
+                else:
+                    lines.extend(
+                        [
+                            "| Scorer | Metric | Value |",
+                            "| --- | --- | --- |",
+                        ]
+                    )
 
-            for metric in metrics:
-                scorer, metric_name, value = _metrics_row(metric)
-                lines.append(f"| {scorer} | {metric_name} | {value} |")
+                    for metric in metrics:
+                        scorer, metric_name, value = _metrics_row(metric)
+                        lines.append(f"| {scorer} | {metric_name} | {value} |")
 
         lines.append("")
 
@@ -173,22 +609,25 @@ def render_report_markdown(report: dict, source_path: Path) -> str:
     lines.extend(
         [
             "",
-            "## AVID Taxonomy Categorization",
-            "",
-            f"- **Risk domains:** {risk_domains}",
-            f"- **SEP subcategories:** {sep_subcategories}",
-            f"- **Lifecycle stages:** {lifecycle_stages}",
-            "",
             "## Affected or Relevant Artifacts",
-            "",
-            f"- **Developer:** {developer}",
-            f"- **Deployer:** {deployer}",
-            "- **Artifact Details:**",
             "",
             "| Type | Name |",
             "| --- | --- | ",
         ]
     )
+
+    if not _is_odin_disclosure(report):
+        lines = lines[:-2]
+        lines.extend(
+            [
+                f"- **Developer:** {developer}",
+                f"- **Deployer:** {deployer}",
+                "- **Artifact Details:**",
+                "",
+                "| Type | Name |",
+                "| --- | --- | ",
+            ]
+        )
 
     for artifact in artifacts:
         if not isinstance(artifact, dict):
@@ -197,9 +636,10 @@ def render_report_markdown(report: dict, source_path: Path) -> str:
         artifact_name = artifact.get("name", "")
         lines.append(f"| {artifact_type} | {artifact_name} |")
 
+    lines.extend(["", * _render_impact_section(impact)])
+
     lines.extend(
         [
-            "",
             "## Other information",
             "",
             f"- **Report Type:** {report_type}",
