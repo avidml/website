@@ -760,11 +760,11 @@ def _build_vulnerabilities_year_table(year: str, vuln_paths):
         f"<!-- vulnerabilities-year:{year}:start -->",
         f"##### {year}",
         "",
-        "<div class=\"avid-report-controls\">",
-        "  <label>",
+        "<div class=\"avid-report-controls\" style=\"display: flex; justify-content: flex-end; margin: 0.5rem 0;\">",
+        "  <label style=\"display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;\">",
         "    Rows per page:",
         (
-            f"    <select id=\"{page_size_id}\">"
+            f"    <select id=\"{page_size_id}\" style=\"display: inline-block; width: auto; min-width: 4.5rem;\">"
             "<option value=\"10\">10</option>"
             "<option value=\"20\" selected>20</option>"
             "<option value=\"50\">50</option>"
@@ -808,7 +808,11 @@ def _build_vulnerabilities_year_table(year: str, vuln_paths):
         [
             "  </tbody>",
             "</table>",
-            f"<div class=\"avid-report-pager\" id=\"{pager_id}\"></div>",
+            (
+                f"<div class=\"avid-report-pager\" id=\"{pager_id}\" "
+                "style=\"display: flex; justify-content: flex-end; align-items: center; "
+                "gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;\"></div>"
+            ),
             "",
             "<script>",
             "if (!window.__avidReportTableInit) {",
@@ -837,6 +841,9 @@ def _build_vulnerabilities_year_table(year: str, vuln_paths):
             "        var button = document.createElement('button');",
             "        button.type = 'button';",
             "        button.textContent = label;",
+            "        button.style.width = 'auto';",
+            "        button.style.minWidth = '2.25rem';",
+            "        button.style.display = 'inline-block';",
             "        button.disabled = !!disabled;",
             "        if (!button.disabled) {",
             "          button.addEventListener('click', function () {",
@@ -974,11 +981,11 @@ def _build_reports_year_table(year: str, report_paths):
         f"<!-- reports-year:{year}:start -->",
         f"#### {year}",
         "",
-        "<div class=\"avid-report-controls\">",
-        "  <label>",
+        "<div class=\"avid-report-controls\" style=\"display: flex; justify-content: flex-end; margin: 0.5rem 0;\">",
+        "  <label style=\"display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;\">",
         "    Rows per page:",
         (
-            f"    <select id=\"{page_size_id}\">"
+            f"    <select id=\"{page_size_id}\" style=\"display: inline-block; width: auto; min-width: 4.5rem;\">"
             "<option value=\"10\">10</option>"
             "<option value=\"20\" selected>20</option>"
             "<option value=\"50\">50</option>"
@@ -1034,7 +1041,11 @@ def _build_reports_year_table(year: str, report_paths):
         [
             "  </tbody>",
             "</table>",
-            f"<div class=\"avid-report-pager\" id=\"{pager_id}\"></div>",
+            (
+                f"<div class=\"avid-report-pager\" id=\"{pager_id}\" "
+                "style=\"display: flex; justify-content: flex-end; align-items: center; "
+                "gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;\"></div>"
+            ),
             "",
             "<script>",
             "if (!window.__avidReportTableInit) {",
@@ -1063,6 +1074,9 @@ def _build_reports_year_table(year: str, report_paths):
             "        var button = document.createElement('button');",
             "        button.type = 'button';",
             "        button.textContent = label;",
+            "        button.style.width = 'auto';",
+            "        button.style.minWidth = '2.25rem';",
+            "        button.style.display = 'inline-block';",
             "        button.disabled = !!disabled;",
             "        if (!button.disabled) {",
             "          button.addEventListener('click', function () {",

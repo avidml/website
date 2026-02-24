@@ -17,10 +17,10 @@ Reports are occurrences of a vulnerability. Based on the references provided in 
 <!-- reports-year:2026:start -->
 #### 2026
 
-<div class="avid-report-controls">
-  <label>
+<div class="avid-report-controls" style="display: flex; justify-content: flex-end; margin: 0.5rem 0;">
+  <label style="display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;">
     Rows per page:
-    <select id="reports-2026-page-size"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
+    <select id="reports-2026-page-size" style="display: inline-block; width: auto; min-width: 4.5rem;"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
   </label>
 </div>
 <table class="avid-report-table" id="reports-2026" style="table-layout: fixed; width: 100%;">
@@ -254,7 +254,7 @@ Reports are occurrences of a vulnerability. Based on the references provided in 
     <tr><td><a href="/database/AVID-2026-R0213">AVID-2026-R0213</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">The model Kimi-K2-Instruct-0905 from Moonshot AI was evaluated by the Garak LLM Vulnerability scanner using the probe `web_injection.TaskXSS`.</td><td>Measurement</td><td>2026-02-20</td></tr>
   </tbody>
 </table>
-<div class="avid-report-pager" id="reports-2026-pager"></div>
+<div class="avid-report-pager" id="reports-2026-pager" style="display: flex; justify-content: flex-end; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;"></div>
 
 <script>
 if (!window.__avidReportTableInit) {
@@ -283,6 +283,9 @@ if (!window.__avidReportTableInit) {
         var button = document.createElement('button');
         button.type = 'button';
         button.textContent = label;
+        button.style.width = 'auto';
+        button.style.minWidth = '2.25rem';
+        button.style.display = 'inline-block';
         button.disabled = !!disabled;
         if (!button.disabled) {
           button.addEventListener('click', function () {
@@ -412,13 +415,14 @@ window.__avidReportTableInit('reports-2026');
 
 
 
+
 <!-- reports-year:2025:start -->
 #### 2025
 
-<div class="avid-report-controls">
-  <label>
+<div class="avid-report-controls" style="display: flex; justify-content: flex-end; margin: 0.5rem 0;">
+  <label style="display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;">
     Rows per page:
-    <select id="reports-2025-page-size"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
+    <select id="reports-2025-page-size" style="display: inline-block; width: auto; min-width: 4.5rem;"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
   </label>
 </div>
 <table class="avid-report-table" id="reports-2025" style="table-layout: fixed; width: 100%;">
@@ -464,7 +468,7 @@ window.__avidReportTableInit('reports-2026');
     <tr><td><a href="/database/AVID-2025-R0035">AVID-2025-R0035</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Evaluation of the LLM Mistral-Small-24B-Instruct-2501 on the cyse2_prompt_injection benchmark using Inspect Evals</td><td>Measurement</td><td>2025-05-26</td></tr>
   </tbody>
 </table>
-<div class="avid-report-pager" id="reports-2025-pager"></div>
+<div class="avid-report-pager" id="reports-2025-pager" style="display: flex; justify-content: flex-end; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;"></div>
 
 <script>
 if (!window.__avidReportTableInit) {
@@ -493,6 +497,9 @@ if (!window.__avidReportTableInit) {
         var button = document.createElement('button');
         button.type = 'button';
         button.textContent = label;
+        button.style.width = 'auto';
+        button.style.minWidth = '2.25rem';
+        button.style.display = 'inline-block';
         button.disabled = !!disabled;
         if (!button.disabled) {
           button.addEventListener('click', function () {
@@ -622,13 +629,14 @@ window.__avidReportTableInit('reports-2025');
 
 
 
+
 <!-- reports-year:2023:start -->
 #### 2023
 
-<div class="avid-report-controls">
-  <label>
+<div class="avid-report-controls" style="display: flex; justify-content: flex-end; margin: 0.5rem 0;">
+  <label style="display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;">
     Rows per page:
-    <select id="reports-2023-page-size"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
+    <select id="reports-2023-page-size" style="display: inline-block; width: auto; min-width: 4.5rem;"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
   </label>
 </div>
 <table class="avid-report-table" id="reports-2023" style="table-layout: fixed; width: 100%;">
@@ -652,7 +660,7 @@ window.__avidReportTableInit('reports-2025');
     <tr><td><a href="/database/AVID-2023-R0003">AVID-2023-R0003</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">It is possible to make ChatGPT perform remote code execution just by asking politely</td><td>Advisory</td><td>2023-03-26</td></tr>
   </tbody>
 </table>
-<div class="avid-report-pager" id="reports-2023-pager"></div>
+<div class="avid-report-pager" id="reports-2023-pager" style="display: flex; justify-content: flex-end; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;"></div>
 
 <script>
 if (!window.__avidReportTableInit) {
@@ -681,6 +689,9 @@ if (!window.__avidReportTableInit) {
         var button = document.createElement('button');
         button.type = 'button';
         button.textContent = label;
+        button.style.width = 'auto';
+        button.style.minWidth = '2.25rem';
+        button.style.display = 'inline-block';
         button.disabled = !!disabled;
         if (!button.disabled) {
           button.addEventListener('click', function () {
@@ -810,13 +821,14 @@ window.__avidReportTableInit('reports-2023');
 
 
 
+
 <!-- reports-year:2022:start -->
 #### 2022
 
-<div class="avid-report-controls">
-  <label>
+<div class="avid-report-controls" style="display: flex; justify-content: flex-end; margin: 0.5rem 0;">
+  <label style="display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;">
     Rows per page:
-    <select id="reports-2022-page-size"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
+    <select id="reports-2022-page-size" style="display: inline-block; width: auto; min-width: 4.5rem;"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
   </label>
 </div>
 <table class="avid-report-table" id="reports-2022" style="table-layout: fixed; width: 100%;">
@@ -842,7 +854,7 @@ window.__avidReportTableInit('reports-2023');
     <tr><td><a href="/database/AVID-2022-R0005">AVID-2022-R0005</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Demographic bias found in EleutherAI/gpt-neo-125M for multiple sensitive categories, as measured on prompts supplied in the BOLD dataset</td><td>Detection</td><td>2022-11-09</td></tr>
   </tbody>
 </table>
-<div class="avid-report-pager" id="reports-2022-pager"></div>
+<div class="avid-report-pager" id="reports-2022-pager" style="display: flex; justify-content: flex-end; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;"></div>
 
 <script>
 if (!window.__avidReportTableInit) {
@@ -871,6 +883,9 @@ if (!window.__avidReportTableInit) {
         var button = document.createElement('button');
         button.type = 'button';
         button.textContent = label;
+        button.style.width = 'auto';
+        button.style.minWidth = '2.25rem';
+        button.style.display = 'inline-block';
         button.disabled = !!disabled;
         if (!button.disabled) {
           button.addEventListener('click', function () {
@@ -993,6 +1008,7 @@ window.__avidReportTableInit('reports-2022');
 </script>
 <!-- reports-year:2022:end -->
 
+
 ## Vulnerability
 Vulnerabilities are linked to the taxonomy through multiple tags, denoting the AI risk domains (Security, Ethics, Performance) this vulnerability pertains to, (sub)categories under that domain, as well as AI lifecycle stages. A vulnerability in AVID can pertain to one or more of the three levels: *dataset*, *model*, or *system*.
 
@@ -1001,10 +1017,10 @@ Vulnerabilities are linked to the taxonomy through multiple tags, denoting the A
 <!-- vulnerabilities-year:2023:start -->
 ##### 2023
 
-<div class="avid-report-controls">
-  <label>
+<div class="avid-report-controls" style="display: flex; justify-content: flex-end; margin: 0.5rem 0;">
+  <label style="display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;">
     Rows per page:
-    <select id="vulnerabilities-2023-page-size"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
+    <select id="vulnerabilities-2023-page-size" style="display: inline-block; width: auto; min-width: 4.5rem;"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
   </label>
 </div>
 <table class="avid-report-table" id="vulnerabilities-2023" style="table-layout: fixed; width: 100%;">
@@ -1048,7 +1064,7 @@ Vulnerabilities are linked to the taxonomy through multiple tags, denoting the A
     <tr><td><a href="/database/AVID-2023-V027">AVID-2023-V027</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">It is possible to make ChatGPT perform remote code execution just by asking politely</td></tr>
   </tbody>
 </table>
-<div class="avid-report-pager" id="vulnerabilities-2023-pager"></div>
+<div class="avid-report-pager" id="vulnerabilities-2023-pager" style="display: flex; justify-content: flex-end; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;"></div>
 
 <script>
 if (!window.__avidReportTableInit) {
@@ -1077,6 +1093,9 @@ if (!window.__avidReportTableInit) {
         var button = document.createElement('button');
         button.type = 'button';
         button.textContent = label;
+        button.style.width = 'auto';
+        button.style.minWidth = '2.25rem';
+        button.style.display = 'inline-block';
         button.disabled = !!disabled;
         if (!button.disabled) {
           button.addEventListener('click', function () {
@@ -1201,13 +1220,14 @@ window.__avidReportTableInit('vulnerabilities-2023');
 
 
 
+
 <!-- vulnerabilities-year:2022:start -->
 ##### 2022
 
-<div class="avid-report-controls">
-  <label>
+<div class="avid-report-controls" style="display: flex; justify-content: flex-end; margin: 0.5rem 0;">
+  <label style="display: inline-flex; align-items: center; gap: 0.5rem; width: auto; margin: 0;">
     Rows per page:
-    <select id="vulnerabilities-2022-page-size"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
+    <select id="vulnerabilities-2022-page-size" style="display: inline-block; width: auto; min-width: 4.5rem;"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select>
   </label>
 </div>
 <table class="avid-report-table" id="vulnerabilities-2022" style="table-layout: fixed; width: 100%;">
@@ -1237,7 +1257,7 @@ window.__avidReportTableInit('vulnerabilities-2023');
     <tr><td><a href="/database/AVID-2022-V013">AVID-2022-V013</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">TayBot</td></tr>
   </tbody>
 </table>
-<div class="avid-report-pager" id="vulnerabilities-2022-pager"></div>
+<div class="avid-report-pager" id="vulnerabilities-2022-pager" style="display: flex; justify-content: flex-end; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;"></div>
 
 <script>
 if (!window.__avidReportTableInit) {
@@ -1266,6 +1286,9 @@ if (!window.__avidReportTableInit) {
         var button = document.createElement('button');
         button.type = 'button';
         button.textContent = label;
+        button.style.width = 'auto';
+        button.style.minWidth = '2.25rem';
+        button.style.display = 'inline-block';
         button.disabled = !!disabled;
         if (!button.disabled) {
           button.addEventListener('click', function () {
@@ -1387,5 +1410,6 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('vulnerabilities-2022');
 </script>
 <!-- vulnerabilities-year:2022:end -->
+
 
 
