@@ -4,7 +4,16 @@ description:
 layout: page
 url: /tools
 ---
-AVID is pleased to host a small but growing collection of tools to enable evaluation of models, datasets, and algorithmic systems. Our tools are hosted on [HuggingFace](https://huggingface.co/avid-ml) and described below. 
+AVID is pleased to host a small but growing collection of tools to evaluate failure modes in general-purpose AI (GPAI) systems, including LLMs, closed-api models, and end-to-end applications. Some tools are hosted on [HuggingFace](https://huggingface.co/avid-ml), and our SDK tooling is maintained in `avidtools`.
+
+## AVIDtools SDK
+
+[avidtools](https://github.com/avidml/avidtools) is AVID's developer SDK. It currently provides two core components:
+
+- **Data models** for structured AVID vulnerability/report records
+- **Connectors** for ingesting external sources and transforming them into AVID-compatible reports
+
+Install from PyPI with `pip install avidtools`, and see the [API docs](https://avidml.org/avidtools/).
 
 
 ## [IndieLabel](https://huggingface.co/spaces/avid-ml/indie-label)

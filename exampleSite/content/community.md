@@ -111,7 +111,7 @@ You can use our [Vulnerability Reporting Form](https://airtable.com/shrOCPagOzxN
 You can also open a pull request to directly add a report or vulnerability to our [GitHub](https://github.com/avidml/avid-db).
 
 ### Suggest Improvements
-We welcome comments, feedback, and inputs for our taxonomy and database structure. Please [e-mail](mailto:avid.mldb@gmail.com) us with your comments and we'll get back to you!
+We welcome comments, feedback, and inputs for our database schema, taxonomy mappings, and taxonomy library. Please [e-mail](mailto:avid.mldb@gmail.com) us with your comments and we'll get back to you!
 
 ### Collaborations
 Our ongoing and planned areas of R&D include but are not limited to
