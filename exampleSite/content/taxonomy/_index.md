@@ -1,23 +1,27 @@
 ---
-title: Taxonomy
+title: Taxonomy Library
 image: "/uploads/avid.png"
 layout: page
 ---
 
 <!-- The AVID taxonomy consists of categories and subcategories of potential harms encompassing coordinates of responsible AI,such as fairness, robustness, privacy, explainablity, reliability, and alignment. Similar to the [MITRE ATT&CK](http://attack.mitre.org/) framework for cybersecurity risks and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial ML threats, the AVID taxonomy will set a common, open standard to evaluate ML systems for downstream responsible behavior. Compared to MITRE ATLAS which pertains to intentional attacks on ML systems, the AVID taxonomy will cover the area of *ML failures* that are often unintentional in nature. -->
 
-The AVID taxonomy is intended to serve as a common foundation for data science/AI engineering, product, and policy teams to manage potential risks at different stages of a developing an AI system. In spirit, this taxonomy is analogous to [MITRE ATT&CK](http://attack.mitre.org/) for cybersecurity vulnerabilities, and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial attacks on ML systems.
+This page is part of AVID's taxonomy library. AVID's primary focus is the database of GPAI failure evidence, and taxonomies are used to classify and query those records.
+
+## AVID Taxonomy
+
+The AVID taxonomy serves as a common foundation for AI engineering, product, and policy teams to manage potential risks across stages of developing and operating GPAI systems. In spirit, this taxonomy is analogous to [MITRE ATT&CK](http://attack.mitre.org/) for cybersecurity vulnerabilities, and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial attacks on ML systems.
 
 At a high level, the AVID taxonomy consists of two views, intended to facilitate the work of two different user personas.
 
-- **Effect view:** for the *auditor* persona that aims to assess risks for a ML system of components of it. 
-- **Lifecycle view:** for the *developer* persona that aims to build an end-to-end ML system while being cognizant of potential risks.
+- **Effect view:** for the *auditor* persona that aims to assess risks for a GPAI system and its components.
+- **Lifecycle view:** for the *developer* persona that aims to build an end-to-end GPAI system while being cognizant of potential risks.
 
-Based on case-specific needs, people involved with building a ML system may need to operate as either of the above personas.
+Based on case-specific needs, people involved with building a GPAI system may need to operate as either of the above personas.
 
-## Effect (SEP) view
+### Effect (SEP) view
 
-The domains, categories, and subcategories in this view provide a 'risk surface' for the AI artifact being evaluated, may it be a dataset, model, or the whole system. This view contains three top-level domains:
+The domains, categories, and subcategories in this view provide a 'risk surface' for the AI artifact being evaluated, whether dataset, model, or whole system. This view contains three top-level domains:
 
 
 <!-- | [Security](./security) || [Ethics](./ethics) || [Performance](./performance) ||
@@ -44,7 +48,7 @@ Each domain is divided into a number of categories and subcategories, each of wh
 |:--:|
 | *Figure 1.* The AVID Taxonomy Matrix. |
 
-## Lifecycle view
+### Lifecycle view
 
 The stages in this view represent high-level sequential steps of a typical ML workflow. Following the widely-used Cross-industry standard process for data mining ([CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining)) framework, we designate six stages in this view.
 
@@ -62,3 +66,11 @@ Figure 2 reconciles the two different views of the AVID taxonomy. We conceptuall
 | ![views.png](/uploads/views-small.png) |
 |:--:|
 | *Figure 2.* SEP and Lifecycle views of the AVID taxonomy represent different sections of the space of potential risks in an AI development workflow. |
+
+## Auxiliary Taxonomies
+
+AVID's taxonomy library also includes auxiliary taxonomies maintained in [avid-schema/taxonomy](https://github.com/avidml/avid-schema/tree/main/taxonomy):
+
+- [injectlab-llm](https://github.com/avidml/avid-schema/blob/main/taxonomy/injectlab-llm.json)
+- [Language Model Risk Cards](https://github.com/avidml/avid-schema/blob/main/taxonomy/risk-cards.json)
+- [Operational Design Domain by Trail of Bits](https://github.com/avidml/avid-schema/blob/main/taxonomy/trail-of-bits-ODDs.json)

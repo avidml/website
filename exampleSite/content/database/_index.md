@@ -5,9 +5,13 @@ image: "/uploads/avid.png"
 url: /database
 ---
 
-AVID stores instantiations of AI risks using two base data classes: **Vulnerability** and **Report**. A *vulnerability* (vuln) is a high-level evidence of an AI failure mode, in line with the NIST CVEs. A *report* is one example of a particular vulnerability occurring, supported by qualitative or quantitative evaluation.
+AVID is a database of failure modes in general-purpose AI (GPAI) systems, including LLMs, closed-api models, developer tooling, and end-to-end applications and agents. The two base data classes are **Report** and **Vulnerability**. A *report* captures one concrete occurrence with supporting evidence; a *vulnerability* (vuln) captures a recurring failure mode.
 
-Information about either is schematized and stored in AVID. To learn more about the motivations and technical details of vulns and reports, refer to our [documentation](https://avidml.gitbook.io/).
+> Older AVID records (before 2025) were curated under a broader AI/ML scope; these should be interpreted as legacy entries relative to the current GPAI-focused scope.
+
+The definition of an "AI vulnerability" is still evolving across the ecosystem, so AVID currently uses a working definition. In this release, we are prioritizing report-level evidence and have not yet published new vulnerability records.
+
+Records in this database can be mapped to multiple taxonomy frameworks. The AVID taxonomy is one reference taxonomy in a broader taxonomy library. To learn more about the database and usage, refer to our [documentation](https://avidml.gitbook.io/).
 
 ## Reports
 Reports are occurrences of a vulnerability. Based on the references provided in a specific report, reports can potentially more granular and reproducible than vulnerabilities.
@@ -1014,7 +1018,7 @@ window.__avidReportTableInit('reports-2022');
 
 
 ## Vulnerability
-Vulnerabilities are linked to the taxonomy through multiple tags, denoting the AI risk domains (Security, Ethics, Performance) this vulnerability pertains to, (sub)categories under that domain, as well as AI lifecycle stages. A vulnerability in AVID can pertain to one or more of the three levels: *dataset*, *model*, or *system*.
+Vulnerabilities can be linked to one or more taxonomies through tags. In AVID taxonomy, these tags denote the risk domains (Security, Ethics, Performance), related (sub)categories, and lifecycle stages. A vulnerability in AVID can pertain to one or more of the three levels: *dataset*, *model*, or *system*.
 
 ### List of Vulnerabilities
 

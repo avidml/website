@@ -44,7 +44,7 @@ params:
       SiteVerificationTag: # Bing Site Verification
   env: production
   author: Your Name
-  description: Your website description
+  description: Open database of failure modes in general-purpose AI systems.
   math: false
   images:
   # - "/uploads/avid-logo.png"
@@ -82,7 +82,7 @@ params:
     disableHeroSection: false
     heroUpperTitle: AI Vulnerability Database
     heroTitle: 
-    heroDescription: An open-source, extensible knowledge base of AI failures
+    heroDescription: Open database of failures in general-purpose AI systems
     heroCTAPrimaryText: Our Efforts
     heroCTAPrimaryUrl: "#efforts"
     heroCTASecondaryText: "Join Us"
@@ -102,27 +102,24 @@ params:
     # aboutDescription: Just something about me
     # aboutImgUrl: "/uploads/self.webp"
     aboutContent: |
-      AI Vulnerability Database (AVID) is a open-source knowledge base of vulnerabilities for AI/ML models and datasets.
-      Our goals are to \n
-      - Encompass coordinates of responsible ML such as fairness, robustness, privacy, reliability, and alignment,\n
-      - Build out a taxonomy of potential harms across these coordinates,\n
-      - House full-fidelity information (metadata, harm metrics, measurements, benchmarks, and mitigation techniques if any)
-      on evaluation use cases of a harm (sub)category
-      - Evaluate models and datasets that are either open-source, or accessible through APIs.
+      AI Vulnerability Database (AVID) is an open-source database of failure modes in general-purpose AI (GPAI) systems.
+      We focus on LLMs, closed-api models, developer tooling, and end-to-end applications and agents.
+      AVID stores high-fidelity vulnerability and report records, then maps those records to a library of taxonomies.
+      The AVID taxonomy is one reference taxonomy in that broader library.
     
     # Portfolio Section
     disablePortfolioSection: false
     portfolioTitle: 
     portfolioDescription:
     portfolio:
-    - imageUrl: /uploads/tax-blue-narrow.png
-      alt: AVID Taxonomy # image alt for better SEO
-      description: Taxonomy
-      websiteUrl: /taxonomy
     - imageUrl: /uploads/db-blue-narrow.png
       alt: # image alt for better SEO
       description: Database
       websiteUrl: /database
+    - imageUrl: /uploads/tax-blue-narrow.png
+      alt: AVID Taxonomy # image alt for better SEO
+      description: Taxonomy Library
+      websiteUrl: /taxonomy
     - imageUrl: /uploads/blog-blue-narrow3.png
       alt: # image alt for better SEO
       description: Blog
