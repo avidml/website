@@ -103,7 +103,7 @@ params:
     # aboutImgUrl: "/uploads/self.webp"
     aboutContent: |
       AI Vulnerability Database (AVID) is an open-source database of failure modes in general-purpose AI (GPAI) systems.
-      We focus on LLMs, closed-api models, developer tooling, and end-to-end applications and agents.
+      We focus on LLMs, API-only AI systems, developer tooling, and end-to-end applications and agents.
       AVID stores high-fidelity vulnerability and report records, then maps those records to a library of taxonomies.
       The AVID taxonomy is one reference taxonomy in that broader library.
     
