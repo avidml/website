@@ -1,0 +1,1464 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>avidtools.connectors.garak &mdash; avidtools 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css?v=a0a71c94" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs";
+
+
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = `pre.mermaid {
+    /* Same as .mermaid-container > pre */
+    display: block;
+    width: 100%;
+}
+
+pre.mermaid > svg {
+    /* Same as .mermaid-container > pre > svg */
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}`;
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = `.mermaid-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.mermaid-container > pre {
+    display: block;
+    width: 100%;
+}
+
+.mermaid-container > pre > svg {
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+
+.mermaid-fullscreen-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    color: #333;
+}
+
+.mermaid-fullscreen-btn:hover {
+    opacity: 100% !important;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-btn.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-btn.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 95vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9999;
+    padding: 20px;
+    overflow: auto;
+}
+
+.mermaid-fullscreen-modal.dark-theme {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.mermaid-fullscreen-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen {
+    position: relative;
+    width: 95vw;
+    height: 90vh;
+    max-width: 95vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen.dark-theme {
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.mermaid-container-fullscreen pre.mermaid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen .mermaid svg {
+    height: 100% !important;
+    width: 100% !important;
+    cursor: grab;
+}
+
+.mermaid-fullscreen-close {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+}
+
+.mermaid-fullscreen-close:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-close.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-close.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal .mermaid-fullscreen-btn {
+    display: none !important;
+}`;
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        all_mermaids.forEach((el) => {
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+        await mermaid.run();
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+
+    if ("False" === "True") {
+        const mermaids_to_add_zoom = -1 === -1 ? all_mermaids.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("");
+            if(all_mermaids.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            } else if(svgs.size() !== mermaids_to_add_zoom) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            } else {
+                svgs.each(function() {
+                    var svg = d3.select(this);
+                    svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                    var inner = svg.select("g");
+                    var zoom = d3.zoom().on("zoom", function(event) {
+                        inner.attr("transform", event.transform);
+                    });
+                    svg.call(zoom);
+                });
+            }
+        }
+    } else if(all_mermaids.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if ("True" !== "True") return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.style.opacity = '50%';
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scroll, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.sdisplay = 'block';
+
+                if ("False" === "True") {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+const load = async () => {
+    initStyles();
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...JSON.parse(
+                    `{"startOnLoad": false}`
+                ),
+                ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...JSON.parse(
+        `{"startOnLoad": false}`
+    ),
+    ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+    }
+);
+
+window.addEventListener("load", load);</script>
+      <script src="../../../_static/mermaid.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            avidtools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/report.html">Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/vulnerability.html">Vulnerability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/components.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/enums.html">Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/connectors.html">Connectors</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">avidtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">avidtools.connectors.garak</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for avidtools.connectors.garak</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Garak-specific normalize helpers for AVID report JSON and JSONL files.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.error</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPError</span><span class="p">,</span> <span class="n">URLError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">urlopen</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">apply_normalizations</span><span class="p">,</span>
+    <span class="n">choose_model_subject_label</span><span class="p">,</span>
+    <span class="n">to_list</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">PROBE_PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;probe\s+`([^`]+)`&quot;</span><span class="p">)</span>
+<span class="n">GITHUB_PROBE_BLOB_BASE</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;https://github.com/NVIDIA/garak/blob/main/garak/probes&quot;</span>
+<span class="p">)</span>
+<span class="n">GARAK_REFERENCE_BASE</span> <span class="o">=</span> <span class="s2">&quot;https://reference.garak.ai/en/latest&quot;</span>
+<span class="n">CACHE_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;.garak_probe_summary_cache.json&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_openai_api_key</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">api_key</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">api_key</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+
+    <span class="n">candidate_env_paths</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;.env&quot;</span><span class="p">,</span>
+        <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;.env&quot;</span><span class="p">,</span>
+        <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;.env&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="n">line_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;^(?:export\s+)?OPENAI_API_KEY\s*=\s*(.+?)\s*$&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">env_path</span> <span class="ow">in</span> <span class="n">candidate_env_paths</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">env_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">env_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_obj</span><span class="p">:</span>
+                    <span class="n">stripped</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">stripped</span> <span class="ow">or</span> <span class="n">stripped</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+                        <span class="k">continue</span>
+                    <span class="n">match</span> <span class="o">=</span> <span class="n">line_pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">stripped</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; #&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="n">cleaned</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">cleaned</span><span class="p">:</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleaned</span>
+                        <span class="k">return</span> <span class="n">cleaned</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_extract_probe_name</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span>
+            <span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;problemtype&quot;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="p">),</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">PROBE_PATTERN</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_probe_urls</span><span class="p">(</span><span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">module_name</span> <span class="o">=</span> <span class="n">probe_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">GITHUB_PROBE_BLOB_BASE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">module_name</span><span class="si">}</span><span class="s2">.py&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">GARAK_REFERENCE_BASE</span><span class="si">}</span><span class="s2">/garak.probes.</span><span class="si">{</span><span class="n">module_name</span><span class="si">}</span><span class="s2">.html&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_failsafe_probe_description</span><span class="p">(</span><span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">browser_url</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_probe_urls</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;More information on the probe `</span><span class="si">{</span><span class="n">probe_name</span><span class="si">}</span><span class="s2">` is available &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;[here](</span><span class="si">{</span><span class="n">browser_url</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_module_name_from_probe</span><span class="p">(</span><span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">probe_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="n">probe_name</span> <span class="k">else</span> <span class="n">probe_name</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_lowercase_first_char</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">text</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">first</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_ensure_required_probe_suffix</span><span class="p">(</span>
+    <span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">summary</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">module_behavior</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">module_name</span> <span class="o">=</span> <span class="n">_module_name_from_probe</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">behavior</span> <span class="o">=</span> <span class="n">_lowercase_first_char</span><span class="p">(</span>
+        <span class="n">module_behavior</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">tests_clause</span> <span class="o">=</span> <span class="n">base</span>
+    <span class="n">lower_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s2">&quot; tests &quot;</span> <span class="ow">in</span> <span class="n">lower_base</span><span class="p">:</span>
+        <span class="n">split_index</span> <span class="o">=</span> <span class="n">lower_base</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot; tests &quot;</span><span class="p">)</span>
+        <span class="n">tests_clause</span> <span class="o">=</span> <span class="n">base</span><span class="p">[</span><span class="n">split_index</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot; tests &quot;</span><span class="p">):]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">lower_base</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;tests &quot;</span><span class="p">):</span>
+        <span class="n">tests_clause</span> <span class="o">=</span> <span class="n">base</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;tests &quot;</span><span class="p">):]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">lower_base</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;this probe tests &quot;</span><span class="p">):</span>
+        <span class="n">tests_clause</span> <span class="o">=</span> <span class="n">base</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;this probe tests &quot;</span><span class="p">):]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">tests_clause</span><span class="p">:</span>
+        <span class="n">tests_clause</span> <span class="o">=</span> <span class="s2">&quot;model behavior under this probe scenario&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">behavior</span><span class="p">:</span>
+        <span class="n">behavior</span> <span class="o">=</span> <span class="s2">&quot;evaluates model behavior for this probe family&quot;</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;The probe </span><span class="si">{</span><span class="n">probe_name</span><span class="si">}</span><span class="s2"> tests </span><span class="si">{</span><span class="n">tests_clause</span><span class="si">}</span><span class="s2">. &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;This probe is part of the </span><span class="si">{</span><span class="n">module_name</span><span class="si">}</span><span class="s2"> module which </span><span class="si">{</span><span class="n">behavior</span><span class="si">}</span><span class="s2">.&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalize_probe_summary_with_suffix</span><span class="p">(</span>
+    <span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">summary</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">module_behavior_override</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_ensure_required_probe_suffix</span><span class="p">(</span>
+            <span class="n">probe_name</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;evaluates model behavior for this probe family&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;this probe is part of the &quot;</span>
+    <span class="n">lower_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="n">summary_core</span> <span class="o">=</span> <span class="n">text</span>
+    <span class="n">module_behavior</span> <span class="o">=</span> <span class="s2">&quot;evaluates model behavior for this probe family&quot;</span>
+
+    <span class="n">marker_index</span> <span class="o">=</span> <span class="n">lower_text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">marker_index</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">summary_core</span> <span class="o">=</span> <span class="n">text</span><span class="p">[:</span><span class="n">marker_index</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        <span class="n">behavior_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+            <span class="sa">r</span><span class="s2">&quot;which(?:\s+does)?\s+([^\.]+)&quot;</span><span class="p">,</span>
+            <span class="n">text</span><span class="p">[</span><span class="n">marker_index</span><span class="p">:],</span>
+            <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">behavior_match</span><span class="p">:</span>
+            <span class="n">module_behavior</span> <span class="o">=</span> <span class="n">behavior_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">behavior_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+            <span class="sa">r</span><span class="s2">&quot;which(?:\s+does)?\s+([^\.]+)&quot;</span><span class="p">,</span>
+            <span class="n">text</span><span class="p">,</span>
+            <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">behavior_match</span><span class="p">:</span>
+            <span class="n">module_behavior</span> <span class="o">=</span> <span class="n">behavior_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">module_behavior_override</span><span class="p">:</span>
+        <span class="n">module_behavior</span> <span class="o">=</span> <span class="n">module_behavior_override</span>
+
+    <span class="k">return</span> <span class="n">_ensure_required_probe_suffix</span><span class="p">(</span>
+        <span class="n">probe_name</span><span class="p">,</span>
+        <span class="n">summary_core</span><span class="p">,</span>
+        <span class="n">module_behavior</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_extract_probe_summary_core</span><span class="p">(</span><span class="n">summary</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;this probe is part of the &quot;</span>
+    <span class="n">lower_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">marker_index</span> <span class="o">=</span> <span class="n">lower_text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">marker_index</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">text</span><span class="p">[:</span><span class="n">marker_index</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+    <span class="n">first_sentence</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?&lt;=[.!?])\s+&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">first_sentence</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_clean_html_to_text</span><span class="p">(</span><span class="n">fragment</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;script[</span><span class="se">\\</span><span class="s2">s</span><span class="se">\\</span><span class="s2">S]*?&lt;/script&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;style[</span><span class="se">\\</span><span class="s2">s</span><span class="se">\\</span><span class="s2">S]*?&lt;/style&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;[^&gt;]+&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&amp;nbsp;&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&amp;amp;&quot;</span><span class="p">,</span> <span class="s2">&quot;&amp;&quot;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&amp;lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&amp;gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">s+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_extract_probe_reference_text</span><span class="p">(</span><span class="n">html</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">module_name</span><span class="p">,</span> <span class="n">class_name</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">probe_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="n">probe_name</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">probe_name</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">class_markers</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sa">f</span><span class="s2">&quot;garak.probes.</span><span class="si">{</span><span class="n">module_name</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">class_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;class=&quot;sig-name descname&quot;&gt;&lt;span class=&quot;pre&quot;&gt;</span><span class="si">{</span><span class="n">class_name</span><span class="si">}</span><span class="s1">&lt;/span&gt;&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;id=&quot;garak.probes.</span><span class="si">{</span><span class="n">module_name</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">class_name</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="n">marker_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="n">class_markers</span><span class="p">:</span>
+        <span class="n">marker_index</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">marker_index</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">marker_index</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">marker_index</span> <span class="o">-</span> <span class="mi">5000</span><span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">html</span><span class="p">),</span> <span class="n">marker_index</span> <span class="o">+</span> <span class="mi">20000</span><span class="p">)</span>
+        <span class="n">fragment</span> <span class="o">=</span> <span class="n">html</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fragment</span> <span class="o">=</span> <span class="n">html</span><span class="p">[:</span><span class="mi">30000</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">_clean_html_to_text</span><span class="p">(</span><span class="n">fragment</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_fetch_probe_reference_text</span><span class="p">(</span><span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">reference_url</span> <span class="o">=</span> <span class="n">_probe_urls</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span>
+        <span class="n">reference_url</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;avid-db-garak-normalize/1.0&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+            <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="n">HTTPError</span><span class="p">,</span> <span class="n">URLError</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="n">_extract_probe_reference_text</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">probe_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span> <span class="ow">or</span> <span class="kc">None</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_summarize_probe_docstring</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">module_behavior</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">reference_text</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">to_thread</span><span class="p">(</span>
+        <span class="n">_fetch_probe_reference_text</span><span class="p">,</span>
+        <span class="n">probe_name</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">reference_text</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_failsafe_probe_description</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_failsafe_probe_description</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">summary_text</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">to_thread</span><span class="p">(</span>
+            <span class="n">_summarize_probe_summary_parts_via_openai_http</span><span class="p">,</span>
+            <span class="n">api_key</span><span class="p">,</span>
+            <span class="n">probe_name</span><span class="p">,</span>
+            <span class="n">reference_text</span><span class="p">,</span>
+            <span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">summary_text</span> <span class="ow">and</span> <span class="n">module_behavior</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_ensure_required_probe_suffix</span><span class="p">(</span>
+                <span class="n">probe_name</span><span class="p">,</span>
+                <span class="n">summary_text</span><span class="p">,</span>
+                <span class="n">module_behavior</span><span class="p">,</span>
+            <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_failsafe_probe_description</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_failsafe_probe_description</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_empty_cache_structure</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;probe_summaries&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">&quot;module_behaviors&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_load_probe_summary_cache</span><span class="p">(</span><span class="n">cache_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="n">_empty_cache_structure</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cache_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">cache</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">cache_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_obj</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">cache</span>
+
+        <span class="k">if</span> <span class="s2">&quot;probe_summaries&quot;</span> <span class="ow">in</span> <span class="n">data</span> <span class="ow">or</span> <span class="s2">&quot;module_behaviors&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">probe_summaries</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;probe_summaries&quot;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="n">module_behaviors</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;module_behaviors&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">probe_summaries</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;probe_summaries&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">):</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">probe_summaries</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="p">}</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module_behaviors</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;module_behaviors&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">):</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">module_behaviors</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="p">}</span>
+            <span class="k">return</span> <span class="n">cache</span>
+
+        <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;probe_summaries&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">):</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">cache</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cache</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_save_probe_summary_cache</span><span class="p">(</span>
+    <span class="n">cache_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">cache</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+<span class="p">):</span>
+    <span class="n">cache_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">cache_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="n">file_obj</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">file_obj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_summarize_probe_summary_parts_via_openai_http</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">reference_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">include_module_behavior</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">snippet</span> <span class="o">=</span> <span class="n">reference_text</span><span class="p">[:</span><span class="mi">12000</span><span class="p">]</span>
+    <span class="n">schema_sentence</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;Return strict JSON with keys summary and module_behavior.&quot;</span>
+        <span class="k">if</span> <span class="n">include_module_behavior</span>
+        <span class="k">else</span> <span class="s2">&quot;Return strict JSON with key summary.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">user_request</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;Use only the documentation text provided. Return JSON with: &quot;</span>
+        <span class="s2">&quot;(1) summary = one short sentence about what this specific probe &quot;</span>
+        <span class="s2">&quot;tests (&lt;=25 words), (2) module_behavior = short phrase starting &quot;</span>
+        <span class="s2">&quot;with a verb that describes what the module does (&lt;=12 words).&quot;</span>
+        <span class="k">if</span> <span class="n">include_module_behavior</span>
+        <span class="k">else</span> <span class="s2">&quot;Use only the documentation text provided. Return JSON with: &quot;</span>
+        <span class="s2">&quot;summary = one short sentence about what this specific probe tests &quot;</span>
+        <span class="s2">&quot;(&lt;=25 words).&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">(</span>
+                    <span class="s2">&quot;Summarize security probe documentation for technical &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;incident reports. </span><span class="si">{</span><span class="n">schema_sentence</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">),</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">user_request</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Probe: </span><span class="si">{</span><span class="n">probe_name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Reference text:</span><span class="se">\n</span><span class="si">{</span><span class="n">snippet</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">),</span>
+            <span class="p">},</span>
+        <span class="p">],</span>
+    <span class="p">}</span>
+
+    <span class="n">response_data</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">max_attempts</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_attempts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span>
+            <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://api.openai.com/v1/chat/completions&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+                <span class="n">response_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span>
+                    <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">is_retryable</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">status</span> <span class="o">==</span> <span class="mi">429</span>
+                <span class="ow">or</span> <span class="p">(</span><span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">status</span> <span class="o">&gt;=</span> <span class="mi">500</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&gt;=</span> <span class="n">max_attempts</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">is_retryable</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">attempt</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">URLError</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&gt;=</span> <span class="n">max_attempts</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">attempt</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="n">choices</span> <span class="o">=</span> <span class="n">response_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;choices&quot;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">choices</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="n">message</span> <span class="o">=</span> <span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">payload_text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">payload_text</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">payload_text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">):</span>
+        <span class="n">payload_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+            <span class="sa">r</span><span class="s2">&quot;^```(?:json)?\s*&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">payload_text</span><span class="p">,</span>
+            <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">payload_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s*```$&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">payload_text</span><span class="p">)</span>
+        <span class="n">payload_text</span> <span class="o">=</span> <span class="n">payload_text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">payload_text</span><span class="p">)</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">summary</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="n">module_behavior</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;module_behavior&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">module_behavior</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">summary</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">summary</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">module_behavior</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">or</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\{[\s\S]*\}&quot;</span><span class="p">,</span> <span class="n">payload_text</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+                <span class="n">summary</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">summary</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="n">module_behavior</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;module_behavior&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">module_behavior</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">summary</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="k">return</span> <span class="n">summary</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">module_behavior</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">or</span> <span class="kc">None</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">None</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_probe_summaries_async</span><span class="p">(</span>
+    <span class="n">probe_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">cache_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+    <span class="n">cache_bundle</span> <span class="o">=</span> <span class="n">_load_probe_summary_cache</span><span class="p">(</span><span class="n">cache_path</span><span class="p">)</span>
+    <span class="n">probe_cache</span> <span class="o">=</span> <span class="n">cache_bundle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;probe_summaries&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">module_cache</span> <span class="o">=</span> <span class="n">cache_bundle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;module_behaviors&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="k">for</span> <span class="n">probe_name</span><span class="p">,</span> <span class="n">summary</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">probe_cache</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">probe_cache</span><span class="p">[</span><span class="n">probe_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_extract_probe_summary_core</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">summary</span><span class="p">))</span>
+
+    <span class="n">unresolved</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">probe_name</span>
+        <span class="k">for</span> <span class="n">probe_name</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">probe_names</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">probe_name</span> <span class="ow">and</span> <span class="n">probe_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">probe_cache</span>
+    <span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">unresolved</span><span class="p">:</span>
+        <span class="n">_save_probe_summary_cache</span><span class="p">(</span>
+            <span class="n">cache_path</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;probe_summaries&quot;</span><span class="p">:</span> <span class="n">probe_cache</span><span class="p">,</span>
+                <span class="s2">&quot;module_behaviors&quot;</span><span class="p">:</span> <span class="n">module_cache</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">probe_cache</span><span class="p">,</span> <span class="n">module_cache</span>
+
+    <span class="n">api_key</span> <span class="o">=</span> <span class="n">_get_openai_api_key</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;WARNING: OPENAI_API_KEY not found in environment/.env; &quot;</span>
+            <span class="s2">&quot;using failsafe probe descriptions&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">unresolved_modules</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="n">_module_name_from_probe</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">probe_name</span> <span class="ow">in</span> <span class="n">unresolved</span>
+            <span class="k">if</span> <span class="n">_module_name_from_probe</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">module_cache</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">probe_by_module</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">probe_name</span> <span class="ow">in</span> <span class="n">unresolved</span><span class="p">:</span>
+        <span class="n">module_name</span> <span class="o">=</span> <span class="n">_module_name_from_probe</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+        <span class="n">probe_by_module</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">module_name</span><span class="p">,</span> <span class="n">probe_name</span><span class="p">)</span>
+
+    <span class="n">semaphore</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">summarize_module_behavior</span><span class="p">(</span><span class="n">module_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">semaphore</span><span class="p">:</span>
+            <span class="n">representative_probe</span> <span class="o">=</span> <span class="n">probe_by_module</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">representative_probe</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">module_name</span><span class="p">,</span> <span class="kc">None</span>
+
+            <span class="n">reference_text</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">to_thread</span><span class="p">(</span>
+                <span class="n">_fetch_probe_reference_text</span><span class="p">,</span>
+                <span class="n">representative_probe</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">reference_text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">module_name</span><span class="p">,</span> <span class="kc">None</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">generated_module_behavior</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">to_thread</span><span class="p">(</span>
+                    <span class="n">_summarize_probe_summary_parts_via_openai_http</span><span class="p">,</span>
+                    <span class="n">api_key</span><span class="p">,</span>
+                    <span class="n">representative_probe</span><span class="p">,</span>
+                    <span class="n">reference_text</span><span class="p">,</span>
+                    <span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="n">module_name</span><span class="p">,</span> <span class="n">generated_module_behavior</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">module_name</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="n">module_results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+        <span class="o">*</span><span class="p">(</span>
+            <span class="n">summarize_module_behavior</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">module_name</span> <span class="ow">in</span> <span class="n">unresolved_modules</span>
+        <span class="p">),</span>
+        <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">module_results</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">module_name</span><span class="p">,</span> <span class="n">behavior</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="k">if</span> <span class="n">behavior</span><span class="p">:</span>
+            <span class="n">module_cache</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">behavior</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">summarize_one</span><span class="p">(</span><span class="n">probe_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">semaphore</span><span class="p">:</span>
+            <span class="n">module_name</span> <span class="o">=</span> <span class="n">_module_name_from_probe</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+            <span class="n">module_behavior</span> <span class="o">=</span> <span class="n">module_cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">module_name</span><span class="p">,</span>
+                <span class="s2">&quot;evaluates model behavior for this probe family&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">summary</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_summarize_probe_docstring</span><span class="p">(</span>
+                <span class="n">api_key</span><span class="p">,</span>
+                <span class="n">probe_name</span><span class="p">,</span>
+                <span class="n">module_behavior</span><span class="o">=</span><span class="n">module_behavior</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">probe_name</span><span class="p">,</span> <span class="n">summary</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+        <span class="o">*</span><span class="p">(</span><span class="n">summarize_one</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">probe_name</span> <span class="ow">in</span> <span class="n">unresolved</span><span class="p">),</span>
+        <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">probe_name</span><span class="p">,</span> <span class="n">summary</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="n">probe_cache</span><span class="p">[</span><span class="n">probe_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_extract_probe_summary_core</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+
+    <span class="n">generated</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unresolved</span><span class="p">)</span>
+    <span class="n">fallback_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">probe_name</span> <span class="ow">in</span> <span class="n">unresolved</span><span class="p">:</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="n">probe_cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">probe_name</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">summary</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;More information on the probe `&quot;</span><span class="p">):</span>
+            <span class="n">fallback_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">api_count</span> <span class="o">=</span> <span class="n">generated</span> <span class="o">-</span> <span class="n">fallback_count</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Probe summary cache update: &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;generated=</span><span class="si">{</span><span class="n">generated</span><span class="si">}</span><span class="s2">, via_openai=</span><span class="si">{</span><span class="n">api_count</span><span class="si">}</span><span class="s2">, &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;fallback=</span><span class="si">{</span><span class="n">fallback_count</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">_save_probe_summary_cache</span><span class="p">(</span>
+        <span class="n">cache_path</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;probe_summaries&quot;</span><span class="p">:</span> <span class="n">probe_cache</span><span class="p">,</span>
+            <span class="s2">&quot;module_behaviors&quot;</span><span class="p">:</span> <span class="n">module_cache</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">probe_cache</span><span class="p">,</span> <span class="n">module_cache</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_shorten_artifact_model_names</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">affects</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;affects&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">artifacts</span> <span class="o">=</span> <span class="n">affects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;artifacts&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">artifacts</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">preferred_model</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">artifact</span> <span class="ow">in</span> <span class="n">artifacts</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">artifact</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">artifact</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">shortened</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;/&quot;</span> <span class="ow">in</span> <span class="n">name</span> <span class="k">else</span> <span class="n">name</span>
+        <span class="n">artifact</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shortened</span>
+        <span class="k">if</span> <span class="n">preferred_model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">preferred_model</span> <span class="o">=</span> <span class="n">shortened</span>
+
+    <span class="k">return</span> <span class="n">preferred_model</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_apply_litellm_deployer_mapping</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">affects</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;affects&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">deployer</span> <span class="o">=</span> <span class="n">to_list</span><span class="p">(</span><span class="n">affects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;deployer&quot;</span><span class="p">))</span>
+
+    <span class="n">mapped</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">changed</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">deployer</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;litellm&quot;</span><span class="p">:</span>
+            <span class="n">mapped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Together AI&quot;</span><span class="p">)</span>
+            <span class="n">changed</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mapped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">changed</span><span class="p">:</span>
+        <span class="n">deduped</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">mapped</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="n">deduped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">affects</span><span class="p">[</span><span class="s2">&quot;deployer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">deduped</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_rebuild_text_descriptions</span><span class="p">(</span>
+    <span class="n">report</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">developer_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">deployer_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">probe_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">probe_summary</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">subject_label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">probe_name</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">problemtype_description</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;problemtype&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="p">{}</span>
+    <span class="p">)</span>
+    <span class="n">problemtype_description</span><span class="p">[</span><span class="s2">&quot;lang&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;eng&quot;</span>
+    <span class="n">problemtype_description</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;The model </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">developer_name</span><span class="si">}</span><span class="s2"> was evaluated by the &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;Garak LLM Vulnerability scanner using the probe `</span><span class="si">{</span><span class="n">probe_name</span><span class="si">}</span><span class="s2">`.&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">description</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">description</span><span class="p">[</span><span class="s2">&quot;lang&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;eng&quot;</span>
+    <span class="n">subject_label_display</span> <span class="o">=</span> <span class="s2">&quot;LLM&quot;</span> <span class="k">if</span> <span class="n">subject_label</span> <span class="o">==</span> <span class="s2">&quot;llm&quot;</span> <span class="k">else</span> <span class="s2">&quot;AI system&quot;</span>
+    <span class="n">description</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">probe_summary</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;The </span><span class="si">{</span><span class="n">subject_label_display</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> was evaluated on this &quot;</span>
+        <span class="s2">&quot;probe.&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalize_metric_results</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Normalize Garak metric payloads into a dict-compatible report shape.&quot;&quot;&quot;</span>
+
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;metrics&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">metrics</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">metrics</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">first_metric</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">first_metric</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="n">first_metric</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">row</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">first_metric</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">}</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+        <span class="k">return</span>
+
+    <span class="n">row_keys</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">column_values</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">row_keys</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">column_values</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">sort_key</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+
+    <span class="n">normalized_rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row_key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">row_keys</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sort_key</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">column_values</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;index&quot;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">row</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">column_values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">row_key</span><span class="p">)</span>
+        <span class="n">normalized_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+    <span class="n">first_metric</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="n">normalized_rows</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_extract_primary_model_developer_and_deployer</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">affects</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;affects&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="n">model_name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">artifacts</span> <span class="o">=</span> <span class="n">affects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;artifacts&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">artifacts</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">artifact</span> <span class="ow">in</span> <span class="n">artifacts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">artifact</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">artifact</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">):</span>
+                <span class="n">model_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">artifact</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+                <span class="k">break</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">model_name</span><span class="p">:</span>
+        <span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;the model&quot;</span>
+
+    <span class="n">developer</span> <span class="o">=</span> <span class="n">to_list</span><span class="p">(</span><span class="n">affects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;developer&quot;</span><span class="p">))</span>
+    <span class="n">developer_name</span> <span class="o">=</span> <span class="n">developer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">developer</span> <span class="k">else</span> <span class="s2">&quot;the model developer&quot;</span>
+
+    <span class="n">deployer</span> <span class="o">=</span> <span class="n">to_list</span><span class="p">(</span><span class="n">affects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;deployer&quot;</span><span class="p">))</span>
+    <span class="n">deployer_name</span> <span class="o">=</span> <span class="n">deployer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">deployer</span> <span class="k">else</span> <span class="s2">&quot;the deployment platform&quot;</span>
+
+    <span class="k">return</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">developer_name</span><span class="p">,</span> <span class="n">deployer_name</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalize_report</span><span class="p">(</span>
+    <span class="n">report</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="n">probe_summaries</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+    <span class="n">module_behaviors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply Garak-specific normalize transforms to a single report.&quot;&quot;&quot;</span>
+
+    <span class="n">preferred_model_name</span> <span class="o">=</span> <span class="n">_shorten_artifact_model_names</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+    <span class="n">_apply_litellm_deployer_mapping</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+    <span class="n">apply_normalizations</span><span class="p">(</span>
+        <span class="n">report</span><span class="p">,</span>
+        <span class="n">preferred_model_name</span><span class="o">=</span><span class="n">preferred_model_name</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">probe_name</span> <span class="o">=</span> <span class="n">_extract_probe_name</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">probe_name</span><span class="p">:</span>
+        <span class="n">module_name</span> <span class="o">=</span> <span class="n">_module_name_from_probe</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+        <span class="n">module_behavior</span> <span class="o">=</span> <span class="n">module_behaviors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">module_name</span><span class="p">,</span>
+            <span class="s2">&quot;evaluates model behavior for this probe family&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">raw_summary</span> <span class="o">=</span> <span class="n">probe_summaries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">probe_name</span><span class="p">,</span>
+            <span class="n">_failsafe_probe_description</span><span class="p">(</span><span class="n">probe_name</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">probe_summary</span> <span class="o">=</span> <span class="n">_normalize_probe_summary_with_suffix</span><span class="p">(</span>
+            <span class="n">probe_name</span><span class="p">,</span>
+            <span class="n">raw_summary</span><span class="p">,</span>
+            <span class="n">module_behavior_override</span><span class="o">=</span><span class="n">module_behavior</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">probe_summary</span> <span class="o">=</span> <span class="s2">&quot;Garak probe metadata is available in the report.&quot;</span>
+
+    <span class="n">model_name</span><span class="p">,</span> <span class="n">developer_name</span><span class="p">,</span> <span class="n">deployer_name</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">_extract_primary_model_developer_and_deployer</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">subject_label</span> <span class="o">=</span> <span class="n">choose_model_subject_label</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+    <span class="n">_rebuild_text_descriptions</span><span class="p">(</span>
+        <span class="n">report</span><span class="p">,</span>
+        <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+        <span class="n">developer_name</span><span class="o">=</span><span class="n">developer_name</span><span class="p">,</span>
+        <span class="n">deployer_name</span><span class="o">=</span><span class="n">deployer_name</span><span class="p">,</span>
+        <span class="n">probe_name</span><span class="o">=</span><span class="n">probe_name</span><span class="p">,</span>
+        <span class="n">probe_summary</span><span class="o">=</span><span class="n">probe_summary</span><span class="p">,</span>
+        <span class="n">subject_label</span><span class="o">=</span><span class="n">subject_label</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">_normalize_metric_results</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_load_reports</span><span class="p">(</span><span class="n">input_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">input_path</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;.json&quot;</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">input_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_obj</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">&quot;data_type&quot;</span> <span class="ow">in</span> <span class="n">payload</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">payload</span><span class="p">],</span> <span class="s2">&quot;json-single&quot;</span>
+            <span class="k">return</span> <span class="p">[],</span> <span class="s2">&quot;json-single&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">reports</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="s2">&quot;Invalid item at index &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> in JSON list: expected object&quot;</span>
+                    <span class="p">)</span>
+                <span class="n">reports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">reports</span><span class="p">,</span> <span class="s2">&quot;json-list&quot;</span>
+
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported JSON structure: expected object or list&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">input_path</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;.jsonl&quot;</span><span class="p">:</span>
+        <span class="n">reports</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="n">input_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line_num</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file_obj</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">raw_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">raw_line</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">report</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">raw_line</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Invalid JSON on line </span><span class="si">{</span><span class="n">line_num</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">error</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Invalid JSON object on line </span><span class="si">{</span><span class="n">line_num</span><span class="si">}</span><span class="s2">: &quot;</span>
+                        <span class="s2">&quot;expected object&quot;</span>
+                    <span class="p">)</span>
+                <span class="n">reports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">reports</span><span class="p">,</span> <span class="s2">&quot;jsonl&quot;</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported file type: </span><span class="si">{</span><span class="n">input_path</span><span class="o">.</span><span class="n">suffix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_save_reports</span><span class="p">(</span><span class="n">input_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">reports</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">shape</span> <span class="o">==</span> <span class="s2">&quot;json-single&quot;</span><span class="p">:</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">reports</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">reports</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="k">with</span> <span class="n">input_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">file_obj</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">file_obj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="n">shape</span> <span class="o">==</span> <span class="s2">&quot;json-list&quot;</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">input_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">reports</span><span class="p">,</span> <span class="n">file_obj</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">file_obj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="n">shape</span> <span class="o">==</span> <span class="s2">&quot;jsonl&quot;</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">input_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">reports</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">report</span> <span class="ow">in</span> <span class="n">reports</span><span class="p">:</span>
+                    <span class="n">file_obj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown shape: </span><span class="si">{</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="normalize_file">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.garak.normalize_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize_file</span><span class="p">(</span>
+    <span class="n">input_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">dry_run</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">cache_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">CACHE_PATH</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Normalize a Garak JSON/JSONL input file and optionally rewrite in place.&quot;&quot;&quot;</span>
+
+    <span class="n">reports</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">_load_reports</span><span class="p">(</span><span class="n">input_path</span><span class="p">)</span>
+
+    <span class="n">probe_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">report</span> <span class="ow">in</span> <span class="n">reports</span><span class="p">:</span>
+        <span class="n">probe_name</span> <span class="o">=</span> <span class="n">_extract_probe_name</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">probe_name</span><span class="p">:</span>
+            <span class="n">probe_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">probe_name</span><span class="p">)</span>
+
+    <span class="n">probe_summaries</span><span class="p">,</span> <span class="n">module_behaviors</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="n">_get_probe_summaries_async</span><span class="p">(</span><span class="n">probe_names</span><span class="p">,</span> <span class="n">cache_path</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">report</span> <span class="ow">in</span> <span class="n">reports</span><span class="p">:</span>
+        <span class="n">_normalize_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">probe_summaries</span><span class="p">,</span> <span class="n">module_behaviors</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">dry_run</span><span class="p">:</span>
+        <span class="n">_save_reports</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">reports</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">reports</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, AI Risk and Vulnerability Alliance.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
