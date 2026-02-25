@@ -82,7 +82,7 @@ params:
     disableHeroSection: false
     heroUpperTitle: AI Vulnerability Database
     heroTitle: 
-    heroDescription: Open database of failure modes in general-purpose AI systems
+    heroDescription: Open database of failures in general-purpose AI systems
     heroCTAPrimaryText: Our Efforts
     heroCTAPrimaryUrl: "#efforts"
     heroCTASecondaryText: "Join Us"

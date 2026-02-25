@@ -6,7 +6,9 @@ layout: page
 
 <!-- The AVID taxonomy consists of categories and subcategories of potential harms encompassing coordinates of responsible AI,such as fairness, robustness, privacy, explainablity, reliability, and alignment. Similar to the [MITRE ATT&CK](http://attack.mitre.org/) framework for cybersecurity risks and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial ML threats, the AVID taxonomy will set a common, open standard to evaluate ML systems for downstream responsible behavior. Compared to MITRE ATLAS which pertains to intentional attacks on ML systems, the AVID taxonomy will cover the area of *ML failures* that are often unintentional in nature. -->
 
-This page is part of AVID's taxonomy library. AVID's primary focus is the database of GPAI failure evidence, and taxonomies are used to classify and query those records. The AVID taxonomy is one reference framework in this library.
+This page is part of AVID's taxonomy library. AVID's primary focus is the database of GPAI failure evidence, and taxonomies are used to classify and query those records.
+
+## AVID Taxonomy
 
 The AVID taxonomy serves as a common foundation for AI engineering, product, and policy teams to manage potential risks across stages of developing and operating GPAI systems. In spirit, this taxonomy is analogous to [MITRE ATT&CK](http://attack.mitre.org/) for cybersecurity vulnerabilities, and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial attacks on ML systems.
 
@@ -64,3 +66,11 @@ Figure 2 reconciles the two different views of the AVID taxonomy. We conceptuall
 | ![views.png](/uploads/views-small.png) |
 |:--:|
 | *Figure 2.* SEP and Lifecycle views of the AVID taxonomy represent different sections of the space of potential risks in an AI development workflow. |
+
+## Auxiliary Taxonomies
+
+AVID's taxonomy library also includes auxiliary taxonomies maintained in [avid-schema/taxonomy](https://github.com/avidml/avid-schema/tree/main/taxonomy):
+
+- [injectlab-llm](https://github.com/avidml/avid-schema/blob/main/taxonomy/injectlab-llm.json)
+- [Language Model Risk Cards](https://github.com/avidml/avid-schema/blob/main/taxonomy/risk-cards.json)
+- [Operational Design Domain by Trail of Bits](https://github.com/avidml/avid-schema/blob/main/taxonomy/trail-of-bits-ODDs.json)
