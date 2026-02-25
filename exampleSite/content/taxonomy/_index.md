@@ -6,7 +6,7 @@ layout: page
 
 <!-- The AVID taxonomy consists of categories and subcategories of potential harms encompassing coordinates of responsible AI,such as fairness, robustness, privacy, explainablity, reliability, and alignment. Similar to the [MITRE ATT&CK](http://attack.mitre.org/) framework for cybersecurity risks and [MITRE ATLAS](https://atlas.mitre.org/) for adversarial ML threats, the AVID taxonomy will set a common, open standard to evaluate ML systems for downstream responsible behavior. Compared to MITRE ATLAS which pertains to intentional attacks on ML systems, the AVID taxonomy will cover the area of *ML failures* that are often unintentional in nature. -->
 
-This page is part of AVID's taxonomy library. AVID's primary focus is the database of GPAI failure evidence, and taxonomies are used to classify and query those records.
+AVID's primary focus is the database of GPAI failure evidence, and taxonomies are used to classify and risk-score those records. We maintain a library of taxonomies, including the native AVID taxonomy, that help in this purpose.
 
 ## AVID Taxonomy
 
@@ -69,7 +69,7 @@ Figure 2 reconciles the two different views of the AVID taxonomy. We conceptuall
 
 ## Auxiliary Taxonomies
 
-AVID's taxonomy library also includes auxiliary taxonomies maintained in [avid-schema/taxonomy](https://github.com/avidml/avid-schema/tree/main/taxonomy):
+For machine-readability, taxonomies are shared using the standardized [MISP](https://www.circl.lu/doc/misp-taxonomies/) format. This enables support for additional taxonomies in the AVID taxonomy library. A list of such auxiliary taxonomies maintained in [avid-schema/taxonomy](https://github.com/avidml/avid-schema/tree/main/taxonomy):
 
 - [injectlab-llm](https://github.com/avidml/avid-schema/blob/main/taxonomy/injectlab-llm.json)
 - [Language Model Risk Cards](https://github.com/avidml/avid-schema/blob/main/taxonomy/risk-cards.json)

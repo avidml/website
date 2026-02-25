@@ -7,7 +7,7 @@ url: /database
 
 AVID is a database of failure modes in general-purpose AI (GPAI) systems, including LLMs, API-only AI systems, developer tooling, and end-to-end applications and agents. The two base data classes are **Report** and **Vulnerability**. A *report* captures one concrete occurrence with supporting evidence; a *vulnerability* (vuln) captures a recurring failure mode.
 
-Records in this database can be mapped to multiple taxonomy frameworks. The AVID taxonomy is one reference taxonomy in a broader taxonomy library. To learn more about the database and usage, refer to our [documentation](https://avidml.gitbook.io/).
+Records in this database can be mapped to multiple taxonomy and risk frameworks, including the AVID taxonomy, CVSS risk scores, and MITRE ATLAS. This page lists the current reports and vulns in our database. To learn more about the database and usage, refer to our [documentation](https://avidml.gitbook.io/).
 
 > **Note:** Older AVID records (before 2025) were curated under a broader AI/ML scope; these should be interpreted as legacy entries relative to the current GPAI-focused scope.
 >
