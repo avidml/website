@@ -19,7 +19,7 @@ At a high level, the AVID taxonomy consists of two views, intended to facilitate
 
 Based on case-specific needs, people involved with building a GPAI system may need to operate as either of the above personas.
 
-## Effect (SEP) view
+### Effect (SEP) view
 
 The domains, categories, and subcategories in this view provide a 'risk surface' for the AI artifact being evaluated, whether dataset, model, or whole system. This view contains three top-level domains:
 
@@ -48,7 +48,7 @@ Each domain is divided into a number of categories and subcategories, each of wh
 |:--:|
 | *Figure 1.* The AVID Taxonomy Matrix. |
 
-## Lifecycle view
+### Lifecycle view
 
 The stages in this view represent high-level sequential steps of a typical ML workflow. Following the widely-used Cross-industry standard process for data mining ([CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining)) framework, we designate six stages in this view.
 
