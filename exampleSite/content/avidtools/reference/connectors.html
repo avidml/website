@@ -1,28 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Connectors &mdash; avidtools 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css?v=a0a71c94" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
-        <script src="../_static/mermaid.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/mermaid.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -94,18 +93,20 @@
            <div itemprop="articleBody">
              
   <section id="connectors">
-<h1>Connectors<a class="headerlink" href="#connectors" title="Permalink to this heading"></a></h1>
+<h1>Connectors<a class="headerlink" href="#connectors" title="Link to this heading"></a></h1>
 <p>Connectors help import reported data from other data sources, such as ATLAS Case studies, NIST CVEs, AIID incidents.</p>
 <p>Currently, <code class="code docutils literal notranslate"><span class="pre">avidtools</span></code> supports the connector to MITRE ATLAS case study and NIST CVEs.</p>
 <section id="module-avidtools.connectors.atlas">
-<span id="avidtools-connectors-atlas"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.atlas<a class="headerlink" href="#module-avidtools.connectors.atlas" title="Permalink to this heading"></a></h2>
+<span id="avidtools-connectors-atlas"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.atlas<a class="headerlink" href="#module-avidtools.connectors.atlas" title="Link to this heading"></a></h2>
+<p>Connector utilities for importing and converting MITRE ATLAS data.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="avidtools.connectors.atlas.import_case_study">
-<span class="sig-name descname"><span class="pre">import_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/atlas.html#import_case_study"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.atlas.import_case_study" title="Permalink to this definition"></a></dt>
-<dd><p>Import a case study from the MITRE ATLAS website and return an yaml object.</p>
+<span class="sig-name descname"><span class="pre">import_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/atlas.html#import_case_study"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.atlas.import_case_study" title="Link to this definition"></a></dt>
+<dd><p>Import a case study from MITRE ATLAS website and return a yaml object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>case_study_id</strong> (<em>str</em>) – Identifier of the case studies to be imported. Has the format AML.CSXXXX</p>
+<dd class="field-odd"><p><strong>case_study_id</strong> (<em>str</em>) – Identifier of the case studies to be imported.
+Has the format AML.CSXXXX</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>case_study</strong> – Dictionary containing the imported case study.</p>
@@ -118,7 +119,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="avidtools.connectors.atlas.convert_case_study">
-<span class="sig-name descname"><span class="pre">convert_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/atlas.html#convert_case_study"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.atlas.convert_case_study" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/atlas.html#convert_case_study"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.atlas.convert_case_study" title="Link to this definition"></a></dt>
 <dd><p>Convert a case study in the ATLAS schema into an AVID report object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -135,10 +136,11 @@
 
 </section>
 <section id="module-avidtools.connectors.cve">
-<span id="avidtools-connectors-cve"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.cve<a class="headerlink" href="#module-avidtools.connectors.cve" title="Permalink to this heading"></a></h2>
+<span id="avidtools-connectors-cve"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.cve<a class="headerlink" href="#module-avidtools.connectors.cve" title="Link to this heading"></a></h2>
+<p>Connector utilities for importing and converting CVEs.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="avidtools.connectors.cve.import_cve">
-<span class="sig-name descname"><span class="pre">import_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#import_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.import_cve" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">import_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#import_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.import_cve" title="Link to this definition"></a></dt>
 <dd><p>Import a CVE from the NVD API and return a JSON dump object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -155,7 +157,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="avidtools.connectors.cve.convert_cve">
-<span class="sig-name descname"><span class="pre">convert_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#convert_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.convert_cve" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#convert_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.convert_cve" title="Link to this definition"></a></dt>
 <dd><p>Convert a CVE into an AVID report object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

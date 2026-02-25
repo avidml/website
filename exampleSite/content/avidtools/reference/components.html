@@ -1,28 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Components &mdash; avidtools 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css?v=a0a71c94" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
-        <script src="../_static/mermaid.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/mermaid.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -56,54 +55,59 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Components</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-avidtools.datamodels.components"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.datamodels</span></code>.components</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.LangValue"><code class="docutils literal notranslate"><span class="pre">LangValue</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.LangValue.lang"><code class="docutils literal notranslate"><span class="pre">LangValue.lang</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.LangValue.value"><code class="docutils literal notranslate"><span class="pre">LangValue.value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.LangValue.model_config"><code class="docutils literal notranslate"><span class="pre">LangValue.model_config</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.Artifact"><code class="docutils literal notranslate"><span class="pre">Artifact</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Artifact.type"><code class="docutils literal notranslate"><span class="pre">Artifact.type</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Artifact.name"><code class="docutils literal notranslate"><span class="pre">Artifact.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Artifact.model_config"><code class="docutils literal notranslate"><span class="pre">Artifact.model_config</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.Detection"><code class="docutils literal notranslate"><span class="pre">Detection</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Detection.type"><code class="docutils literal notranslate"><span class="pre">Detection.type</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Detection.name"><code class="docutils literal notranslate"><span class="pre">Detection.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Detection.model_config"><code class="docutils literal notranslate"><span class="pre">Detection.model_config</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.Affects"><code class="docutils literal notranslate"><span class="pre">Affects</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Affects.developer"><code class="docutils literal notranslate"><span class="pre">Affects.developer</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Affects.deployer"><code class="docutils literal notranslate"><span class="pre">Affects.deployer</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Affects.artifacts"><code class="docutils literal notranslate"><span class="pre">Affects.artifacts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Affects.model_config"><code class="docutils literal notranslate"><span class="pre">Affects.model_config</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.Problemtype"><code class="docutils literal notranslate"><span class="pre">Problemtype</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Problemtype.classof"><code class="docutils literal notranslate"><span class="pre">Problemtype.classof</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Problemtype.type"><code class="docutils literal notranslate"><span class="pre">Problemtype.type</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Problemtype.description"><code class="docutils literal notranslate"><span class="pre">Problemtype.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Problemtype.model_config"><code class="docutils literal notranslate"><span class="pre">Problemtype.model_config</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Metric.name"><code class="docutils literal notranslate"><span class="pre">Metric.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Metric.detection_method"><code class="docutils literal notranslate"><span class="pre">Metric.detection_method</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Metric.results"><code class="docutils literal notranslate"><span class="pre">Metric.results</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Metric.model_config"><code class="docutils literal notranslate"><span class="pre">Metric.model_config</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.Reference"><code class="docutils literal notranslate"><span class="pre">Reference</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Reference.type"><code class="docutils literal notranslate"><span class="pre">Reference.type</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Reference.label"><code class="docutils literal notranslate"><span class="pre">Reference.label</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Reference.url"><code class="docutils literal notranslate"><span class="pre">Reference.url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Reference.model_config"><code class="docutils literal notranslate"><span class="pre">Reference.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.AtlasTaxonomy"><code class="docutils literal notranslate"><span class="pre">AtlasTaxonomy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.AtlasTaxonomy.model_config"><code class="docutils literal notranslate"><span class="pre">AtlasTaxonomy.model_config</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy"><code class="docutils literal notranslate"><span class="pre">AvidTaxonomy</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.vuln_id"><code class="docutils literal notranslate"><span class="pre">AvidTaxonomy.vuln_id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.risk_domain"><code class="docutils literal notranslate"><span class="pre">AvidTaxonomy.risk_domain</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.sep_view"><code class="docutils literal notranslate"><span class="pre">AvidTaxonomy.sep_view</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.lifecycle_view"><code class="docutils literal notranslate"><span class="pre">AvidTaxonomy.lifecycle_view</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.taxonomy_version"><code class="docutils literal notranslate"><span class="pre">AvidTaxonomy.taxonomy_version</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.model_config"><code class="docutils literal notranslate"><span class="pre">AvidTaxonomy.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.CVSSScores"><code class="docutils literal notranslate"><span class="pre">CVSSScores</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.CVSSScores.model_config"><code class="docutils literal notranslate"><span class="pre">CVSSScores.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.CWETaxonomy"><code class="docutils literal notranslate"><span class="pre">CWETaxonomy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.CWETaxonomy.model_config"><code class="docutils literal notranslate"><span class="pre">CWETaxonomy.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.JailbreakTaxonomyItem"><code class="docutils literal notranslate"><span class="pre">JailbreakTaxonomyItem</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.JailbreakTaxonomyItem.model_config"><code class="docutils literal notranslate"><span class="pre">JailbreakTaxonomyItem.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.OdinTaxonomy"><code class="docutils literal notranslate"><span class="pre">OdinTaxonomy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.OdinTaxonomy.model_config"><code class="docutils literal notranslate"><span class="pre">OdinTaxonomy.model_config</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.datamodels.components.Impact"><code class="docutils literal notranslate"><span class="pre">Impact</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Impact.avid"><code class="docutils literal notranslate"><span class="pre">Impact.avid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.datamodels.components.Impact.model_config"><code class="docutils literal notranslate"><span class="pre">Impact.model_config</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -139,818 +143,190 @@
            <div itemprop="articleBody">
              
   <section id="components">
-<h1>Components<a class="headerlink" href="#components" title="Permalink to this heading"></a></h1>
+<h1>Components<a class="headerlink" href="#components" title="Link to this heading"></a></h1>
 <section id="module-avidtools.datamodels.components">
-<span id="avidtools-datamodels-components"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.datamodels</span></code>.components<a class="headerlink" href="#module-avidtools.datamodels.components" title="Permalink to this heading"></a></h2>
+<span id="avidtools-datamodels-components"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.datamodels</span></code>.components<a class="headerlink" href="#module-avidtools.datamodels.components" title="Link to this heading"></a></h2>
 <p>Component data classes used in AVID report and vulnerability datamodels.</p>
-<dl class="py class pydantic_model">
+<dl class="py class">
 <dt class="sig sig-object py" id="avidtools.datamodels.components.LangValue">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LangValue</span></span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#LangValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.LangValue" title="Permalink to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">LangValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#LangValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.LangValue" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>Generic class to store a string with its language specified.</p>
-<p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show JSON schema</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LangValue&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generic class to store a string with its language specified.&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;lang&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lang&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Value&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;lang&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span>
-<span class="w">   </span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></p><dl class="field-list simple">
-<dt class="field-odd">Fields<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.LangValue.lang" title="avidtools.datamodels.components.LangValue.lang"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lang</span> <span class="pre">(str)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.LangValue.value" title="avidtools.datamodels.components.LangValue.value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span> <span class="pre">(str)</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.LangValue.lang">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.LangValue.lang" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.LangValue.value">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.LangValue.value" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.LangValue.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#avidtools.datamodels.components.LangValue.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class pydantic_model">
+<dl class="py class">
 <dt class="sig sig-object py" id="avidtools.datamodels.components.Artifact">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Artifact</span></span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Artifact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Artifact" title="Permalink to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Artifact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enums.html#avidtools.datamodels.enums.ArtifactTypeEnum" title="avidtools.datamodels.enums.ArtifactTypeEnum"><span class="pre">ArtifactTypeEnum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Artifact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Artifact" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>Type and name of an affected artifact.</p>
-<p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show JSON schema</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Artifact&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Type and name of an affected artifact.&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/ArtifactTypeEnum&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;type&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;name&quot;</span>
-<span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;ArtifactTypeEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ArtifactTypeEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Whether the artifact is a dataset, model, or system.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;Dataset&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Model&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;System&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></p><dl class="field-list simple">
-<dt class="field-odd">Fields<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Artifact.name" title="avidtools.datamodels.components.Artifact.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Artifact.type" title="avidtools.datamodels.components.Artifact.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span> <span class="pre">(avidtools.datamodels.enums.ArtifactTypeEnum)</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Artifact.type">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enums.html#avidtools.datamodels.enums.ArtifactTypeEnum" title="avidtools.datamodels.enums.ArtifactTypeEnum"><span class="pre">ArtifactTypeEnum</span></a></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Artifact.type" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Artifact.name">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Artifact.name" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.Artifact.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#avidtools.datamodels.components.Artifact.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class pydantic_model">
+<dl class="py class">
 <dt class="sig sig-object py" id="avidtools.datamodels.components.Detection">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Detection</span></span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Detection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Detection" title="Permalink to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Detection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enums.html#avidtools.datamodels.enums.MethodEnum" title="avidtools.datamodels.enums.MethodEnum"><span class="pre">MethodEnum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Detection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Detection" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>Method to detect a specific issue.</p>
-<p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show JSON schema</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Detection&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Method to detect a specific issue.&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/MethodEnum&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;type&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;name&quot;</span>
-<span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;MethodEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MethodEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The values a detection method can take.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;Significance Test&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Static Threshold&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></p><dl class="field-list simple">
-<dt class="field-odd">Fields<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Detection.name" title="avidtools.datamodels.components.Detection.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Detection.type" title="avidtools.datamodels.components.Detection.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span> <span class="pre">(avidtools.datamodels.enums.MethodEnum)</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Detection.type">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enums.html#avidtools.datamodels.enums.MethodEnum" title="avidtools.datamodels.enums.MethodEnum"><span class="pre">MethodEnum</span></a></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Detection.type" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Detection.name">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Detection.name" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.Detection.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#avidtools.datamodels.components.Detection.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class pydantic_model">
+<dl class="py class">
 <dt class="sig sig-object py" id="avidtools.datamodels.components.Affects">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Affects</span></span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Affects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Affects" title="Permalink to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Affects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">developer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deployer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">artifacts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#avidtools.datamodels.components.Artifact" title="avidtools.datamodels.components.Artifact"><span class="pre">Artifact</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Affects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Affects" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>Information on Artifact(s) affected by this report.</p>
-<p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show JSON schema</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Affects&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Information on Artifact(s) affected by this report.&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;developer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;deployer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deployer&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;artifacts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Artifacts&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Artifact&quot;</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;developer&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;deployer&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;artifacts&quot;</span>
-<span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;ArtifactTypeEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ArtifactTypeEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Whether the artifact is a dataset, model, or system.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;Dataset&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Model&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;System&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;Artifact&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Artifact&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Type and name of an affected artifact.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/ArtifactTypeEnum&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">         </span><span class="p">},</span>
-<span class="w">         </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;name&quot;</span>
-<span class="w">         </span><span class="p">]</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></p><dl class="field-list simple">
-<dt class="field-odd">Fields<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Affects.artifacts" title="avidtools.datamodels.components.Affects.artifacts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">artifacts</span> <span class="pre">(List[avidtools.datamodels.components.Artifact])</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Affects.deployer" title="avidtools.datamodels.components.Affects.deployer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deployer</span> <span class="pre">(List[str])</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Affects.developer" title="avidtools.datamodels.components.Affects.developer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">developer</span> <span class="pre">(List[str])</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Affects.developer">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">developer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Affects.developer" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Affects.deployer">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deployer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Affects.deployer" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Affects.artifacts">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">artifacts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#avidtools.datamodels.components.Artifact" title="avidtools.datamodels.components.Artifact"><span class="pre">Artifact</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Affects.artifacts" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.Affects.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#avidtools.datamodels.components.Affects.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class pydantic_model">
+<dl class="py class">
 <dt class="sig sig-object py" id="avidtools.datamodels.components.Problemtype">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Problemtype</span></span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Problemtype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Problemtype" title="Permalink to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Problemtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">classof</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enums.html#avidtools.datamodels.enums.ClassEnum" title="avidtools.datamodels.enums.ClassEnum"><span class="pre">ClassEnum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enums.html#avidtools.datamodels.enums.TypeEnum" title="avidtools.datamodels.enums.TypeEnum"><span class="pre">TypeEnum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#avidtools.datamodels.components.LangValue" title="avidtools.datamodels.components.LangValue"><span class="pre">LangValue</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Problemtype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Problemtype" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>Description of the problem a report/vuln is concerned with.</p>
-<p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show JSON schema</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Problemtype&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Description of the problem a report/vuln is concerned with.&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;classof&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/ClassEnum&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/TypeEnum&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/LangValue&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;classof&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;description&quot;</span>
-<span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;ClassEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ClassEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All report/vulnerability classes.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;AIID Incident&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;ATLAS Case Study&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;CVE Entry&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;LLM Evaluation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Undefined&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;TypeEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TypeEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All report/vulnerability types.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;Issue&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Advisory&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Measurement&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Detection&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;LangValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LangValue&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generic class to store a string with its language specified.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;lang&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lang&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Value&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">         </span><span class="p">},</span>
-<span class="w">         </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;lang&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;value&quot;</span>
-<span class="w">         </span><span class="p">]</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></p><dl class="field-list simple">
-<dt class="field-odd">Fields<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Problemtype.classof" title="avidtools.datamodels.components.Problemtype.classof"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classof</span> <span class="pre">(avidtools.datamodels.enums.ClassEnum)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Problemtype.description" title="avidtools.datamodels.components.Problemtype.description"><code class="xref py py-obj docutils literal notranslate"><span class="pre">description</span> <span class="pre">(avidtools.datamodels.components.LangValue)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Problemtype.type" title="avidtools.datamodels.components.Problemtype.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span> <span class="pre">(avidtools.datamodels.enums.TypeEnum</span> <span class="pre">|</span> <span class="pre">None)</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Problemtype.classof">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">classof</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enums.html#avidtools.datamodels.enums.ClassEnum" title="avidtools.datamodels.enums.ClassEnum"><span class="pre">ClassEnum</span></a></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Problemtype.classof" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Problemtype.type">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enums.html#avidtools.datamodels.enums.TypeEnum" title="avidtools.datamodels.enums.TypeEnum"><span class="pre">TypeEnum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#avidtools.datamodels.components.Problemtype.type" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Problemtype.description">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#avidtools.datamodels.components.LangValue" title="avidtools.datamodels.components.LangValue"><span class="pre">LangValue</span></a></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Problemtype.description" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.Problemtype.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#avidtools.datamodels.components.Problemtype.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class pydantic_model">
+<dl class="py class">
 <dt class="sig sig-object py" id="avidtools.datamodels.components.Metric">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Metric</span></span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Metric" title="Permalink to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detection_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#avidtools.datamodels.components.Detection" title="avidtools.datamodels.components.Detection"><span class="pre">Detection</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Metric" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>Quantification of the issue in a specific report.</p>
-<p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show JSON schema</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Metric&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Quantification of the issue in a specific report.&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;detection_method&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Detection&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Results&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;detection_method&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;results&quot;</span>
-<span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;MethodEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MethodEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The values a detection method can take.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;Significance Test&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Static Threshold&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;Detection&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Detection&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Method to detect a specific issue.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/MethodEnum&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">         </span><span class="p">},</span>
-<span class="w">         </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;name&quot;</span>
-<span class="w">         </span><span class="p">]</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></p><dl class="field-list simple">
-<dt class="field-odd">Fields<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Metric.detection_method" title="avidtools.datamodels.components.Metric.detection_method"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detection_method</span> <span class="pre">(avidtools.datamodels.components.Detection)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Metric.name" title="avidtools.datamodels.components.Metric.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Metric.results" title="avidtools.datamodels.components.Metric.results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">results</span> <span class="pre">(Dict)</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Metric.name">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Metric.name" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Metric.detection_method">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">detection_method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#avidtools.datamodels.components.Detection" title="avidtools.datamodels.components.Detection"><span class="pre">Detection</span></a></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Metric.detection_method" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Metric.results">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">results</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Metric.results" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.Metric.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#avidtools.datamodels.components.Metric.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class pydantic_model">
+<dl class="py class">
 <dt class="sig sig-object py" id="avidtools.datamodels.components.Reference">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Reference</span></span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Reference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Reference" title="Permalink to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Reference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Reference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Reference" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>Details for a reference of a report/vulnerability.</p>
-<p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show JSON schema</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Reference&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Details for a reference of a report/vulnerability.&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Type&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Label&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Url&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;url&quot;</span>
-<span class="w">   </span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></p><dl class="field-list simple">
-<dt class="field-odd">Config<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fields</strong>: <em>dict = {‘type’: {‘exclude’: True}}</em></p></li>
-</ul>
-</dd>
-<dt class="field-even">Fields<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Reference.label" title="avidtools.datamodels.components.Reference.label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">label</span> <span class="pre">(str)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Reference.type" title="avidtools.datamodels.components.Reference.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span> <span class="pre">(str</span> <span class="pre">|</span> <span class="pre">None)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Reference.url" title="avidtools.datamodels.components.Reference.url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">url</span> <span class="pre">(str)</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Reference.type">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#avidtools.datamodels.components.Reference.type" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Reference.label">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Reference.label" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Reference.url">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Reference.url" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.Reference.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fields':</span> <span class="pre">{'type':</span> <span class="pre">{'exclude':</span> <span class="pre">True}}}</span></span><a class="headerlink" href="#avidtools.datamodels.components.Reference.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class pydantic_model">
+<dl class="py class">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.AtlasTaxonomy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">AtlasTaxonomy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tactic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">technique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#AtlasTaxonomy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.AtlasTaxonomy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>ATLAS taxonomy mappings representing attack procedure steps.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.AtlasTaxonomy.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fields':</span> <span class="pre">{'description':</span> <span class="pre">{'exclude':</span> <span class="pre">True},</span> <span class="pre">'tactic':</span> <span class="pre">{'exclude':</span> <span class="pre">True},</span> <span class="pre">'technique':</span> <span class="pre">{'exclude':</span> <span class="pre">True}}}</span></span><a class="headerlink" href="#avidtools.datamodels.components.AtlasTaxonomy.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="avidtools.datamodels.components.AvidTaxonomy">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AvidTaxonomy</span></span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#AvidTaxonomy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.AvidTaxonomy" title="Permalink to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">AvidTaxonomy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">vuln_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">risk_domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep_view</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enums.html#avidtools.datamodels.enums.SepEnum" title="avidtools.datamodels.enums.SepEnum"><span class="pre">SepEnum</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifecycle_view</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enums.html#avidtools.datamodels.enums.LifecycleEnum" title="avidtools.datamodels.enums.LifecycleEnum"><span class="pre">LifecycleEnum</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taxonomy_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#AvidTaxonomy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.AvidTaxonomy" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>AVID taxonomy mappings of a report/vulnerability.</p>
-<p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show JSON schema</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AvidTaxonomy&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AVID taxonomy mappings of a report/vulnerability.&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;vuln_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Vuln Id&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;risk_domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Risk Domain&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;sep_view&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/SepEnum&quot;</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;lifecycle_view&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/LifecycleEnum&quot;</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;taxonomy_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Taxonomy Version&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;risk_domain&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;sep_view&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;lifecycle_view&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;taxonomy_version&quot;</span>
-<span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;SepEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SepEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All (sub)categories of the SEP view of the AVID taxonomy.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;S0100: Software Vulnerability&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0200: Supply Chain Compromise&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0201: Model Compromise&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0202: Software Compromise&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0300: Over-permissive API&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0301: Information Leak&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0302: Excessive Queries&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0400: Model Bypass&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0401: Bad Features&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0402: Insufficient Training Data&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0403: Adversarial Example&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0500: Exfiltration&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0501: Model inversion&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0502: Model theft&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0600: Data Poisoning&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0601: Ingest Poisoning&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0100: Bias/ Discrimination&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0101: Group fairness&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0102: Individual fairness&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0200: Explainability&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0201: Global explanations&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0202: Local explanations&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0300: User actions&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0301: Toxicity&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0302: Polarization/ Exclusion&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0400: Misinformation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0401: Deliberative Misinformation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0402: Generative Misinformation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0100: Data issues&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0101: Data drift&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0102: Concept drift&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0103: Data entanglement&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0104: Data quality issues&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0105: Feedback loops&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0200: Model issues&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0201: Resilience/ Stability&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0202: OOD generalization&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0203: Scaling&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0204: Accuracy&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0300: Privacy&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0301: Anonymization&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0302: Randomization&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0303: Encryption&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0400: Safety&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0401: Psychological Safety&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0402: Physical safety&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0403: Socioeconomic safety&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0404: Environmental safety&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;LifecycleEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LifecycleEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All (sub)categories of the lifecycle view of the AVID taxonomy.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;L01: Business Understanding&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L02: Data Understanding&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L03: Data Preparation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L04: Model Development&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L05: Evaluation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L06: Deployment&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></p><dl class="field-list simple">
-<dt class="field-odd">Config<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fields</strong>: <em>dict = {‘vuln_id’: {‘exclude’: True}}</em></p></li>
-</ul>
-</dd>
-<dt class="field-even">Fields<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.lifecycle_view" title="avidtools.datamodels.components.AvidTaxonomy.lifecycle_view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lifecycle_view</span> <span class="pre">(List[avidtools.datamodels.enums.LifecycleEnum])</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.risk_domain" title="avidtools.datamodels.components.AvidTaxonomy.risk_domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">risk_domain</span> <span class="pre">(List[str])</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.sep_view" title="avidtools.datamodels.components.AvidTaxonomy.sep_view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sep_view</span> <span class="pre">(List[avidtools.datamodels.enums.SepEnum])</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.taxonomy_version" title="avidtools.datamodels.components.AvidTaxonomy.taxonomy_version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">taxonomy_version</span> <span class="pre">(str)</span></code></a></p></li>
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy.vuln_id" title="avidtools.datamodels.components.AvidTaxonomy.vuln_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vuln_id</span> <span class="pre">(str</span> <span class="pre">|</span> <span class="pre">None)</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.AvidTaxonomy.vuln_id">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vuln_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#avidtools.datamodels.components.AvidTaxonomy.vuln_id" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.AvidTaxonomy.risk_domain">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">risk_domain</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.AvidTaxonomy.risk_domain" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.AvidTaxonomy.sep_view">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sep_view</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enums.html#avidtools.datamodels.enums.SepEnum" title="avidtools.datamodels.enums.SepEnum"><span class="pre">SepEnum</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.AvidTaxonomy.sep_view" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.AvidTaxonomy.lifecycle_view">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lifecycle_view</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enums.html#avidtools.datamodels.enums.LifecycleEnum" title="avidtools.datamodels.enums.LifecycleEnum"><span class="pre">LifecycleEnum</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.AvidTaxonomy.lifecycle_view" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.AvidTaxonomy.taxonomy_version">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">taxonomy_version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.AvidTaxonomy.taxonomy_version" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.AvidTaxonomy.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fields':</span> <span class="pre">{'vuln_id':</span> <span class="pre">{'exclude':</span> <span class="pre">True}}}</span></span><a class="headerlink" href="#avidtools.datamodels.components.AvidTaxonomy.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Impact">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Impact</span></span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Impact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Impact" title="Permalink to this definition"></a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.CVSSScores">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">CVSSScores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectorString</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseScore</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseSeverity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attackVector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attackComplexity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">privilegesRequired</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userInteraction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidentialityImpact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integrityImpact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">availabilityImpact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#CVSSScores"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.CVSSScores" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
-<p>Impact information of a report/vulnerability, e.g. different taxonomy mappings, harm and severity scores.</p>
-<p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show JSON schema</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Impact&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Impact information of a report/vulnerability, e.g. different taxonomy mappings, harm and severity scores.&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;avid&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/AvidTaxonomy&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;avid&quot;</span>
-<span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;SepEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SepEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All (sub)categories of the SEP view of the AVID taxonomy.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;S0100: Software Vulnerability&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0200: Supply Chain Compromise&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0201: Model Compromise&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0202: Software Compromise&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0300: Over-permissive API&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0301: Information Leak&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0302: Excessive Queries&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0400: Model Bypass&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0401: Bad Features&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0402: Insufficient Training Data&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0403: Adversarial Example&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0500: Exfiltration&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0501: Model inversion&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0502: Model theft&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0600: Data Poisoning&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;S0601: Ingest Poisoning&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0100: Bias/ Discrimination&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0101: Group fairness&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0102: Individual fairness&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0200: Explainability&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0201: Global explanations&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0202: Local explanations&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0300: User actions&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0301: Toxicity&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0302: Polarization/ Exclusion&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0400: Misinformation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0401: Deliberative Misinformation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;E0402: Generative Misinformation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0100: Data issues&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0101: Data drift&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0102: Concept drift&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0103: Data entanglement&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0104: Data quality issues&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0105: Feedback loops&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0200: Model issues&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0201: Resilience/ Stability&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0202: OOD generalization&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0203: Scaling&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0204: Accuracy&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0300: Privacy&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0301: Anonymization&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0302: Randomization&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0303: Encryption&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0400: Safety&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0401: Psychological Safety&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0402: Physical safety&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0403: Socioeconomic safety&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;P0404: Environmental safety&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;LifecycleEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LifecycleEnum&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All (sub)categories of the lifecycle view of the AVID taxonomy.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;L01: Business Understanding&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L02: Data Understanding&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L03: Data Preparation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L04: Model Development&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L05: Evaluation&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;L06: Deployment&quot;</span>
-<span class="w">         </span><span class="p">],</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;AvidTaxonomy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AvidTaxonomy&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AVID taxonomy mappings of a report/vulnerability.&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;vuln_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Vuln Id&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">&quot;risk_domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Risk Domain&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">               </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">&quot;sep_view&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                  </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/SepEnum&quot;</span>
-<span class="w">               </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">&quot;lifecycle_view&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                  </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/LifecycleEnum&quot;</span>
-<span class="w">               </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">&quot;taxonomy_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Taxonomy Version&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">         </span><span class="p">},</span>
-<span class="w">         </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;risk_domain&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;sep_view&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;lifecycle_view&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;taxonomy_version&quot;</span>
-<span class="w">         </span><span class="p">]</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</details></p><dl class="field-list simple">
-<dt class="field-odd">Fields<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#avidtools.datamodels.components.Impact.avid" title="avidtools.datamodels.components.Impact.avid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">avid</span> <span class="pre">(avidtools.datamodels.components.AvidTaxonomy)</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="avidtools.datamodels.components.Impact.avid">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy" title="avidtools.datamodels.components.AvidTaxonomy"><span class="pre">AvidTaxonomy</span></a></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#avidtools.datamodels.components.Impact.avid" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<p>CVSS v3.0/v3.1 severity metrics.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.CVSSScores.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#avidtools.datamodels.components.CVSSScores.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.CWETaxonomy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">CWETaxonomy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">cweId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#CWETaxonomy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.CWETaxonomy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>CWE (Common Weakness Enumeration) taxonomy mapping.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.CWETaxonomy.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#avidtools.datamodels.components.CWETaxonomy.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.JailbreakTaxonomyItem">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">JailbreakTaxonomyItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">Category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Technique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#JailbreakTaxonomyItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.JailbreakTaxonomyItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>0DIN Jailbreak Taxonomy item with Category, Strategy, and Technique.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.JailbreakTaxonomyItem.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fields':</span> <span class="pre">{'Category':</span> <span class="pre">{'exclude':</span> <span class="pre">True},</span> <span class="pre">'Strategy':</span> <span class="pre">{'exclude':</span> <span class="pre">True},</span> <span class="pre">'Technique':</span> <span class="pre">{'exclude':</span> <span class="pre">True}}}</span></span><a class="headerlink" href="#avidtools.datamodels.components.JailbreakTaxonomyItem.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.OdinTaxonomy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">OdinTaxonomy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">SocialImpactScore</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">JailbreakTaxonomy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#avidtools.datamodels.components.JailbreakTaxonomyItem" title="avidtools.datamodels.components.JailbreakTaxonomyItem"><span class="pre">JailbreakTaxonomyItem</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#OdinTaxonomy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.OdinTaxonomy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>0DIN taxonomy mapping for AI security disclosures.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.OdinTaxonomy.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fields':</span> <span class="pre">{'JailbreakTaxonomy':</span> <span class="pre">{'exclude':</span> <span class="pre">True},</span> <span class="pre">'SocialImpactScore':</span> <span class="pre">{'exclude':</span> <span class="pre">True}}}</span></span><a class="headerlink" href="#avidtools.datamodels.components.OdinTaxonomy.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.Impact">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">avid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#avidtools.datamodels.components.AvidTaxonomy" title="avidtools.datamodels.components.AvidTaxonomy"><span class="pre">AvidTaxonomy</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atlas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#avidtools.datamodels.components.AtlasTaxonomy" title="avidtools.datamodels.components.AtlasTaxonomy"><span class="pre">AtlasTaxonomy</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cvss</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#avidtools.datamodels.components.CVSSScores" title="avidtools.datamodels.components.CVSSScores"><span class="pre">CVSSScores</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#avidtools.datamodels.components.CWETaxonomy" title="avidtools.datamodels.components.CWETaxonomy"><span class="pre">CWETaxonomy</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#avidtools.datamodels.components.OdinTaxonomy" title="avidtools.datamodels.components.OdinTaxonomy"><span class="pre">OdinTaxonomy</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/datamodels/components.html#Impact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.datamodels.components.Impact" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Impact information of a report/vulnerability.</p>
+<p>E.g. different taxonomy mappings, harm and severity scores.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="avidtools.datamodels.components.Impact.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fields':</span> <span class="pre">{'atlas':</span> <span class="pre">{'exclude':</span> <span class="pre">True},</span> <span class="pre">'avid':</span> <span class="pre">{'exclude':</span> <span class="pre">True},</span> <span class="pre">'cvss':</span> <span class="pre">{'exclude':</span> <span class="pre">True},</span> <span class="pre">'cwe':</span> <span class="pre">{'exclude':</span> <span class="pre">True},</span> <span class="pre">'odin':</span> <span class="pre">{'exclude':</span> <span class="pre">True}}}</span></span><a class="headerlink" href="#avidtools.datamodels.components.Impact.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
 
 </dd></dl>
 
