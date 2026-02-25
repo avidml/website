@@ -149,19 +149,8 @@ blockquote {
   background: var(--alert-background);
   border-left: 0.3rem solid var(--alert-border);
   margin: 1rem 0;
-  padding: 0.8rem 1rem 0.8rem 2.8rem;
+  padding: 0.8rem 1rem;
   border-radius: var(--border-radius);
-  position: relative;
-
-  &::before {
-    content: 'ℹ';
-    position: absolute;
-    left: 0.85rem;
-    top: 0.75rem;
-    font-size: 1.1rem;
-    color: var(--alert-border);
-    line-height: 1;
-  }
 }
 
 /* Report type badges */
