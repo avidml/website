@@ -1,28 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Connectors &mdash; avidtools 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css?v=a0a71c94" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
-        <script src="../_static/mermaid.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/mermaid.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -55,14 +54,52 @@
 <li class="toctree-l1"><a class="reference internal" href="components.html">Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Connectors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-avidtools.connectors.aiid"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.aiid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-avidtools.connectors.atlas"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.atlas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.atlas.import_case_study"><code class="docutils literal notranslate"><span class="pre">import_case_study()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.atlas.convert_case_study"><code class="docutils literal notranslate"><span class="pre">convert_case_study()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#module-avidtools.connectors.base"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.base</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.base.process_json_file"><code class="docutils literal notranslate"><span class="pre">process_json_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.base.process_jsonl_file"><code class="docutils literal notranslate"><span class="pre">process_jsonl_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.base.normalize_file"><code class="docutils literal notranslate"><span class="pre">normalize_file()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-avidtools.connectors.cve"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.cve</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.cve.import_cve"><code class="docutils literal notranslate"><span class="pre">import_cve()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.cve.convert_cve"><code class="docutils literal notranslate"><span class="pre">convert_cve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-avidtools.connectors.garak"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.garak</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.garak.normalize_file"><code class="docutils literal notranslate"><span class="pre">normalize_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-avidtools.connectors.inspect"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.inspect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.inspect.UnsupportedInspectBenchmarkError"><code class="docutils literal notranslate"><span class="pre">UnsupportedInspectBenchmarkError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.inspect.import_eval_log"><code class="docutils literal notranslate"><span class="pre">import_eval_log()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.inspect.convert_eval_log"><code class="docutils literal notranslate"><span class="pre">convert_eval_log()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.inspect.normalize_report_data"><code class="docutils literal notranslate"><span class="pre">normalize_report_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.inspect.process_report"><code class="docutils literal notranslate"><span class="pre">process_report()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-avidtools.connectors.url"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.url</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.url.URLConnector"><code class="docutils literal notranslate"><span class="pre">URLConnector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.connectors.url.URLConnector.scrape_url"><code class="docutils literal notranslate"><span class="pre">URLConnector.scrape_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avidtools.connectors.url.URLConnector.create_report_from_url"><code class="docutils literal notranslate"><span class="pre">URLConnector.create_report_from_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.url.fetch_and_convert"><code class="docutils literal notranslate"><span class="pre">fetch_and_convert()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-avidtools.connectors.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.utils.to_list"><code class="docutils literal notranslate"><span class="pre">to_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.utils.extract_model_names"><code class="docutils literal notranslate"><span class="pre">extract_model_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.utils.apply_model_developer_mapping"><code class="docutils literal notranslate"><span class="pre">apply_model_developer_mapping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.utils.apply_openai_system_artifact_type"><code class="docutils literal notranslate"><span class="pre">apply_openai_system_artifact_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.utils.apply_normalizations"><code class="docutils literal notranslate"><span class="pre">apply_normalizations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.utils.apply_review_normalizations"><code class="docutils literal notranslate"><span class="pre">apply_review_normalizations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avidtools.connectors.utils.choose_model_subject_label"><code class="docutils literal notranslate"><span class="pre">choose_model_subject_label()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -94,18 +131,24 @@
            <div itemprop="articleBody">
              
   <section id="connectors">
-<h1>Connectors<a class="headerlink" href="#connectors" title="Permalink to this heading"></a></h1>
+<h1>Connectors<a class="headerlink" href="#connectors" title="Link to this heading"></a></h1>
 <p>Connectors help import reported data from other data sources, such as ATLAS Case studies, NIST CVEs, AIID incidents.</p>
-<p>Currently, <code class="code docutils literal notranslate"><span class="pre">avidtools</span></code> supports the connector to MITRE ATLAS case study and NIST CVEs.</p>
+<p>The modules below document all currently supported connectors and connector utilities.</p>
+<section id="module-avidtools.connectors.aiid">
+<span id="avidtools-connectors-aiid"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.aiid<a class="headerlink" href="#module-avidtools.connectors.aiid" title="Link to this heading"></a></h2>
+<p>AIID connector placeholder module.</p>
+</section>
 <section id="module-avidtools.connectors.atlas">
-<span id="avidtools-connectors-atlas"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.atlas<a class="headerlink" href="#module-avidtools.connectors.atlas" title="Permalink to this heading"></a></h2>
+<span id="avidtools-connectors-atlas"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.atlas<a class="headerlink" href="#module-avidtools.connectors.atlas" title="Link to this heading"></a></h2>
+<p>Connector utilities for importing and converting MITRE ATLAS data.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="avidtools.connectors.atlas.import_case_study">
-<span class="sig-name descname"><span class="pre">import_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/atlas.html#import_case_study"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.atlas.import_case_study" title="Permalink to this definition"></a></dt>
-<dd><p>Import a case study from the MITRE ATLAS website and return an yaml object.</p>
+<span class="sig-name descname"><span class="pre">import_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/atlas.html#import_case_study"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.atlas.import_case_study" title="Link to this definition"></a></dt>
+<dd><p>Import a case study from MITRE ATLAS website and return a yaml object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>case_study_id</strong> (<em>str</em>) – Identifier of the case studies to be imported. Has the format AML.CSXXXX</p>
+<dd class="field-odd"><p><strong>case_study_id</strong> (<em>str</em>) – Identifier of the case studies to be imported.
+Has the format AML.CSXXXX</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>case_study</strong> – Dictionary containing the imported case study.</p>
@@ -118,7 +161,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="avidtools.connectors.atlas.convert_case_study">
-<span class="sig-name descname"><span class="pre">convert_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/atlas.html#convert_case_study"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.atlas.convert_case_study" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/atlas.html#convert_case_study"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.atlas.convert_case_study" title="Link to this definition"></a></dt>
 <dd><p>Convert a case study in the ATLAS schema into an AVID report object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -134,11 +177,34 @@
 </dd></dl>
 
 </section>
+<section id="module-avidtools.connectors.base">
+<span id="avidtools-connectors-base"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.base<a class="headerlink" href="#module-avidtools.connectors.base" title="Link to this heading"></a></h2>
+<p>Generic normalize helpers for AVID report JSON and JSONL files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.base.process_json_file">
+<span class="sig-name descname"><span class="pre">process_json_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dry_run</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/base.html#process_json_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.base.process_json_file" title="Link to this definition"></a></dt>
+<dd><p>Normalize a JSON file containing one report object or a list of reports.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.base.process_jsonl_file">
+<span class="sig-name descname"><span class="pre">process_jsonl_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dry_run</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/base.html#process_jsonl_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.base.process_jsonl_file" title="Link to this definition"></a></dt>
+<dd><p>Normalize each report object in a JSONL file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.base.normalize_file">
+<span class="sig-name descname"><span class="pre">normalize_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dry_run</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/base.html#normalize_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.base.normalize_file" title="Link to this definition"></a></dt>
+<dd><p>Dispatch normalize processing based on input file extension.</p>
+</dd></dl>
+
+</section>
 <section id="module-avidtools.connectors.cve">
-<span id="avidtools-connectors-cve"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.cve<a class="headerlink" href="#module-avidtools.connectors.cve" title="Permalink to this heading"></a></h2>
+<span id="avidtools-connectors-cve"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.cve<a class="headerlink" href="#module-avidtools.connectors.cve" title="Link to this heading"></a></h2>
+<p>Connector utilities for importing and converting CVEs.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="avidtools.connectors.cve.import_cve">
-<span class="sig-name descname"><span class="pre">import_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#import_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.import_cve" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">import_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#import_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.import_cve" title="Link to this definition"></a></dt>
 <dd><p>Import a CVE from the NVD API and return a JSON dump object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -155,7 +221,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="avidtools.connectors.cve.convert_cve">
-<span class="sig-name descname"><span class="pre">convert_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#convert_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.convert_cve" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_cve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cve</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/cve.html#convert_cve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.cve.convert_cve" title="Link to this definition"></a></dt>
 <dd><p>Convert a CVE into an AVID report object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -168,6 +234,192 @@
 <dd class="field-odd"><p><a class="reference internal" href="vulnerability.html#avidtools.datamodels.vulnerability.Vulnerability" title="avidtools.datamodels.vulnerability.Vulnerability">Vulnerability</a></p>
 </dd>
 </dl>
+</dd></dl>
+
+</section>
+<section id="module-avidtools.connectors.garak">
+<span id="avidtools-connectors-garak"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.garak<a class="headerlink" href="#module-avidtools.connectors.garak" title="Link to this heading"></a></h2>
+<p>Garak-specific normalize helpers for AVID report JSON and JSONL files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.garak.normalize_file">
+<span class="sig-name descname"><span class="pre">normalize_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dry_run</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/smajumdar/avidml/avidtools/avidtools/connectors/.garak_probe_summary_cache.json')</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/garak.html#normalize_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.garak.normalize_file" title="Link to this definition"></a></dt>
+<dd><p>Normalize a Garak JSON/JSONL input file and optionally rewrite in place.</p>
+</dd></dl>
+
+</section>
+<section id="module-avidtools.connectors.inspect">
+<span id="avidtools-connectors-inspect"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.inspect<a class="headerlink" href="#module-avidtools.connectors.inspect" title="Link to this heading"></a></h2>
+<p>Connector helpers for converting and normalizing Inspect evaluation reports.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="avidtools.connectors.inspect.UnsupportedInspectBenchmarkError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">UnsupportedInspectBenchmarkError</span></span><a class="reference internal" href="../_modules/avidtools/connectors/inspect.html#UnsupportedInspectBenchmarkError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.inspect.UnsupportedInspectBenchmarkError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
+<p>Raised when an Inspect benchmark cannot be resolved to a supported page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.inspect.import_eval_log">
+<span class="sig-name descname"><span class="pre">import_eval_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/inspect.html#import_eval_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.inspect.import_eval_log" title="Link to this definition"></a></dt>
+<dd><p>Import an Inspect evaluation log from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – Path to the evaluation log file (.eval or .json).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>eval_log</strong> – The loaded evaluation log.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>EvalLog</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.inspect.convert_eval_log">
+<span class="sig-name descname"><span class="pre">convert_eval_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="report.html#avidtools.datamodels.report.Report" title="avidtools.datamodels.report.Report"><span class="pre">Report</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/inspect.html#convert_eval_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.inspect.convert_eval_log" title="Link to this definition"></a></dt>
+<dd><p>Convert an Inspect evaluation log into a list of AVID Report objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – Path to the evaluation log file (.eval or .json).</p></li>
+<li><p><strong>normalize</strong> (<em>bool</em>) – If True, run normalize steps that fetch benchmark overview/scoring
+and apply report normalizations.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of AVID Report objects created from the evaluation log.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="report.html#avidtools.datamodels.report.Report" title="avidtools.datamodels.report.Report">Report</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.inspect.normalize_report_data">
+<span class="sig-name descname"><span class="pre">normalize_report_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/inspect.html#normalize_report_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.inspect.normalize_report_data" title="Link to this definition"></a></dt>
+<dd><p>Apply Inspect normalize transformations to a report dictionary.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.inspect.process_report">
+<span class="sig-name descname"><span class="pre">process_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/inspect.html#process_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.inspect.process_report" title="Link to this definition"></a></dt>
+<dd><p>Load, normalize, and rewrite a single Inspect report file.</p>
+</dd></dl>
+
+</section>
+<section id="module-avidtools.connectors.url">
+<span id="avidtools-connectors-url"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.url<a class="headerlink" href="#module-avidtools.connectors.url" title="Link to this heading"></a></h2>
+<p>URL connector for AVID that scrapes web content and uses an AI agent to create AVID reports.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="avidtools.connectors.url.URLConnector">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">URLConnector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'gpt-4o-mini'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/url.html#URLConnector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.url.URLConnector" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Connector to scrape URLs and create AVID reports using AI.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="avidtools.connectors.url.URLConnector.scrape_url">
+<span class="sig-name descname"><span class="pre">scrape_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/url.html#URLConnector.scrape_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.url.URLConnector.scrape_url" title="Link to this definition"></a></dt>
+<dd><p>Scrape content from a URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The URL to scrape.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing scraped content with keys: url, title, text, html.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="avidtools.connectors.url.URLConnector.create_report_from_url">
+<span class="sig-name descname"><span class="pre">create_report_from_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_retries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="report.html#avidtools.datamodels.report.Report" title="avidtools.datamodels.report.Report"><span class="pre">Report</span></a></span></span><a class="reference internal" href="../_modules/avidtools/connectors/url.html#URLConnector.create_report_from_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.url.URLConnector.create_report_from_url" title="Link to this definition"></a></dt>
+<dd><p>Scrape a URL and create an AVID report using AI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – The URL to scrape and analyze.</p></li>
+<li><p><strong>max_retries</strong> (<em>int</em><em>, </em><em>default=2</em>) – Maximum number of retries if AI response parsing fails.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated AVID Report object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="report.html#avidtools.datamodels.report.Report" title="avidtools.datamodels.report.Report">Report</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.url.fetch_and_convert">
+<span class="sig-name descname"><span class="pre">fetch_and_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'gpt-4o-mini'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="report.html#avidtools.datamodels.report.Report" title="avidtools.datamodels.report.Report"><span class="pre">Report</span></a></span></span><a class="reference internal" href="../_modules/avidtools/connectors/url.html#fetch_and_convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.url.fetch_and_convert" title="Link to this definition"></a></dt>
+<dd><p>Convenience function to scrape a URL and create an AVID report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – The URL to scrape and analyze.</p></li>
+<li><p><strong>api_key</strong> (<em>str</em><em>, </em><em>optional</em>) – OpenAI API key. If not provided, will use OPENAI_API_KEY environment variable.</p></li>
+<li><p><strong>model</strong> (<em>str</em><em>, </em><em>default=&quot;gpt-4o-mini&quot;</em>) – The OpenAI model to use for report generation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated AVID Report object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="report.html#avidtools.datamodels.report.Report" title="avidtools.datamodels.report.Report">Report</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-avidtools.connectors.utils">
+<span id="avidtools-connectors-utils"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">avidtools.connectors</span></code>.utils<a class="headerlink" href="#module-avidtools.connectors.utils" title="Link to this heading"></a></h2>
+<p>Reusable normalization helpers for review workflows.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.utils.to_list">
+<span class="sig-name descname"><span class="pre">to_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/avidtools/connectors/utils.html#to_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.utils.to_list" title="Link to this definition"></a></dt>
+<dd><p>Coerce a scalar or list-like input into a list of strings.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.utils.extract_model_names">
+<span class="sig-name descname"><span class="pre">extract_model_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferred_model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/utils.html#extract_model_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.utils.extract_model_names" title="Link to this definition"></a></dt>
+<dd><p>Extract and deduplicate model names from report fields.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.utils.apply_model_developer_mapping">
+<span class="sig-name descname"><span class="pre">apply_model_developer_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/utils.html#apply_model_developer_mapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.utils.apply_model_developer_mapping" title="Link to this definition"></a></dt>
+<dd><p>Normalize developer/deployer fields for a report when inference matches.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.utils.apply_openai_system_artifact_type">
+<span class="sig-name descname"><span class="pre">apply_openai_system_artifact_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/utils.html#apply_openai_system_artifact_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.utils.apply_openai_system_artifact_type" title="Link to this definition"></a></dt>
+<dd><p>Set artifact type to System for GPT/OpenAI-context report artifacts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.utils.apply_normalizations">
+<span class="sig-name descname"><span class="pre">apply_normalizations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferred_model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/utils.html#apply_normalizations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.utils.apply_normalizations" title="Link to this definition"></a></dt>
+<dd><p>Apply the default normalization suite to a report.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.utils.apply_review_normalizations">
+<span class="sig-name descname"><span class="pre">apply_review_normalizations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferred_model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/utils.html#apply_review_normalizations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.utils.apply_review_normalizations" title="Link to this definition"></a></dt>
+<dd><p>Backward-compatible alias for default normalizations.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="avidtools.connectors.utils.choose_model_subject_label">
+<span class="sig-name descname"><span class="pre">choose_model_subject_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/avidtools/connectors/utils.html#choose_model_subject_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#avidtools.connectors.utils.choose_model_subject_label" title="Link to this definition"></a></dt>
+<dd><p>Choose whether descriptions should refer to an LLM or AI system.</p>
 </dd></dl>
 
 </section>

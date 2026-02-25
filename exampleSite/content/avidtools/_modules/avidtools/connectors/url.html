@@ -1,0 +1,1075 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>avidtools.connectors.url &mdash; avidtools 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css?v=a0a71c94" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs";
+
+
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = `pre.mermaid {
+    /* Same as .mermaid-container > pre */
+    display: block;
+    width: 100%;
+}
+
+pre.mermaid > svg {
+    /* Same as .mermaid-container > pre > svg */
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}`;
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = `.mermaid-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.mermaid-container > pre {
+    display: block;
+    width: 100%;
+}
+
+.mermaid-container > pre > svg {
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+
+.mermaid-fullscreen-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    color: #333;
+}
+
+.mermaid-fullscreen-btn:hover {
+    opacity: 100% !important;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-btn.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-btn.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 95vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9999;
+    padding: 20px;
+    overflow: auto;
+}
+
+.mermaid-fullscreen-modal.dark-theme {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.mermaid-fullscreen-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen {
+    position: relative;
+    width: 95vw;
+    height: 90vh;
+    max-width: 95vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen.dark-theme {
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.mermaid-container-fullscreen pre.mermaid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen .mermaid svg {
+    height: 100% !important;
+    width: 100% !important;
+    cursor: grab;
+}
+
+.mermaid-fullscreen-close {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+}
+
+.mermaid-fullscreen-close:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-close.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-close.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal .mermaid-fullscreen-btn {
+    display: none !important;
+}`;
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        all_mermaids.forEach((el) => {
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+        await mermaid.run();
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+
+    if ("False" === "True") {
+        const mermaids_to_add_zoom = -1 === -1 ? all_mermaids.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("");
+            if(all_mermaids.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            } else if(svgs.size() !== mermaids_to_add_zoom) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            } else {
+                svgs.each(function() {
+                    var svg = d3.select(this);
+                    svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                    var inner = svg.select("g");
+                    var zoom = d3.zoom().on("zoom", function(event) {
+                        inner.attr("transform", event.transform);
+                    });
+                    svg.call(zoom);
+                });
+            }
+        }
+    } else if(all_mermaids.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if ("True" !== "True") return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.style.opacity = '50%';
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scroll, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.sdisplay = 'block';
+
+                if ("False" === "True") {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+const load = async () => {
+    initStyles();
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...JSON.parse(
+                    `{"startOnLoad": false}`
+                ),
+                ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...JSON.parse(
+        `{"startOnLoad": false}`
+    ),
+    ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+    }
+);
+
+window.addEventListener("load", load);</script>
+      <script src="../../../_static/mermaid.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            avidtools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/report.html">Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/vulnerability.html">Vulnerability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/components.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/enums.html">Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/connectors.html">Connectors</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">avidtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">avidtools.connectors.url</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for avidtools.connectors.url</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">URL connector for AVID that scrapes web content and uses an AI agent to create AVID reports.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span><span class="p">,</span> <span class="n">AsyncOpenAI</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..datamodels.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">Report</span><span class="p">,</span> <span class="n">ReportMetadata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..datamodels.components</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Affects</span><span class="p">,</span>
+    <span class="n">Artifact</span><span class="p">,</span>
+    <span class="n">ArtifactTypeEnum</span><span class="p">,</span>
+    <span class="n">AtlasTaxonomy</span><span class="p">,</span>
+    <span class="n">AvidTaxonomy</span><span class="p">,</span>
+    <span class="n">ClassEnum</span><span class="p">,</span>
+    <span class="n">Impact</span><span class="p">,</span>
+    <span class="n">LangValue</span><span class="p">,</span>
+    <span class="n">Problemtype</span><span class="p">,</span>
+    <span class="n">Reference</span><span class="p">,</span>
+    <span class="n">TypeEnum</span><span class="p">,</span>
+    <span class="n">SepEnum</span><span class="p">,</span>
+    <span class="n">LifecycleEnum</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="URLConnector">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.url.URLConnector">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">URLConnector</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Connector to scrape URLs and create AVID reports using AI.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the URL connector.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        api_key : str, optional</span>
+<span class="sd">            OpenAI API key. If not provided, will use OPENAI_API_KEY environment variable.</span>
+<span class="sd">        model : str, default=&quot;gpt-4o-mini&quot;</span>
+<span class="sd">            The OpenAI model to use for report generation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;OpenAI API key must be provided either as parameter or &quot;</span>
+                <span class="s2">&quot;through OPENAI_API_KEY environment variable&quot;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">async_client</span> <span class="o">=</span> <span class="n">AsyncOpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span>
+
+<div class="viewcode-block" id="URLConnector.scrape_url">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.url.URLConnector.scrape_url">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scrape_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scrape content from a URL.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        url : str</span>
+<span class="sd">            The URL to scrape.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Dictionary containing scraped content with keys: url, title, text, html.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36&quot;</span>
+            <span class="p">}</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Remove script and style elements</span>
+            <span class="k">for</span> <span class="n">script</span> <span class="ow">in</span> <span class="n">soup</span><span class="p">([</span><span class="s2">&quot;script&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="s2">&quot;nav&quot;</span><span class="p">,</span> <span class="s2">&quot;footer&quot;</span><span class="p">,</span> <span class="s2">&quot;header&quot;</span><span class="p">]):</span>
+                <span class="n">script</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+
+            <span class="c1"># Get title</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">string</span>
+                <span class="k">if</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span> <span class="ow">and</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">string</span>
+                <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Get main text content</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">separator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="c1"># Clean up whitespace</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">if</span> <span class="n">line</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+                <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span>
+                <span class="s2">&quot;html&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">soup</span><span class="p">)[:</span><span class="mi">50000</span><span class="p">],</span>  <span class="c1"># Limit HTML size</span>
+            <span class="p">}</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to scrape URL </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_ai_prompt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scraped_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a prompt for the AI agent to extract AVID report information.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        scraped_data : dict</span>
+<span class="sd">            The scraped content from the URL.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The formatted prompt for the AI agent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are an AI security expert tasked with analyzing web content about AI/ML vulnerabilities, incidents, or security issues and extracting structured information to create an AVID (AI Vulnerability Database) report.</span>
+
+<span class="s2">The AVID Report follows this exact schema:</span>
+
+<span class="s2">```json</span>
+<span class="se">{{</span>
+<span class="s2">  &quot;data_type&quot;: &quot;AVID&quot;,</span>
+<span class="s2">  &quot;data_version&quot;: &quot;string (optional)&quot;,</span>
+<span class="s2">  &quot;metadata&quot;: </span><span class="se">{{</span>
+<span class="s2">    &quot;report_id&quot;: &quot;string (required, format: AVID-YYYY-R-XXXX)&quot;</span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">  &quot;affects&quot;: </span><span class="se">{{</span>
+<span class="s2">    &quot;developer&quot;: [&quot;list of developer organizations of the model/system involved&quot;],</span>
+<span class="s2">    &quot;deployer&quot;: [&quot;list of deployer organizations&quot;],</span>
+<span class="s2">    &quot;artifacts&quot;: [</span>
+<span class="s2">      </span><span class="se">{{</span>
+<span class="s2">        &quot;type&quot;: &quot;Model|Dataset|System (required)&quot;,</span>
+<span class="s2">        &quot;name&quot;: &quot;artifact name (required)&quot;</span>
+<span class="s2">      </span><span class="se">}}</span>
+<span class="s2">    ]</span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">  &quot;problemtype&quot;: </span><span class="se">{{</span>
+<span class="s2">    &quot;classof&quot;: &quot;AIID Incident|ATLAS Case Study|CVE Entry|LLM Evaluation|Third-party Report|Undefined (required, default: Third-party Report)&quot;,</span>
+<span class="s2">    &quot;type&quot;: &quot;Issue|Advisory|Measurement|Detection (optional)&quot;,</span>
+<span class="s2">    &quot;description&quot;: </span><span class="se">{{</span>
+<span class="s2">      &quot;lang&quot;: &quot;eng&quot;,</span>
+<span class="s2">      &quot;value&quot;: &quot;description text&quot;</span>
+<span class="s2">    </span><span class="se">}}</span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">  &quot;metrics&quot;: [</span>
+<span class="s2">    </span><span class="se">{{</span>
+<span class="s2">      &quot;name&quot;: &quot;metric name&quot;,</span>
+<span class="s2">      &quot;detection_method&quot;: </span><span class="se">{{</span>
+<span class="s2">        &quot;type&quot;: &quot;Significance Test|Static Threshold&quot;,</span>
+<span class="s2">        &quot;name&quot;: &quot;method name&quot;</span>
+<span class="s2">      </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">      &quot;results&quot;: </span><span class="se">{{}}</span><span class="s2"> or []</span>
+<span class="s2">    </span><span class="se">}}</span>
+<span class="s2">  ],</span>
+<span class="s2">  &quot;references&quot;: [</span>
+<span class="s2">    </span><span class="se">{{</span>
+<span class="s2">      &quot;label&quot;: &quot;reference label&quot;,</span>
+<span class="s2">      &quot;url&quot;: &quot;reference url (MUST include source URL)&quot;</span>
+<span class="s2">    </span><span class="se">}}</span>
+<span class="s2">  ],</span>
+<span class="s2">  &quot;description&quot;: </span><span class="se">{{</span>
+<span class="s2">    &quot;lang&quot;: &quot;eng&quot;,</span>
+<span class="s2">    &quot;value&quot;: &quot;high-level description&quot;</span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">  &quot;impact&quot;: </span><span class="se">{{</span>
+<span class="s2">    &quot;avid&quot;: </span><span class="se">{{</span>
+<span class="s2">      &quot;risk_domain&quot;: [&quot;list of risk domains&quot;],</span>
+<span class="s2">      &quot;sep_view&quot;: [&quot;list of SEP taxonomy IDs&quot;],</span>
+<span class="s2">      &quot;lifecycle_view&quot;: [&quot;list of lifecycle stage IDs&quot;],</span>
+<span class="s2">      &quot;taxonomy_version&quot;: &quot;version string&quot;</span>
+<span class="s2">    </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">    &quot;atlas&quot;: [</span>
+<span class="s2">      </span><span class="se">{{</span>
+<span class="s2">        &quot;tactic&quot;: &quot;tactic name&quot;,</span>
+<span class="s2">        &quot;technique&quot;: &quot;technique name&quot;,</span>
+<span class="s2">        &quot;subtechnique&quot;: &quot;subtechnique name&quot;</span>
+<span class="s2">      </span><span class="se">}}</span>
+<span class="s2">    ]</span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">  &quot;credit&quot;: [</span>
+<span class="s2">    </span><span class="se">{{</span>
+<span class="s2">      &quot;lang&quot;: &quot;eng&quot;,</span>
+<span class="s2">      &quot;value&quot;: &quot;credited person or organization&quot;</span>
+<span class="s2">    </span><span class="se">}}</span>
+<span class="s2">  ],</span>
+<span class="s2">  &quot;reported_date&quot;: &quot;YYYY-MM-DD&quot;</span>
+<span class="se">}}</span>
+<span class="s2">```</span>
+
+<span class="s2">All fields except those marked as required are optional. Omit fields if information is not available.</span>
+
+<span class="s2">Here is the web content to analyze:</span>
+
+<span class="s2">URL: </span><span class="si">{</span><span class="n">scraped_data</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span><span class="si">}</span>
+<span class="s2">Title: </span><span class="si">{</span><span class="n">scraped_data</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="si">}</span>
+
+<span class="s2">Content:</span>
+<span class="si">{</span><span class="n">scraped_data</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">][:</span><span class="mi">15000</span><span class="p">]</span><span class="si">}</span>
+
+<span class="s2">Please analyze this content and extract relevant information to create an AVID report. Return ONLY a valid JSON object with the following structure (all fields are optional except those marked as required):</span>
+
+<span class="se">{{</span>
+<span class="s2">  &quot;report_id&quot;: &quot;string (required)&quot;,</span>
+<span class="s2">  &quot;affects&quot;: </span><span class="se">{{</span>
+<span class="s2">    &quot;developer&quot;: [&quot;list of developers&quot;],</span>
+<span class="s2">    &quot;deployer&quot;: [&quot;list of deployers&quot;],</span>
+<span class="s2">    &quot;artifacts&quot;: [</span>
+<span class="s2">      </span><span class="se">{{</span>
+<span class="s2">        &quot;type&quot;: &quot;Model|Dataset|System&quot;,</span>
+<span class="s2">        &quot;name&quot;: &quot;artifact name&quot;</span>
+<span class="s2">      </span><span class="se">}}</span>
+<span class="s2">    ]</span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">  &quot;problemtype&quot;: </span><span class="se">{{</span>
+<span class="s2">    &quot;classof&quot;: &quot;Third-party Report&quot;,</span>
+<span class="s2">    &quot;type&quot;: &quot;Issue|Advisory|Measurement|Detection&quot;,</span>
+<span class="s2">    &quot;description&quot;: </span><span class="se">{{</span>
+<span class="s2">      &quot;lang&quot;: &quot;eng&quot;,</span>
+<span class="s2">      &quot;value&quot;: &quot;description text&quot;</span>
+<span class="s2">    </span><span class="se">}}</span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">  &quot;description&quot;: </span><span class="se">{{</span>
+<span class="s2">    &quot;lang&quot;: &quot;eng&quot;,</span>
+<span class="s2">    &quot;value&quot;: &quot;high-level description&quot;</span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2">,</span>
+<span class="s2">  &quot;references&quot;: [</span>
+<span class="s2">    </span><span class="se">{{</span>
+<span class="s2">      &quot;label&quot;: &quot;reference label&quot;,</span>
+<span class="s2">      &quot;url&quot;: &quot;reference url&quot;</span>
+<span class="s2">    </span><span class="se">}}</span>
+<span class="s2">  ],</span>
+<span class="s2">  &quot;reported_date&quot;: &quot;</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="se">}}</span>
+
+<span class="s2">Important guidelines:</span>
+<span class="s2">- Be specific and accurate</span>
+<span class="s2">- Extract actual names, organizations, and technical details from the content</span>
+<span class="s2">- For the report_id, use format AVID-</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">-R-XXXX where XXXX is a random 4-digit number</span>
+<span class="s2">- MUST include the source URL (</span><span class="si">{</span><span class="n">scraped_data</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">) in references with an appropriate label</span>
+<span class="s2">- If information is not available in the content, omit that field entirely (except report_id which is required)</span>
+<span class="s2">- Return ONLY the JSON object, no additional text or explanation</span>
+<span class="s2">&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">prompt</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_parse_ai_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the AI response and extract JSON.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        response_text : str</span>
+<span class="sd">            The response text from the AI.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Parsed JSON data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Try to extract JSON from the response</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">response_text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="c1"># Remove markdown code blocks if present</span>
+        <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">):</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># Remove first and last lines if they&#39;re markdown delimiters</span>
+            <span class="k">if</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">):</span>
+                <span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">lines</span> <span class="ow">and</span> <span class="n">lines</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;```&quot;</span><span class="p">:</span>
+                <span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;AI response JSON must be an object at top level&quot;</span>
+                <span class="p">)</span>
+            <span class="k">return</span> <span class="n">parsed</span>
+        <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to parse AI response as JSON: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">Response: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_report_from_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Report</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build a Report object from parsed JSON data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : dict</span>
+<span class="sd">            The parsed JSON data from the AI.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Report</span>
+<span class="sd">            The constructed AVID Report object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Build metadata</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;report_id&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="n">ReportMetadata</span><span class="p">(</span><span class="n">report_id</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;report_id&quot;</span><span class="p">])</span>
+
+        <span class="c1"># Build affects</span>
+        <span class="n">affects</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;affects&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">affects_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;affects&quot;</span><span class="p">]</span>
+            <span class="n">artifacts</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="s2">&quot;artifacts&quot;</span> <span class="ow">in</span> <span class="n">affects_data</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">artifact_data</span> <span class="ow">in</span> <span class="n">affects_data</span><span class="p">[</span><span class="s2">&quot;artifacts&quot;</span><span class="p">]:</span>
+                    <span class="n">artifact_type</span> <span class="o">=</span> <span class="n">ArtifactTypeEnum</span><span class="p">(</span><span class="n">artifact_data</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">])</span>
+                    <span class="n">artifact_name</span> <span class="o">=</span> <span class="n">artifact_data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+                    
+                    <span class="c1"># Reclassify models as systems based on provider-specific rules</span>
+                    <span class="k">if</span> <span class="n">artifact_type</span> <span class="o">==</span> <span class="n">ArtifactTypeEnum</span><span class="o">.</span><span class="n">model</span><span class="p">:</span>
+                        <span class="n">artifact_name_lower</span> <span class="o">=</span> <span class="n">artifact_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                        
+                        <span class="c1"># OpenAI: All LLMs are systems</span>
+                        <span class="k">if</span> <span class="s2">&quot;openai&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span><span class="p">:</span>
+                            <span class="n">artifact_type</span> <span class="o">=</span> <span class="n">ArtifactTypeEnum</span><span class="o">.</span><span class="n">system</span>
+                        
+                        <span class="c1"># Anthropic: All LLMs are systems</span>
+                        <span class="k">elif</span> <span class="s2">&quot;anthropic&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span><span class="p">:</span>
+                            <span class="n">artifact_type</span> <span class="o">=</span> <span class="n">ArtifactTypeEnum</span><span class="o">.</span><span class="n">system</span>
+                        
+                        <span class="c1"># Google: Gemini series are systems, Gemma are models</span>
+                        <span class="k">elif</span> <span class="s2">&quot;google&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span> <span class="ow">or</span> <span class="s2">&quot;gemini&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="s2">&quot;gemini&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span><span class="p">:</span>
+                                <span class="n">artifact_type</span> <span class="o">=</span> <span class="n">ArtifactTypeEnum</span><span class="o">.</span><span class="n">system</span>
+                            <span class="c1"># gemma remains as model</span>
+                        
+                        <span class="c1"># Cohere: All except Command R and Aya are systems</span>
+                        <span class="k">elif</span> <span class="s2">&quot;cohere&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="s2">&quot;command r&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span> <span class="ow">and</span> <span class="s2">&quot;aya&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span><span class="p">:</span>
+                                <span class="n">artifact_type</span> <span class="o">=</span> <span class="n">ArtifactTypeEnum</span><span class="o">.</span><span class="n">system</span>
+                        
+                        <span class="c1"># Mistral: Large, Medium, Moderation, Embed are systems</span>
+                        <span class="k">elif</span> <span class="s2">&quot;mistral&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">variant</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span> <span class="k">for</span> <span class="n">variant</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;large&quot;</span><span class="p">,</span> <span class="s2">&quot;medium&quot;</span><span class="p">,</span> <span class="s2">&quot;moderation&quot;</span><span class="p">,</span> <span class="s2">&quot;embed&quot;</span><span class="p">]):</span>
+                                <span class="n">artifact_type</span> <span class="o">=</span> <span class="n">ArtifactTypeEnum</span><span class="o">.</span><span class="n">system</span>
+                        
+                        <span class="c1"># Alibaba: Qwen Max and Turbo are systems</span>
+                        <span class="k">elif</span> <span class="s2">&quot;alibaba&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span> <span class="ow">or</span> <span class="s2">&quot;qwen&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="s2">&quot;qwen max&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span> <span class="ow">or</span> <span class="s2">&quot;qwen turbo&quot;</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span><span class="p">:</span>
+                                <span class="n">artifact_type</span> <span class="o">=</span> <span class="n">ArtifactTypeEnum</span><span class="o">.</span><span class="n">system</span>
+                        
+                        <span class="c1"># Meta, Twitter/X, Mozilla remain as systems (closed APIs)</span>
+                        <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="n">provider</span> <span class="ow">in</span> <span class="n">artifact_name_lower</span> <span class="k">for</span> <span class="n">provider</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;twitter&quot;</span><span class="p">,</span> <span class="s2">&quot;grok&quot;</span><span class="p">]):</span>
+                            <span class="n">artifact_type</span> <span class="o">=</span> <span class="n">ArtifactTypeEnum</span><span class="o">.</span><span class="n">system</span>
+                    
+                    <span class="n">artifacts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="n">Artifact</span><span class="p">(</span>
+                            <span class="nb">type</span><span class="o">=</span><span class="n">artifact_type</span><span class="p">,</span>
+                            <span class="n">name</span><span class="o">=</span><span class="n">artifact_name</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+            <span class="n">affects</span> <span class="o">=</span> <span class="n">Affects</span><span class="p">(</span>
+                <span class="n">developer</span><span class="o">=</span><span class="n">affects_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;developer&quot;</span><span class="p">,</span> <span class="p">[]),</span>
+                <span class="n">deployer</span><span class="o">=</span><span class="n">affects_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;deployer&quot;</span><span class="p">,</span> <span class="p">[]),</span>
+                <span class="n">artifacts</span><span class="o">=</span><span class="n">artifacts</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Build problemtype</span>
+        <span class="n">problemtype</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;problemtype&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">pt_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;problemtype&quot;</span><span class="p">]</span>
+            <span class="n">problemtype</span> <span class="o">=</span> <span class="n">Problemtype</span><span class="p">(</span>
+                <span class="n">classof</span><span class="o">=</span><span class="n">ClassEnum</span><span class="p">(</span><span class="n">pt_data</span><span class="p">[</span><span class="s2">&quot;classof&quot;</span><span class="p">]),</span>
+                <span class="nb">type</span><span class="o">=</span><span class="n">TypeEnum</span><span class="p">(</span><span class="n">pt_data</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">])</span> <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">pt_data</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="n">LangValue</span><span class="p">(</span><span class="o">**</span><span class="n">pt_data</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]),</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Build description</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;description&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">description</span> <span class="o">=</span> <span class="n">LangValue</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">])</span>
+
+        <span class="c1"># Build impact</span>
+        <span class="n">impact</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;impact&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">impact_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;impact&quot;</span><span class="p">]</span>
+            
+            <span class="c1"># Build AVID taxonomy</span>
+            <span class="n">avid_data</span> <span class="o">=</span> <span class="n">impact_data</span><span class="p">[</span><span class="s2">&quot;avid&quot;</span><span class="p">]</span>
+            <span class="n">avid_taxonomy</span> <span class="o">=</span> <span class="n">AvidTaxonomy</span><span class="p">(</span>
+                <span class="n">risk_domain</span><span class="o">=</span><span class="n">avid_data</span><span class="p">[</span><span class="s2">&quot;risk_domain&quot;</span><span class="p">],</span>
+                <span class="n">sep_view</span><span class="o">=</span><span class="p">[</span><span class="n">SepEnum</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">avid_data</span><span class="p">[</span><span class="s2">&quot;sep_view&quot;</span><span class="p">]],</span>
+                <span class="n">lifecycle_view</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">LifecycleEnum</span><span class="p">(</span><span class="n">stage</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">avid_data</span><span class="p">[</span><span class="s2">&quot;lifecycle_view&quot;</span><span class="p">]</span>
+                <span class="p">],</span>
+                <span class="n">taxonomy_version</span><span class="o">=</span><span class="n">avid_data</span><span class="p">[</span><span class="s2">&quot;taxonomy_version&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Build ATLAS taxonomy if present</span>
+            <span class="n">atlas_taxonomy</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="s2">&quot;atlas&quot;</span> <span class="ow">in</span> <span class="n">impact_data</span><span class="p">:</span>
+                <span class="n">atlas_taxonomy</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">AtlasTaxonomy</span><span class="p">(</span><span class="o">**</span><span class="n">atlas_item</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">atlas_item</span> <span class="ow">in</span> <span class="n">impact_data</span><span class="p">[</span><span class="s2">&quot;atlas&quot;</span><span class="p">]</span>
+                <span class="p">]</span>
+
+            <span class="n">impact</span> <span class="o">=</span> <span class="n">Impact</span><span class="p">(</span><span class="n">avid</span><span class="o">=</span><span class="n">avid_taxonomy</span><span class="p">,</span> <span class="n">atlas</span><span class="o">=</span><span class="n">atlas_taxonomy</span><span class="p">)</span>
+
+        <span class="c1"># Build references</span>
+        <span class="n">references</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;references&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">references</span> <span class="o">=</span> <span class="p">[</span><span class="n">Reference</span><span class="p">(</span><span class="o">**</span><span class="n">ref</span><span class="p">)</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;references&quot;</span><span class="p">]]</span>
+
+        <span class="c1"># Parse reported_date</span>
+        <span class="n">reported_date</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;reported_date&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">date_str</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;reported_date&quot;</span><span class="p">]</span>
+            <span class="n">reported_date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">date_str</span><span class="p">)</span>
+
+        <span class="c1"># Build the report</span>
+        <span class="n">report</span> <span class="o">=</span> <span class="n">Report</span><span class="p">(</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+            <span class="n">affects</span><span class="o">=</span><span class="n">affects</span><span class="p">,</span>
+            <span class="n">problemtype</span><span class="o">=</span><span class="n">problemtype</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
+            <span class="n">impact</span><span class="o">=</span><span class="n">impact</span><span class="p">,</span>
+            <span class="n">references</span><span class="o">=</span><span class="n">references</span><span class="p">,</span>
+            <span class="n">reported_date</span><span class="o">=</span><span class="n">reported_date</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">report</span>
+
+<div class="viewcode-block" id="URLConnector.create_report_from_url">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.url.URLConnector.create_report_from_url">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_report_from_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_retries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Report</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scrape a URL and create an AVID report using AI.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        url : str</span>
+<span class="sd">            The URL to scrape and analyze.</span>
+<span class="sd">        max_retries : int, default=2</span>
+<span class="sd">            Maximum number of retries if AI response parsing fails.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Report</span>
+<span class="sd">            The generated AVID Report object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Step 1: Scrape the URL</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scraping URL: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">scraped_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scrape_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scraped content: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">scraped_data</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> characters&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Step 2: Create prompt for AI</span>
+        <span class="n">prompt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_ai_prompt</span><span class="p">(</span><span class="n">scraped_data</span><span class="p">)</span>
+
+        <span class="c1"># Step 3: Call AI agent</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calling AI agent (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="si">}</span><span class="s2">)...&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_retries</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are an AI security expert specializing in AI/ML vulnerabilities. You extract structured information from text and return valid JSON.&quot;</span><span class="p">,</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">},</span>
+                    <span class="p">],</span>
+                    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+                    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span>
+                <span class="p">)</span>
+
+                <span class="n">ai_response</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AI response received (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ai_response</span><span class="p">)</span><span class="si">}</span><span class="s2"> characters)&quot;</span><span class="p">)</span>
+
+                <span class="c1"># Step 4: Parse AI response</span>
+                <span class="n">parsed_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_ai_response</span><span class="p">(</span><span class="n">ai_response</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Successfully parsed AI response&quot;</span><span class="p">)</span>
+
+                <span class="c1"># Step 5: Build Report object</span>
+                <span class="n">report</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_report_from_json</span><span class="p">(</span><span class="n">parsed_data</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created AVID report: </span><span class="si">{</span><span class="n">report</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">report_id</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">report</span><span class="o">.</span><span class="n">metadata</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">report</span>
+
+            <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">. Retrying...&quot;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Failed to create report after </span><span class="si">{</span><span class="n">max_retries</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> attempts: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error creating report: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Failed to create report: exhausted retries&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="fetch_and_convert">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.url.fetch_and_convert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch_and_convert</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Report</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convenience function to scrape a URL and create an AVID report.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    url : str</span>
+<span class="sd">        The URL to scrape and analyze.</span>
+<span class="sd">    api_key : str, optional</span>
+<span class="sd">        OpenAI API key. If not provided, will use OPENAI_API_KEY environment variable.</span>
+<span class="sd">    model : str, default=&quot;gpt-4o-mini&quot;</span>
+<span class="sd">        The OpenAI model to use for report generation.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Report</span>
+<span class="sd">        The generated AVID Report object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">connector</span> <span class="o">=</span> <span class="n">URLConnector</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">connector</span><span class="o">.</span><span class="n">create_report_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, AI Risk and Vulnerability Alliance.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

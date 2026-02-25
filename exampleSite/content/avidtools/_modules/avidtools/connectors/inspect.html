@@ -1,0 +1,983 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>avidtools.connectors.inspect &mdash; avidtools 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css?v=a0a71c94" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs";
+
+
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = `pre.mermaid {
+    /* Same as .mermaid-container > pre */
+    display: block;
+    width: 100%;
+}
+
+pre.mermaid > svg {
+    /* Same as .mermaid-container > pre > svg */
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}`;
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = `.mermaid-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.mermaid-container > pre {
+    display: block;
+    width: 100%;
+}
+
+.mermaid-container > pre > svg {
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+
+.mermaid-fullscreen-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    color: #333;
+}
+
+.mermaid-fullscreen-btn:hover {
+    opacity: 100% !important;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-btn.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-btn.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 95vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9999;
+    padding: 20px;
+    overflow: auto;
+}
+
+.mermaid-fullscreen-modal.dark-theme {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.mermaid-fullscreen-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen {
+    position: relative;
+    width: 95vw;
+    height: 90vh;
+    max-width: 95vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen.dark-theme {
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.mermaid-container-fullscreen pre.mermaid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen .mermaid svg {
+    height: 100% !important;
+    width: 100% !important;
+    cursor: grab;
+}
+
+.mermaid-fullscreen-close {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+}
+
+.mermaid-fullscreen-close:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-close.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-close.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal .mermaid-fullscreen-btn {
+    display: none !important;
+}`;
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        all_mermaids.forEach((el) => {
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+        await mermaid.run();
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+
+    if ("False" === "True") {
+        const mermaids_to_add_zoom = -1 === -1 ? all_mermaids.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("");
+            if(all_mermaids.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            } else if(svgs.size() !== mermaids_to_add_zoom) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            } else {
+                svgs.each(function() {
+                    var svg = d3.select(this);
+                    svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                    var inner = svg.select("g");
+                    var zoom = d3.zoom().on("zoom", function(event) {
+                        inner.attr("transform", event.transform);
+                    });
+                    svg.call(zoom);
+                });
+            }
+        }
+    } else if(all_mermaids.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if ("True" !== "True") return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.style.opacity = '50%';
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scroll, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.sdisplay = 'block';
+
+                if ("False" === "True") {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+const load = async () => {
+    initStyles();
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...JSON.parse(
+                    `{"startOnLoad": false}`
+                ),
+                ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...JSON.parse(
+        `{"startOnLoad": false}`
+    ),
+    ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+    }
+);
+
+window.addEventListener("load", load);</script>
+      <script src="../../../_static/mermaid.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            avidtools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/report.html">Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/vulnerability.html">Vulnerability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/components.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/enums.html">Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/connectors.html">Connectors</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">avidtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">avidtools.connectors.inspect</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for avidtools.connectors.inspect</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Connector helpers for converting and normalizing Inspect evaluation reports.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">html</span><span class="w"> </span><span class="kn">import</span> <span class="n">unescape</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.error</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPError</span><span class="p">,</span> <span class="n">URLError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..datamodels.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">Report</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..datamodels.components</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Affects</span><span class="p">,</span>
+    <span class="n">Artifact</span><span class="p">,</span>
+    <span class="n">ArtifactTypeEnum</span><span class="p">,</span>
+    <span class="n">Detection</span><span class="p">,</span>
+    <span class="n">LangValue</span><span class="p">,</span>
+    <span class="n">Metric</span><span class="p">,</span>
+    <span class="n">Problemtype</span><span class="p">,</span>
+    <span class="n">Reference</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..datamodels.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassEnum</span><span class="p">,</span> <span class="n">MethodEnum</span><span class="p">,</span> <span class="n">TypeEnum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_review_normalizations</span><span class="p">,</span> <span class="n">choose_model_subject_label</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">inspect_ai.log</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_eval_log</span><span class="p">,</span> <span class="n">EvalLog</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="c1"># Handle case where inspect_ai is not installed</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_eval_log</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+            <span class="s2">&quot;inspect_ai package is required for this functionality&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Create a dummy EvalLog class for type hinting</span>
+    <span class="n">EvalLog</span> <span class="o">=</span> <span class="n">Any</span>
+
+
+<span class="n">human_readable_name</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;openai&quot;</span><span class="p">:</span> <span class="s2">&quot;OpenAI&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;anthropic&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthropic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;google&quot;</span><span class="p">:</span> <span class="s2">&quot;Google&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;huggingface&quot;</span><span class="p">:</span> <span class="s2">&quot;Hugging Face&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;meta-llama&quot;</span><span class="p">:</span> <span class="s2">&quot;Meta&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mistralai&quot;</span><span class="p">:</span> <span class="s2">&quot;Mistral AI&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cohere&quot;</span><span class="p">:</span> <span class="s2">&quot;Cohere&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">SITE_ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://ukgovernmentbeis.github.io/inspect_evals&quot;</span>
+<span class="n">CYSE2_URL</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;https://ukgovernmentbeis.github.io/inspect_evals/evals/&quot;</span>
+    <span class="s2">&quot;cybersecurity/cyberseceval_2/&quot;</span>
+<span class="p">)</span>
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">&quot;^Evaluation of the (?:LLM|AI system) (.+?) on the (.+?) benchmark using Inspect Evals$&quot;</span>
+<span class="p">)</span>
+<span class="n">CATEGORY_CANDIDATES</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;safeguards&quot;</span><span class="p">,</span> <span class="s2">&quot;scheming&quot;</span><span class="p">,</span> <span class="s2">&quot;bias&quot;</span><span class="p">,</span> <span class="s2">&quot;cybersecurity&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="UnsupportedInspectBenchmarkError">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.inspect.UnsupportedInspectBenchmarkError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">UnsupportedInspectBenchmarkError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when an Inspect benchmark cannot be resolved to a supported page.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="import_eval_log">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.inspect.import_eval_log">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">import_eval_log</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Import an Inspect evaluation log from a file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_path : str</span>
+<span class="sd">        Path to the evaluation log file (.eval or .json).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    eval_log : EvalLog</span>
+<span class="sd">        The loaded evaluation log.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">read_eval_log</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="convert_eval_log">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.inspect.convert_eval_log">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_eval_log</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Report</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert an Inspect evaluation log into a list of AVID Report objects.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_path : str</span>
+<span class="sd">        Path to the evaluation log file (.eval or .json).</span>
+<span class="sd">    normalize : bool</span>
+<span class="sd">        If True, run normalize steps that fetch benchmark overview/scoring</span>
+<span class="sd">        and apply report normalizations.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    List[Report]</span>
+<span class="sd">        A list of AVID Report objects created from the evaluation log.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">eval_log</span> <span class="o">=</span> <span class="n">import_eval_log</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="n">reports</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">eval_log</span><span class="o">.</span><span class="n">samples</span><span class="p">:</span>
+        <span class="n">report</span> <span class="o">=</span> <span class="n">Report</span><span class="p">()</span>
+        <span class="n">model_prefix</span> <span class="o">=</span> <span class="n">eval_log</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">developer_name</span> <span class="o">=</span> <span class="n">human_readable_name</span><span class="p">[</span><span class="n">model_prefix</span><span class="p">]</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="n">eval_log</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">model_name</span> <span class="o">=</span> <span class="n">eval_log</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">affects</span> <span class="o">=</span> <span class="n">Affects</span><span class="p">(</span>
+            <span class="n">developer</span><span class="o">=</span><span class="p">[</span><span class="n">developer_name</span><span class="p">],</span>
+            <span class="n">deployer</span><span class="o">=</span><span class="p">[</span><span class="n">eval_log</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">model</span><span class="p">],</span>
+            <span class="n">artifacts</span><span class="o">=</span><span class="p">[</span><span class="n">Artifact</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">ArtifactTypeEnum</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">model_name</span><span class="p">)],</span>
+        <span class="p">)</span>
+
+        <span class="n">description_value</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Evaluation of the LLM </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> on the </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;benchmark using Inspect Evals&quot;</span>
+        <span class="p">)</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">problemtype</span> <span class="o">=</span> <span class="n">Problemtype</span><span class="p">(</span>
+            <span class="n">classof</span><span class="o">=</span><span class="n">ClassEnum</span><span class="o">.</span><span class="n">llm</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="n">TypeEnum</span><span class="o">.</span><span class="n">measurement</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">LangValue</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;eng&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">description_value</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">dataset_label</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Inspect Evaluation Log for dataset: </span><span class="si">{</span><span class="n">eval_log</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">references</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">Reference</span><span class="p">(</span>
+                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="n">dataset_label</span><span class="p">,</span>
+                <span class="n">url</span><span class="o">=</span><span class="n">eval_log</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">location</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="n">metrics</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">metric</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">scorer</span> <span class="ow">in</span> <span class="n">eval_log</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">scorers</span>
+                <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">scorer</span><span class="o">.</span><span class="n">metrics</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">scorer_desc</span> <span class="o">=</span> <span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="sa">f</span><span class="s2">&quot;scorer: </span><span class="si">{</span><span class="n">scorer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, metrics: </span><span class="si">{</span><span class="n">metrics</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">for</span> <span class="n">scorer</span> <span class="ow">in</span> <span class="n">eval_log</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">scorers</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">sc</span> <span class="ow">in</span> <span class="n">eval_log</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">scores</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sc</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">report</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">Metric</span><span class="p">(</span>
+                        <span class="n">name</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+                        <span class="n">detection_method</span><span class="o">=</span><span class="n">Detection</span><span class="p">(</span>
+                            <span class="nb">type</span><span class="o">=</span><span class="n">MethodEnum</span><span class="o">.</span><span class="n">test</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">name</span>
+                        <span class="p">),</span>
+                        <span class="n">results</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;scorer&quot;</span><span class="p">:</span> <span class="n">sc</span><span class="o">.</span><span class="n">name</span><span class="p">},</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+        <span class="n">full_description</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Evaluation of the LLM </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> on the </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;benchmark using Inspect Evals</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Sample input: </span><span class="si">{</span><span class="n">sample</span><span class="o">.</span><span class="n">input</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Model output: </span><span class="si">{</span><span class="n">sample</span><span class="o">.</span><span class="n">output</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Scorer: </span><span class="si">{</span><span class="n">scorer_desc</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Score: </span><span class="si">{</span><span class="n">sample</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">LangValue</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;eng&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">full_description</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
+            <span class="n">report_payload</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">report</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="s2">&quot;model_dump&quot;</span><span class="p">)</span>
+                <span class="k">else</span> <span class="n">report</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="n">normalize_report_data</span><span class="p">(</span><span class="n">report_payload</span><span class="p">)</span>
+            <span class="n">report</span> <span class="o">=</span> <span class="n">Report</span><span class="p">(</span><span class="o">**</span><span class="n">report_payload</span><span class="p">)</span>
+
+        <span class="n">reports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">reports</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_clean_html_to_text</span><span class="p">(</span><span class="n">fragment</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Strip HTML tags and normalize whitespace for section extraction.&quot;&quot;&quot;</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;script[</span><span class="se">\\</span><span class="s2">s</span><span class="se">\\</span><span class="s2">S]*?&lt;/script&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;style[</span><span class="se">\\</span><span class="s2">s</span><span class="se">\\</span><span class="s2">S]*?&lt;/style&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;br</span><span class="se">\\</span><span class="s2">s*/?&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">n&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">n</span><span class="se">\\</span><span class="s2">n&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;li[^&gt;]*&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;- &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;/li&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">n&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;&lt;/(h[1-6]|div|section|article|ul|ol|table|tr)&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">n&quot;</span><span class="p">,</span>
+        <span class="n">text</span><span class="p">,</span>
+        <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;[^&gt;]+&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">unescape</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">n&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">t&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">r&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[ \t]+</span><span class="se">\\</span><span class="s2">n&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">n&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">n{3,}&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">n</span><span class="se">\\</span><span class="s2">n&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_extract_section</span><span class="p">(</span><span class="n">html</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">section_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract a section body by heading id from an Inspect docs page.&quot;&quot;&quot;</span>
+
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">section_id</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">section_id</span><span class="si">}</span><span class="s2">Anchor&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">section_id</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">anchor&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="n">marker_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;id=&quot;</span><span class="si">{</span><span class="n">candidate</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
+        <span class="n">marker_index</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">marker_index</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">marker_index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">heading_start</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;&lt;h&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">marker_index</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">heading_start</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">heading_close_tag_start</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;&lt;/h&quot;</span><span class="p">,</span> <span class="n">marker_index</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">heading_close_tag_start</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">heading_close_tag_end</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="n">heading_close_tag_start</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">heading_close_tag_end</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">section_start</span> <span class="o">=</span> <span class="n">heading_close_tag_end</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">next_heading</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;&lt;h[1-6][^&gt;]*id=</span><span class="se">\&quot;</span><span class="s2">[^</span><span class="se">\&quot;</span><span class="s2">]+</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">html</span><span class="p">[</span><span class="n">section_start</span><span class="p">:],</span>
+        <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">next_heading</span><span class="p">:</span>
+        <span class="n">section_end</span> <span class="o">=</span> <span class="n">section_start</span> <span class="o">+</span> <span class="n">next_heading</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">section_end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+    <span class="n">fragment</span> <span class="o">=</span> <span class="n">html</span><span class="p">[</span><span class="n">section_start</span><span class="p">:</span><span class="n">section_end</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">_clean_html_to_text</span><span class="p">(</span><span class="n">fragment</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_fetch_sections</span><span class="p">(</span><span class="n">benchmark</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fetch overview and scoring sections for a benchmark slug.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;cyse2_&quot;</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">CYSE2_URL</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+                <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">HTTPError</span><span class="p">,</span> <span class="n">URLError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Failed to fetch Inspect Evals page for cyse2 benchmark: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">error</span>
+
+        <span class="n">overview</span> <span class="o">=</span> <span class="n">_extract_section</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&quot;overview&quot;</span><span class="p">)</span>
+        <span class="n">scoring</span> <span class="o">=</span> <span class="n">_extract_section</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&quot;scoring&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">overview</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">scoring</span><span class="p">:</span>
+            <span class="n">fallback_overview</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The benchmark </span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2"> is implemented by &quot;</span>
+                <span class="s2">&quot;Inspect Evals. More details are available &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;[here](</span><span class="si">{</span><span class="n">CYSE2_URL</span><span class="si">}</span><span class="s2">).&quot;</span>
+            <span class="p">)</span>
+            <span class="n">fallback_scoring</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Scoring details are available &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;[here](</span><span class="si">{</span><span class="n">CYSE2_URL</span><span class="si">}</span><span class="s2">).&quot;</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">benchmark</span><span class="p">,</span> <span class="n">fallback_overview</span><span class="p">,</span> <span class="n">fallback_scoring</span>
+
+        <span class="k">return</span> <span class="n">benchmark</span><span class="p">,</span> <span class="n">overview</span><span class="p">,</span> <span class="n">scoring</span>
+
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">benchmark</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s2">&quot;_&quot;</span> <span class="ow">in</span> <span class="n">benchmark</span><span class="p">:</span>
+        <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">benchmark</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">CATEGORY_CANDIDATES</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">slug</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SITE_ROOT</span><span class="si">}</span><span class="s2">/evals/</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">slug</span><span class="si">}</span><span class="s2">/&quot;</span>
+                <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+                    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="p">(</span><span class="n">HTTPError</span><span class="p">,</span> <span class="n">URLError</span><span class="p">):</span>
+                <span class="k">continue</span>
+
+            <span class="n">overview</span> <span class="o">=</span> <span class="n">_extract_section</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&quot;overview&quot;</span><span class="p">)</span>
+            <span class="n">scoring</span> <span class="o">=</span> <span class="n">_extract_section</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&quot;scoring&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">overview</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">scoring</span><span class="p">:</span>
+                <span class="n">fallback_overview</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;The benchmark </span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2"> is implemented by &quot;</span>
+                    <span class="s2">&quot;Inspect Evals. More details are available &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;[here](</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">).&quot;</span>
+                <span class="p">)</span>
+                <span class="n">fallback_scoring</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Scoring details are available &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;[here](</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">).&quot;</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="n">slug</span><span class="p">,</span> <span class="n">fallback_overview</span><span class="p">,</span> <span class="n">fallback_scoring</span>
+
+            <span class="k">return</span> <span class="n">slug</span><span class="p">,</span> <span class="n">overview</span><span class="p">,</span> <span class="n">scoring</span>
+
+    <span class="k">raise</span> <span class="n">UnsupportedInspectBenchmarkError</span><span class="p">(</span>
+        <span class="s2">&quot;No matching Inspect Evals page found under categories &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CATEGORY_CANDIDATES</span><span class="si">}</span><span class="s2"> for benchmark &#39;</span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_build_new_description</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">overview</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">subject_label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build standardized normalized report description text.&quot;&quot;&quot;</span>
+
+    <span class="n">subject_label_display</span> <span class="o">=</span> <span class="s2">&quot;LLM&quot;</span> <span class="k">if</span> <span class="n">subject_label</span> <span class="o">==</span> <span class="s2">&quot;llm&quot;</span> <span class="k">else</span> <span class="s2">&quot;AI system&quot;</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">overview</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;The </span><span class="si">{</span><span class="n">subject_label_display</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> was evaluated &quot;</span>
+        <span class="s2">&quot;on this benchmark.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;## Measurement details</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">scoring</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_build_problemtype_description</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">benchmark</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">subject_label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build standardized problemtype.description.value text.&quot;&quot;&quot;</span>
+
+    <span class="n">subject_label_display</span> <span class="o">=</span> <span class="s2">&quot;LLM&quot;</span> <span class="k">if</span> <span class="n">subject_label</span> <span class="o">==</span> <span class="s2">&quot;llm&quot;</span> <span class="k">else</span> <span class="s2">&quot;AI system&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Evaluation of the </span><span class="si">{</span><span class="n">subject_label_display</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;on the </span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2"> benchmark using Inspect Evals&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_first_line</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the first non-empty line from a text block.&quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+        <span class="n">stripped</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">stripped</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">stripped</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="normalize_report_data">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.inspect.normalize_report_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize_report_data</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply Inspect normalize transformations to a report dictionary.&quot;&quot;&quot;</span>
+
+    <span class="n">problem_desc</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;problemtype&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">PATTERN</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">problem_desc</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;problemtype.description.value is not in expected format: &quot;</span>
+            <span class="s2">&quot;Evaluation of the (LLM|AI system) $X on the $Y benchmark using &quot;</span>
+            <span class="s2">&quot;Inspect Evals&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">benchmark</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">apply_review_normalizations</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">preferred_model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">)</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">overview</span><span class="p">,</span> <span class="n">scoring</span> <span class="o">=</span> <span class="n">_fetch_sections</span><span class="p">(</span><span class="n">benchmark</span><span class="p">)</span>
+    <span class="n">overview</span> <span class="o">=</span> <span class="n">_first_line</span><span class="p">(</span><span class="n">overview</span><span class="p">)</span>
+    <span class="n">subject_label</span> <span class="o">=</span> <span class="n">choose_model_subject_label</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+
+    <span class="n">problemtype_description</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;problemtype&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">,</span>
+        <span class="p">{},</span>
+    <span class="p">)</span>
+    <span class="n">problemtype_description</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_build_problemtype_description</span><span class="p">(</span>
+        <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+        <span class="n">benchmark</span><span class="o">=</span><span class="n">benchmark</span><span class="p">,</span>
+        <span class="n">subject_label</span><span class="o">=</span><span class="n">subject_label</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;lang&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">problemtype_description</span><span class="p">:</span>
+        <span class="n">problemtype_description</span><span class="p">[</span><span class="s2">&quot;lang&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;eng&quot;</span>
+
+    <span class="n">description</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">description</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_build_new_description</span><span class="p">(</span>
+        <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+        <span class="n">overview</span><span class="o">=</span><span class="n">overview</span><span class="p">,</span>
+        <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">,</span>
+        <span class="n">subject_label</span><span class="o">=</span><span class="n">subject_label</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;lang&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">description</span><span class="p">:</span>
+        <span class="n">description</span><span class="p">[</span><span class="s2">&quot;lang&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;eng&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="process_report">
+<a class="viewcode-back" href="../../../reference/connectors.html#avidtools.connectors.inspect.process_report">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">process_report</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load, normalize, and rewrite a single Inspect report file.&quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="n">file_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+        <span class="n">report</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_obj</span><span class="p">)</span>
+
+    <span class="n">normalize_report_data</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">file_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">file_obj</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">file_obj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Updated </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, AI Risk and Vulnerability Alliance.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
