@@ -16,10 +16,10 @@ Records in this database can be mapped to multiple taxonomy frameworks. The AVID
 ## Reports
 Reports are occurrences of a GPAI failure mode. We classify reports in four types, in increasing degree of quantitative evidence:
 
-1. **Issue**: qualitative evaluation based on a single sample or handful of samples,
-2. **Advisory**: qualitative evaluation based on multiple Incidents,
-3. **Measurement**: quantitative evaluation with associated data and metric,
-4. **Detection**: A Measurement deemed critical by a threshold or statistical test.
+1. <span class="report-badge badge-issue">Issue</span>: qualitative evaluation based on a single sample or handful of samples,
+2. <span class="report-badge badge-advisory">Advisory</span>: qualitative evaluation based on multiple Incidents,
+3. <span class="report-badge badge-measurement">Measurement</span>: quantitative evaluation with associated data and metric,
+4. <span class="report-badge badge-detection">Detection</span>: A Measurement deemed critical by a threshold or statistical test.
 
 ### List of Reports
 
