@@ -48,41 +48,44 @@ td {
   text-align: center;
 }
 .people {
-    width: 200px;
+    width: 150px;
 }
 </style>
 
 <table class="center">
   <tbody>
     <tr>
-      <td><img class="people" src="/uploads/people/subho.png"></td>
       <td><img class="people" src="/uploads/people/nathan.jpg"></td>
       <td><img class="people" src="/uploads/people/yaga.jpg"></td>
+      <td><img class="people" src="/uploads/people/subho.png"></td>
     </tr>
     <tr>
-      <td><a href="https://subhomajumdar.com">Subho Majumdar</a></td>
       <td><a href="https://www.linkedin.com/in/nathanbutters">Nathan Butters</a></td>
       <td><a href="https://www.linkedin.com/in/bwpen">Brian Pendleton</a></td>
+      <td><a href="https://shubhobm.github.io">Subho Majumdar</a></td>
     </tr>
     <tr>
       <td>President</td>
-      <td>Vice-president</td>
       <td>Treasurer</td>
+      <td>Director</td>
     </tr>
     <tr>
       <td><img class="people" src="/uploads/people/rumman.jpg"></td>
       <td><img class="people" src="/uploads/people/kush.png"></td>
       <td><img class="people" src="/uploads/people/bo.jpg"></td>
+      <td><img class="people" src="/uploads/people/carol.jpg"></td>
     </tr>
     <tr>
       <td><a href="http://www.rummanchowdhury.com">Rumman Chowdhury</a></td>
       <td><a href="https://krvarshney.github.io">Kush Varshney</a></td>
       <td><a href="https://borhane.xyz">Borhane Blili-Hamelin</a></td>
+      <td><a href="https://www.linkedin.com/in/carolmanderson">Carol Anderson</a></td>
     </tr>
     <tr>
       <td>Director</td>
       <td>Director</td>
-      <td>Secretary</td>
+      <td>Director</td>
+      <td>Director</td>
     </tr>
   </tbody>
 </table>

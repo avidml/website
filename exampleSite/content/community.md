@@ -19,7 +19,7 @@ td {
   text-align: center;
 }
 .people {
-    width: 150px;
+    width: 200px;
 }
 </style>
 
@@ -29,36 +29,22 @@ td {
       <td><img class="people" src="/uploads/people/carol.jpg"></td>
       <td><img class="people" src="/uploads/people/bo.jpg"></td>
       <td><img class="people" src="/uploads/people/nathan.jpg"></td>
-      <td><img class="people" src="/uploads/people/jekaterina.jpg"></td>
     </tr>
     <tr>
       <td><a href="https://www.linkedin.com/in/carolmanderson">Carol Anderson</a></td>
       <td><a href="https://borhane.xyz">Borhane Blili-Hamelin</a></td>
       <td><a href="https://www.linkedin.com/in/nathanbutters">Nathan Butters</a></td>
-      <td><a href="https://jeknov.github.io">Jekaterina Novikova</a></td>
     </tr>
     <tr>
-      <td>Machine Learning</td>
-      <td>Taxonomy</td>
-      <td>Operations</td>
-      <td>Science</td>
-    </tr>
-    <tr>
-      <td><img class="people" src="/uploads/people/will.png"></td>
+      <td><img class="people" src="/uploads/people/jekaterina.jpg"></td>
       <td><img class="people" src="/uploads/people/yaga.jpg"></td>
       <td><img class="people" src="/uploads/people/subho.png"></td>
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://www.linkedin.com/in/will-pearce-a62331135">Will Pearce</a></td>
+      <td><a href="https://jeknov.github.io">Jekaterina Novikova</a></td>
       <td><a href="https://www.linkedin.com/in/bwpen">Brian Pendleton</a></td>
       <td><a href="https://subhomajumdar.com">Subho Majumdar</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Cybersecurity</td>
-      <td>Policy</td>
-      <td>Founder, Comms</td>
       <td></td>
     </tr>
   </tbody>
