@@ -18,6 +18,8 @@
   --dropdown-hover-color: #0f172a !important;
   --alert-background: #e0f2fe !important;
   --alert-border: #0284c7 !important;
+  --hero-background-color: #1b2733 !important;
+  --hero-text-color: #edf0f3 !important;
 }
 
 /* Automatically enabled if user has Dark mode enabled */
@@ -40,6 +42,8 @@
     --dropdown-hover-color: #ecf2fb !important;
     --alert-background: #082f49 !important;
     --alert-border: #38bdf8 !important;
+    --hero-background-color: #060e1c !important;
+    --hero-text-color: #ecf2fb !important;
   }
 }
 
@@ -62,6 +66,8 @@
   --dropdown-hover-color: #ecf2fb !important;
   --alert-background: #082f49 !important;
   --alert-border: #38bdf8 !important;
+  --hero-background-color: #060e1c !important;
+  --hero-text-color: #ecf2fb !important;
 }
 
 :root {
@@ -82,13 +88,13 @@ html {
 }
 
 .hero {
-  background-color: #1b2733;
+  background-color: var(--hero-background-color);
   background-position: center;
   background-size: cover;
   h1,
   a[role='button'].outline.contrast {
-    color: #edf0f3;
-    border-color: #edf0f3;
+    color: var(--hero-text-color);
+    border-color: var(--hero-text-color);
   }
   .hero-buttons {
     margin: 10px 10px 10px 0;
@@ -139,6 +145,38 @@ blockquote {
   margin: 1rem 0;
   padding: 0.8rem 1rem;
   border-radius: var(--border-radius);
+}
+
+/* Report type badges */
+.report-badge {
+  display: inline-block;
+  padding: 0.15em 0.65em;
+  border-radius: 999px;
+  font-size: 0.8em;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.badge-issue { background: #dcfce7; color: #166534; }
+.badge-advisory { background: #fef9c3; color: #854d0e; }
+.badge-measurement { background: #fed7aa; color: #9a3412; }
+.badge-detection { background: #fee2e2; color: #991b1b; }
+
+[data-theme="dark"] {
+  .badge-issue { background: #14532d; color: #86efac; }
+  .badge-advisory { background: #713f12; color: #fde68a; }
+  .badge-measurement { background: #7c2d12; color: #fdba74; }
+  .badge-detection { background: #7f1d1d; color: #fca5a5; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    .badge-issue { background: #14532d; color: #86efac; }
+    .badge-advisory { background: #713f12; color: #fde68a; }
+    .badge-measurement { background: #7c2d12; color: #fdba74; }
+    .badge-detection { background: #7f1d1d; color: #fca5a5; }
+  }
 }
 
 .grid {

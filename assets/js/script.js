@@ -59,3 +59,17 @@ const openMobile = () => {
     menuOpen.style.display = 'block'
   }
 }
+
+// Apply color-coded badges to report type column in database tables
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.avid-report-table tbody tr').forEach(function (row) {
+    var td = row.cells[2]
+    if (td) {
+      var type = td.textContent.trim()
+      if (type) {
+        var typeClass = 'badge-' + type.toLowerCase().replace(/\s+/g, '-')
+        td.innerHTML = '<span class="report-badge ' + typeClass + '">' + type + '</span>'
+      }
+    }
+  })
+})
