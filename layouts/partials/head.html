@@ -23,6 +23,11 @@
 <meta name="msvalidate.01" content="{{ .Site.Params.analytics.bing.SiteVerificationTag }}" />
 {{- end }}
 
+{{ "<!-- Google Fonts -->" | safeHTML }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
 {{ "<!-- Main Stylesheet -->" | safeHTML }} 
 {{ $styles := resources.Get "sass/main.scss" | resources.ToCSS | minify }}
 <link rel="stylesheet" href="{{ $styles.Permalink }}" />

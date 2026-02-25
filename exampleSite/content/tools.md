@@ -4,7 +4,7 @@ description:
 layout: page
 url: /tools
 ---
-AVID is pleased to host a small but growing collection of tools to evaluate failure modes in general-purpose AI (GPAI) systems, including LLMs, closed-api models, and end-to-end applications. Some tools are hosted on [HuggingFace](https://huggingface.co/avid-ml), and our SDK tooling is maintained in `avidtools`.
+AVID is pleased to host a small but growing collection of tools to evaluate failure modes in general-purpose AI (GPAI) systems, including LLMs, API-only AI systems, and end-to-end applications. Some tools are hosted on [HuggingFace](https://huggingface.co/avid-ml), and our SDK tooling is maintained in `avidtools`.
 
 ## AVIDtools SDK
 

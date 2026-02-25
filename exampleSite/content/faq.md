@@ -5,7 +5,7 @@ url: /faq
 ---
 
 ### What is an AI Vulnerability?
-AI vulnerabilities include classic [security-related vulnerabilities](https://nvd.nist.gov/vuln) that can be exploited by malicious actors, as well as unintentional failures (for example, harmful bias, unsafe model behavior, brittleness, or poor performance under realistic conditions). AVID focuses on vulnerabilities in general-purpose AI (GPAI) systems, including LLMs, closed-api models, developer tools, and end-to-end applications and agents.
+AI vulnerabilities include classic [security-related vulnerabilities](https://nvd.nist.gov/vuln) that can be exploited by malicious actors, as well as unintentional failures (for example, harmful bias, unsafe model behavior, brittleness, or poor performance under realistic conditions). AVID focuses on vulnerabilities in general-purpose AI (GPAI) systems, including LLMs, API-only AI systems, developer tools, and end-to-end applications and agents.
 
 ### Why do we need AVID?
 As GPAI systems become widely deployed, practitioners need structured and reproducible information about concrete failures. AVID provides a community database of reported GPAI failures so builders can learn from prior evidence, evaluate similar systems, and share findings in a common format.
