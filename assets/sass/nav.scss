@@ -104,6 +104,12 @@ body > nav {
   }
 }
 
+// Keep theme toggle icons same color regardless of theme
+#darkIcon svg,
+#lightIcon svg {
+  color: var(--nav-title-color) !important;
+}
+
 #switch {
   display: none;
 }
