@@ -11,7 +11,7 @@
 
 .desktop-navigation li ul.dropdown-content {
   position: absolute;
-  background-color: #ffffff !important;
+  background-color: var(--card-background-color) !important;
   width: inherit;
   /* padding-left: 0.5em !important; */
   padding-right: 1em !important;
@@ -42,8 +42,8 @@
 }
 
 .desktop-navigation li:hover > a.navitem {
-    background-color: #415462;
-    color: #1095c1;
+  background-color: var(--dropdown-hover-background);
+  color: var(--primary);
 }
 
 .desktop-navigation li:hover > ul.dropdown-content li {
@@ -52,13 +52,12 @@
 }
 
 .desktop-navigation li ul.dropdown-content li:hover > a {
-    /* background-color: #1095c1; */
-    color: black;
+  color: var(--dropdown-hover-color);
     font-weight: 600;
 }
 </style>
 
-<nav class="desktop" style="background-color: #000000">
+<nav class="desktop" style="background-color: var(--nav-background-color)">
   <ul>
     {{- $label_text := (.Site.Params.label.text | default .Site.Title) }}
     <li>
@@ -69,7 +68,7 @@
           width="{{.Site.Params.label.iconHeight | safeHTML }}"
           height="{{.Site.Params.label.iconWidth | safeHTML }}"
         ></img>
-        <h3 style="margin-bottom: 0; color:white"> <!-- hard coded color to not change with dark/light mode -->
+        <h3 style="margin-bottom: 0; color:var(--nav-title-color)">
           <strong>{{.Site.Params.label.title | default .Site.Title | markdownify}}</strong>
         </h3>
       </a>

@@ -1,22 +1,67 @@
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
+  --background-color: #f6f8fb !important;
+  --card-background-color: #ffffff !important;
+  --card-sectionning-background-color: #f1f5f9 !important;
+  --color: #1b2733 !important;
+  --contrast: #0f172a !important;
+  --primary: #2563eb !important;
+  --primary-hover: #1d4ed8 !important;
+  --primary-focus: rgba(37, 99, 235, 0.2) !important;
+  --primary-inverse: #ffffff !important;
   --muted-color: #4b555c !important;
   --link-color: #27455a !important;
+  --nav-background-color: #0f172a !important;
+  --nav-title-color: #ffffff !important;
+  --dropdown-hover-background: #dbeafe !important;
+  --dropdown-hover-color: #0f172a !important;
+  --alert-background: #e0f2fe !important;
+  --alert-border: #0284c7 !important;
 }
 
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    --background-color: #0b1220 !important;
+    --card-background-color: #111a2e !important;
+    --card-sectionning-background-color: #15233e !important;
+    --color: #d8e1ec !important;
+    --contrast: #e6edf7 !important;
+    --primary: #60a5fa !important;
+    --primary-hover: #93c5fd !important;
+    --primary-focus: rgba(96, 165, 250, 0.2) !important;
+    --primary-inverse: #0b1220 !important;
     --muted-color: #8fa3b1 !important;
     --link-color: #4c82a8 !important;
+    --nav-background-color: #060b16 !important;
+    --nav-title-color: #ecf2fb !important;
+    --dropdown-hover-background: #1d2c4f !important;
+    --dropdown-hover-color: #ecf2fb !important;
+    --alert-background: #082f49 !important;
+    --alert-border: #38bdf8 !important;
   }
 }
 
 /* Enabled if forced with data-theme="dark" */
 [data-theme="dark"] {
+  --background-color: #0b1220 !important;
+  --card-background-color: #111a2e !important;
+  --card-sectionning-background-color: #15233e !important;
+  --color: #d8e1ec !important;
+  --contrast: #e6edf7 !important;
+  --primary: #60a5fa !important;
+  --primary-hover: #93c5fd !important;
+  --primary-focus: rgba(96, 165, 250, 0.2) !important;
+  --primary-inverse: #0b1220 !important;
   --muted-color: #8fa3b1 !important;
   --link-color: #4c82a8 !important;
+  --nav-background-color: #060b16 !important;
+  --nav-title-color: #ecf2fb !important;
+  --dropdown-hover-background: #1d2c4f !important;
+  --dropdown-hover-color: #ecf2fb !important;
+  --alert-background: #082f49 !important;
+  --alert-border: #38bdf8 !important;
 }
 
 :root {
@@ -37,7 +82,7 @@ html {
 }
 
 .hero {
-  background-color: #394046;
+  background-color: #1b2733;
   background-position: center;
   background-size: cover;
   h1,
@@ -86,6 +131,14 @@ img,
 a {
   text-decoration: none !important;
   color: var(--link-color);
+}
+
+blockquote {
+  background: var(--alert-background);
+  border-left: 0.3rem solid var(--alert-border);
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+  border-radius: var(--border-radius);
 }
 
 .grid {
