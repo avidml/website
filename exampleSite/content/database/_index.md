@@ -14,7 +14,12 @@ Records in this database can be mapped to multiple taxonomy frameworks. The AVID
 > The definition of an "AI vulnerability" is still evolving across the ecosystem, so AVID currently uses a working definition. In this release, we are prioritizing report-level evidence and have not yet published new vulnerability records.
 
 ## Reports
-Reports are occurrences of a vulnerability. Based on the references provided in a specific report, reports can potentially more granular and reproducible than vulnerabilities.
+Reports are occurrences of a GPAI failure mode. We classify reports in four types, in increasing degree of quantitative evidence:
+
+1. **Issue**: qualitative evaluation based on a single sample or handful of samples,
+2. **Advisory**: qualitative evaluation based on multiple Incidents,
+3. **Measurement**: quantitative evaluation with associated data and metric,
+4. **Detection**: A Measurement deemed critical by a threshold or statistical test.
 
 ### List of Reports
 
