@@ -11,23 +11,23 @@ showToc: false
 ShowBreadCrumbs: false
 ---
 
-When we launched AVID more than three years ago, the AI landscape looked very different. We built a taxonomy and a small database of failure modes for ML models and datasets. After the cambrian explosion that was ChatGPT, the world has since moved to general-purpose AI (GPAI) systems: LLM and genAI=powered applications, agentic workflows, developer tooling, retrieval-augmented generation (RAG) pipelines, and multiagent systems that millions of people interact with daily.
+When we launched AVID more than three years ago, the AI landscape looked very different, arguably much simpler. The world has since moved to general-purpose AI (GPAI) systems: LLM and genAI-powered applications, agentic workflows, developer tooling, retrieval-augmented generation (RAG) pipelines, and multiagent systems that millions of people interact with daily.
 
 With the expansion of scope, came the expansion of attack surface. Every new capability is a new vector. Thanks to the Cursors of the world vibe-coders are shipping so many capabilities everyday that security practitioners can hardly keep up.
 
 ## A new AVID
 
-The need for a central knowledge base for what could go wrong with AI has never been felt more. In light of how AI has taken off, we decided to take up a second look at AVID. The most fundamental shift is in what AVID covers. Instead of *all* ML/AI models and systems, from now on we will cover the stack for building **general-purpose AI (GPAI) systems**: a category that includes
+The need for a centralized knowledge base for what could go wrong with AI has never been felt more. In light of how AI has taken off and the focus on AI security and safety has sharpened, we decided to take a second look at AVID. The most fundamental shift is in what AVID covers. Instead of *all* ML/AI models and systems, from now on we will cover the stack for building **general-purpose AI (GPAI) systems**: a category that includes
 1. Open-weight generative models,
 2. Closed-API systems, such as ChatGPT, the GPT Series, Claude.ai
 3. GPAI eveloper tools and libraries
 4. End-to-end AI applications, agents, and multiagent systems.
 
-This change reflects the reality that the most consequential AI failures today happen at the system level: a a path traversal vulnerability in DB-GPT ([AVID-2026-R0010](https://avidml.org/database/AVID-2026-R0010)), an authorization bypass in Lunary ([AVID-2026-R0004](https://avidml.org/database/AVID-2026-R0004)), a prompt injection leading to remote code execution in GPT Academic ([AVID-2026-R0018](https://avidml.org/database/AVID-2026-R0018)). These are the kinds of failures that AVID now catalogs, in addition to traditional LLM red teaming results using tools such as garak.
+This change reflects the reality that many consequential AI failures today happen at the system level: a a path traversal vulnerability in DB-GPT ([AVID-2026-R0010](https://avidml.org/database/AVID-2026-R0010)), an authorization bypass in Lunary ([AVID-2026-R0004](https://avidml.org/database/AVID-2026-R0004)), a prompt injection leading to remote code execution in GPT Academic ([AVID-2026-R0018](https://avidml.org/database/AVID-2026-R0018)). These are the kinds of failures that AVID now catalogs, in addition to traditional LLM red teaming results using tools such as garak.
 
-We have added 278 new vulnerability reports in this new release, which cover
+In all, we have added 278 new vulnerability reports in this new release, which cover
 - GPAI Supply Chain Vulnerability CVEs, obtained from AI Security Digests by [Mileva](https://milev.ai/)
-- LLM red teaming results from garak, Inspect AI, and 0DIN.ai jailbreak scans
+- LLM red teaming results from [garak](https://github.com/NVIDIA/garak), [Inspect AI](https://inspect.aisi.org.uk/), and [0DIN](https://0din.ai/) jailbreak scans
 - Published CVEs related to OpenClaw, thanks to [OpenClawCVEs](https://github.com/jgamblin/OpenClawCVEs/)
 - A number of crowdsourced failures reported by Wiz, The Browser Company, and Mindgard.ai.
 
@@ -38,13 +38,13 @@ We will *not* be adding new vulnerabilities for the time being, keeping all new 
 
 ## Updated Developer tools and Documentation
 
-We've rebuilt our documentation at docs.avidml.org, now hosted on GitBook with a clearer structure covering the database framework, taxonomy library, and developer tools.
-
 The biggest addition for practitioners is the expanded Python SDK (`avidtools`). Beyond the Pydantic data models that define AVID's report and vulnerability schemas, the SDK now ships with connectors and integrations that pull data from external sources and structure them as AVID records. You can import MITRE ATLAS case studies, NIST NVD entries by CVE ID, as well as ingest LLM red teaming scan results by garak, and safety evaluations from Inspect AI.
 
 There is one feature we particularly love. It is the **URL connector**. We now have an agentic workflow, in `avidtools.connectors.url`, that automatically scrapes information and structures it into a submission-ready vulnerability report from just a single URL. Filling out multiple fields in a long form is a painpoint almost all of our early vulnerability submitters faced. With this connector we are solving that.
 
 The SDK, connectors, and integrations are designed to position AVID as something broader than just a database. We want AVID to become a part of public-interest infrastructure for AI safety, that can pull from open-source AI vulnerability scanners and audit tools to populate itself, and pass on that information to development teams across the world that are building GPAI systems. This way, we want to make structured vulnerability record-keeping a part of the GPAI development workflow rather than an afterthought.
+
+All changes are live in `avidtools`, with usage information in our documentation site: [docs.avidml.org](https://docs.avidml.org/).
 
 ## The Taxonomy Library
 
