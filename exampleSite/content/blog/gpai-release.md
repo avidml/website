@@ -27,7 +27,7 @@ The need for a centralized knowledge base for what could go wrong with AI has ne
 
 This change reflects the reality that many consequential AI failures today happen at the system level: such as a path traversal vulnerability in DB-GPT ([AVID-2026-R0010](https://avidml.org/database/AVID-2026-R0010)), an authorization bypass in Lunary ([AVID-2026-R0004](https://avidml.org/database/AVID-2026-R0004)), a prompt injection leading to remote code execution in GPT Academic ([AVID-2026-R0018](https://avidml.org/database/AVID-2026-R0018)). These are the kinds of failures that AVID now catalogs, in addition to traditional LLM red teaming results using tools such as garak.
 
-In total, we have added 278 new vulnerability reports in this new release, which cover
+In total, we have added 277 new vulnerability reports in this new release, which cover
 - GPAI Supply Chain Vulnerability CVEs, obtained from AI Security Digests by [Mileva](https://milev.ai/)
 - LLM red teaming results from [garak](https://github.com/NVIDIA/garak), [Inspect AI](https://inspect.aisi.org.uk/), and [0DIN](https://0din.ai/) jailbreak scans
 - Published CVEs related to OpenClaw, thanks to [OpenClawCVEs](https://github.com/jgamblin/OpenClawCVEs/)
