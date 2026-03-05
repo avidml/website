@@ -88,7 +88,7 @@ params:
     heroCTASecondaryText: "Join Us"
     heroCTASecondaryUrl: "/contribute"
     heroCTATertiaryText: "Submit an AI Vulnerability!"
-    heroCTATertiaryUrl: "https://airtable.com/shrOCPagOzxNpgV96"
+    heroCTATertiaryUrl: "https://docs.google.com/forms/d/e/1FAIpQLSe-jxZrx257Xce7JTa_QeaQmmQEQJfLlrBKjSzgHtNs5T-oKg/viewform?usp=dialog"
     heroBackgroundImage: "/uploads/avid.png"
     # heroBackgroundImage: "/uploads/portfolio-1.webp"
     # Blog Section

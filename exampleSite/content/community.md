@@ -92,7 +92,7 @@ TODO: to be finalized later
 The AVID community is composed of volunteer engineers, hackers, and researchers like you! The easiest way to be involved in AVID is to [join our discord server](https://discord.com/invite/FcXYZzmv3T). We follow the [AI Village Code of Conduct](https://aivillage.org/conduct/) in this server. In addition, here are a few specific ways you can support our work.
 
 ### Submit a Report
-You can use our [Vulnerability Reporting Form](https://airtable.com/shrOCPagOzxNpgV96) to report an AI failure mode in the wild. The AVID team will review and integrate this report---with proper attribution to you---into a new or existing vulnerability in AVID.
+You can use our [Vulnerability Reporting Form](https://docs.google.com/forms/d/e/1FAIpQLSe-jxZrx257Xce7JTa_QeaQmmQEQJfLlrBKjSzgHtNs5T-oKg/viewform?usp=dialog) to report an AI failure mode in the wild. The AVID team will review and integrate this report---with proper attribution to you---into a new or existing vulnerability in AVID.
 
 You can also open a pull request to directly add a report or vulnerability to our [GitHub](https://github.com/avidml/avid-db).
 

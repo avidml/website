@@ -61,4 +61,4 @@ Going forward, we will continue to grow the database with one release every 1-2 
 
 ---
 
-Explore the updated AVID at [avidml.org](https://avidml.org). Browse the database, read the docs, or [submit a vulnerability](https://airtable.com/shrOCPagOzxNpgV96). AVID is a project of the [AI Risk and Vulnerability Alliance (ARVA)](https://avidml.org/arva), a U.S. 501(c)(3) nonprofit.
+Explore the updated AVID at [avidml.org](https://avidml.org). Browse the database, read the docs, or [submit a vulnerability](https://docs.google.com/forms/d/e/1FAIpQLSe-jxZrx257Xce7JTa_QeaQmmQEQJfLlrBKjSzgHtNs5T-oKg/viewform?usp=dialog). AVID is a project of the [AI Risk and Vulnerability Alliance (ARVA)](https://avidml.org/arva), a U.S. 501(c)(3) nonprofit.
