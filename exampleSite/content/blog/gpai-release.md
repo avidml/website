@@ -13,7 +13,7 @@ ShowBreadCrumbs: false
 
 When we launched AVID more than three years ago, the AI landscape looked very different, arguably much simpler. From specific ML/AI systems driving narrow decision making, the world has moved to general-purpose AI (GPAI) systems: LLM and genAI-powered applications, agentic workflows, developer tooling, retrieval-augmented generation (RAG) pipelines, and multiagent systems that millions of people interact with daily.
 
-With the expansion of scope, came the expansion of attack surface. Every new capability is a potential new attack vector, exploit, or hazard. Thanks to the Cursors of the world, vibe-coders are shipping so many capabilities every day that security practitioners can hardly keep up with the detection and tracking of the limits of those capabilities.
+With the expansion of scope, came the expansion of attack surface. Every new capability is a potential new attack vector, exploit, or hazard. Thanks to the Cursors of the world, vibe-coders are shipping so many capabilities every day that security practitioners and safety researchers can hardly keep up with the detection and tracking of the limits of those capabilities.
 
 ## A new AVID
 
@@ -53,7 +53,7 @@ The last major architectural change concerns the handling of failure classificat
 
 We have now introduced the **Taxonomy Library**: a growing collection of classification frameworks where the AVID taxonomy is one of several reference schemes. Taxonomies are shared using the standardized [MISP](https://www.misp-project.org/datamodels/) format, which means any organization can bring their own risk framework and map AVID records to it. As a user of AVID, you can use AVID's SEP categories, CVSS risk scores, MITRE ATLAS techniques, or your own internal classification: all against the same underlying database of evidence.
 
-This matters because no single taxonomy captures the full picture: even more true for a nascent area like AI. A security team thinks in CVSS scores, a policy team thinks in regulatory categories, an ML engineer thinks in lifecycle stages. The Taxonomy Library lets all of them work from the same evidence base without forcing a single classification lens.
+This matters because no single taxonomy captures the full spectrum of what could go wrong: even more so for a nascent area like AI. A security team thinks in CVSS scores, a policy team thinks in regulatory categories, an ML engineer thinks in lifecycle stages. The Taxonomy Library lets all of them work from the same evidence base without forcing a single classification lens.
 
 ## What's Next
 
