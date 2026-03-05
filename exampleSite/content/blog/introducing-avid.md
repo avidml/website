@@ -38,7 +38,7 @@ We are starting small with 13 vulnerabilities and 5 reports, but will expand qui
 To check out the database, and vulnerabilities and reports therein, go to: https://avidml.org/database. 
 
 ## How can you help
-If there's an AI failure you'd like to be included in AVID (e.g. examples of a large language model malfunctioning), you can do so *today* using our [Vulnerability Reporting Form](https://airtable.com/shrOCPagOzxNpgV96) or opening a pull request in the [github repository](https://github.com/avidml/avid-db) housing all vulnerabilities and reports.
+If there's an AI failure you'd like to be included in AVID (e.g. examples of a large language model malfunctioning), you can do so *today* using our [Vulnerability Reporting Form](https://docs.google.com/forms/d/e/1FAIpQLSe-jxZrx257Xce7JTa_QeaQmmQEQJfLlrBKjSzgHtNs5T-oKg/viewform?usp=dialog) or opening a pull request in the [github repository](https://github.com/avidml/avid-db) housing all vulnerabilities and reports.
 
 You can collaborate with us by joining our [discord server](https://discord.gg/FcXYZzmv3T), and through other avenues [here](https://www.avidml.org/contribute).
 
