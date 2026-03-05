@@ -1,7 +1,7 @@
 ---
 author: "Subho Majumdar"
 title: "What's New in AVID: AI Vulnerability Database Rebuilt for the Age of AI Agents"
-date: "2026-03-04"
+date: "2026-03-05"
 description: "AVID releases a major update, with focus on general-purpose AI failures."
 tags: ["vulnerabilities"]
 categories: ["release"]
