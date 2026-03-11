@@ -459,32 +459,32 @@ Reports are occurrences of a GPAI failure mode. We classify reports in four type
     <tr><td><a href="/database/AVID-2026-R0410">AVID-2026-R0410</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">The model Mistral-Small-24B-Instruct-2501 from Mistral was evaluated by the Garak LLM Vulnerability scanner using the probe `encoding.InjectBase2048`.</td><td>Measurement</td><td>2026-03-10</td></tr>
     <tr><td><a href="/database/AVID-2026-R0411">AVID-2026-R0411</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">The model Mistral-Small-24B-Instruct-2501 from Mistral was evaluated by the Garak LLM Vulnerability scanner using the probe `packagehallucination.Rust`.</td><td>Measurement</td><td>2026-03-10</td></tr>
     <tr><td><a href="/database/AVID-2026-R0412">AVID-2026-R0412</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">The model Mistral-Small-24B-Instruct-2501 from Mistral was evaluated by the Garak LLM Vulnerability scanner using the probe `phrasing.FutureTense`.</td><td>Measurement</td><td>2026-03-10</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0413">AVID-2026-R0413</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">OpenAI ChatGPT Content Safety Explicit Image Bypass</td><td></td><td>2026-01-28</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0414">AVID-2026-R0414</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Eclipse Theia IDE MCP Configuration Code Execution</td><td></td><td>2025-11-18</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0415">AVID-2026-R0415</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">OpenAI Codex CLI Notify Field Configuration Remote Code Execution</td><td></td><td>2026-01-16</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0416">AVID-2026-R0416</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">OpenAI Codex CLI Model Provider Configuration Remote Code Execution</td><td></td><td>2026-01-16</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0417">AVID-2026-R0417</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">OpenAI Codex CLI MCP Configuration Remote Code Execution</td><td></td><td>2026-01-19</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0418">AVID-2026-R0418</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Amazon Kiro IDE Data Exfiltration via Filename Prompt Injection and Kiro Powers Registry Fetching</td><td></td><td>2025-12-11</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0419">AVID-2026-R0419</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Amazon Kiro IDE Data Exfiltration via Steering File</td><td></td><td>2025-12-08</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0420">AVID-2026-R0420</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google Gemini CLI Tool Discovery Code Execution</td><td></td><td>2025-12-26</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0421">AVID-2026-R0421</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google Gemini CLI MCP Configuration Code Execution</td><td></td><td>2025-12-26</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0422">AVID-2026-R0422</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">JetBrains Junie AI Coding Agent guidelines.md Code Execution</td><td></td><td>2025-11-14</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0423">AVID-2026-R0423</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">TheLibrarian.io Internal Cloud Environment Access via web_fetch Tool</td><td></td><td>2025-10-10</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0424">AVID-2026-R0424</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Zed IDE LSP Configuration Code Execution</td><td></td><td>2025-11-16</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0425">AVID-2026-R0425</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Zed IDE MCP Configuration Code Execution</td><td></td><td>2025-11-16</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0426">AVID-2026-R0426</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google Antigravity IDE Persistent Code Execution</td><td></td><td>2025-11-19</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0427">AVID-2026-R0427</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Cline Bot AI Coding Agent Code Execution via Prompt Injection and TOCTOU Script Invocation</td><td></td><td>2025-08-27</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0428">AVID-2026-R0428</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Cline Bot AI Coding Agent Code Execution via Prompt Injection and .clinerules Directives</td><td></td><td>2025-08-27</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0429">AVID-2026-R0429</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Cline Bot AI Coding Agent Data Exfiltration via Prompt Injection and DNS</td><td></td><td>2025-08-27</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0430">AVID-2026-R0430</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Nvidia NemoGuard Jailbreak Detect Guardrail Evasion</td><td></td><td>2025-03-11</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0431">AVID-2026-R0431</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Protect AI Jailbreak and Prompt Injection Guardrail Evasion</td><td></td><td>2025-03-12</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0432">AVID-2026-R0432</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Vijil Prompt Injection Guardrail Evasion</td><td></td><td>2025-03-14</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0433">AVID-2026-R0433</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Meta Prompt Guard Guardrail Evasion</td><td></td><td>2025-03-11</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0434">AVID-2026-R0434</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Microsoft Azure Prompt Shield Guardrail Evasion</td><td></td><td>2024-06-06</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0435">AVID-2026-R0435</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Microsoft Azure AI Content Safety Guardrail Evasion</td><td></td><td>2024-03-04</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0436">AVID-2026-R0436</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Mistral Vibe CLI MCP Configuration Code Execution</td><td></td><td>2025-12-11</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0437">AVID-2026-R0437</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Mistral Vibe CLI Shell Expansion Command Execution</td><td></td><td>2026-01-02</td></tr>
-    <tr><td><a href="/database/AVID-2026-R0438">AVID-2026-R0438</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Mistral Vibe CLI Python Tools Code Execution</td><td></td><td>2025-12-12</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0413">AVID-2026-R0413</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">OpenAI ChatGPT Content Safety Explicit Image Bypass</td><td>Advisory</td><td>2026-01-28</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0414">AVID-2026-R0414</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Eclipse Theia IDE MCP Configuration Code Execution</td><td>Advisory</td><td>2025-11-18</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0415">AVID-2026-R0415</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">OpenAI Codex CLI Notify Field Configuration Remote Code Execution</td><td>Advisory</td><td>2026-01-16</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0416">AVID-2026-R0416</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">OpenAI Codex CLI Model Provider Configuration Remote Code Execution</td><td>Advisory</td><td>2026-01-16</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0417">AVID-2026-R0417</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">OpenAI Codex CLI MCP Configuration Remote Code Execution</td><td>Advisory</td><td>2026-01-19</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0418">AVID-2026-R0418</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Amazon Kiro IDE Data Exfiltration via Filename Prompt Injection and Kiro Powers Registry Fetching</td><td>Advisory</td><td>2025-12-11</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0419">AVID-2026-R0419</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Amazon Kiro IDE Data Exfiltration via Steering File</td><td>Advisory</td><td>2025-12-08</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0420">AVID-2026-R0420</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google Gemini CLI Tool Discovery Code Execution</td><td>Advisory</td><td>2025-12-26</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0421">AVID-2026-R0421</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google Gemini CLI MCP Configuration Code Execution</td><td>Advisory</td><td>2025-12-26</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0422">AVID-2026-R0422</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">JetBrains Junie AI Coding Agent guidelines.md Code Execution</td><td>Advisory</td><td>2025-11-14</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0423">AVID-2026-R0423</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">TheLibrarian.io Internal Cloud Environment Access via web_fetch Tool</td><td>Advisory</td><td>2025-10-10</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0424">AVID-2026-R0424</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Zed IDE LSP Configuration Code Execution</td><td>Advisory</td><td>2025-11-16</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0425">AVID-2026-R0425</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Zed IDE MCP Configuration Code Execution</td><td>Advisory</td><td>2025-11-16</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0426">AVID-2026-R0426</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google Antigravity IDE Persistent Code Execution</td><td>Advisory</td><td>2025-11-19</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0427">AVID-2026-R0427</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Cline Bot AI Coding Agent Code Execution via Prompt Injection and TOCTOU Script Invocation</td><td>Advisory</td><td>2025-08-27</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0428">AVID-2026-R0428</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Cline Bot AI Coding Agent Code Execution via Prompt Injection and .clinerules Directives</td><td>Advisory</td><td>2025-08-27</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0429">AVID-2026-R0429</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Cline Bot AI Coding Agent Data Exfiltration via Prompt Injection and DNS</td><td>Advisory</td><td>2025-08-27</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0430">AVID-2026-R0430</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Nvidia NemoGuard Jailbreak Detect Guardrail Evasion</td><td>Advisory</td><td>2025-03-11</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0431">AVID-2026-R0431</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Protect AI Jailbreak and Prompt Injection Guardrail Evasion</td><td>Advisory</td><td>2025-03-12</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0432">AVID-2026-R0432</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Vijil Prompt Injection Guardrail Evasion</td><td>Advisory</td><td>2025-03-14</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0433">AVID-2026-R0433</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Meta Prompt Guard Guardrail Evasion</td><td>Advisory</td><td>2025-03-11</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0434">AVID-2026-R0434</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Microsoft Azure Prompt Shield Guardrail Evasion</td><td>Advisory</td><td>2024-06-06</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0435">AVID-2026-R0435</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Microsoft Azure AI Content Safety Guardrail Evasion</td><td>Advisory</td><td>2024-03-04</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0436">AVID-2026-R0436</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Mistral Vibe CLI MCP Configuration Code Execution</td><td>Advisory</td><td>2025-12-11</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0437">AVID-2026-R0437</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Mistral Vibe CLI Shell Expansion Command Execution</td><td>Advisory</td><td>2026-01-02</td></tr>
+    <tr><td><a href="/database/AVID-2026-R0438">AVID-2026-R0438</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Mistral Vibe CLI Python Tools Code Execution</td><td>Advisory</td><td>2025-12-12</td></tr>
   </tbody>
 </table>
 <div class="avid-report-pager" id="reports-2026-pager" style="display: flex; justify-content: flex-start; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;"></div>
@@ -645,6 +645,7 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2026');
 </script>
 <!-- reports-year:2026:end -->
+
 
 
 
@@ -883,6 +884,7 @@ window.__avidReportTableInit('reports-2025');
 
 
 
+
 <!-- reports-year:2023:start -->
 #### 2023
 
@@ -1071,6 +1073,7 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2023');
 </script>
 <!-- reports-year:2023:end -->
+
 
 
 
@@ -1275,6 +1278,7 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2022');
 </script>
 <!-- reports-year:2022:end -->
+
 
 
 
@@ -1499,6 +1503,7 @@ window.__avidReportTableInit('vulnerabilities-2023');
 
 
 
+
 <!-- vulnerabilities-year:2022:start -->
 ##### 2022
 
@@ -1688,6 +1693,7 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('vulnerabilities-2022');
 </script>
 <!-- vulnerabilities-year:2022:end -->
+
 
 
 
