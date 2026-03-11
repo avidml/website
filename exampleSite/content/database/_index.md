@@ -41,7 +41,7 @@ Reports are occurrences of a GPAI failure mode. We classify reports in four type
   </colgroup>
   <thead>
     <tr>
-      <th data-sort-col="0" style="white-space: nowrap;">Report ID</th>
+      <th data-sort-col="0" data-sort-dir="desc" style="white-space: nowrap;">Report ID</th>
       <th data-sort-col="1" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Description</th>
       <th data-sort-col="2" style="white-space: nowrap;">Report Type</th>
       <th data-sort-col="3" style="white-space: nowrap;">Date Reported</th>
@@ -588,6 +588,24 @@ if (!window.__avidReportTableInit) {
       renderPager(totalPages);
     }
 
+    function sortRows(col, dir) {
+      var rows = getRows();
+      rows.sort(function (a, b) {
+        var av = (a.children[col] && a.children[col].innerText || '').trim();
+        var bv = (b.children[col] && b.children[col].innerText || '').trim();
+        var ad = Date.parse(av);
+        var bd = Date.parse(bv);
+        var cmp;
+        if (!Number.isNaN(ad) && !Number.isNaN(bd)) {
+          cmp = ad - bd;
+        } else {
+          cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });
+        }
+        return dir === 'asc' ? cmp : -cmp;
+      });
+      rows.forEach(function (row) { tbody.appendChild(row); });
+    }
+
     if (!table.dataset.avidSortBound) {
       table.dataset.avidSortBound = 'true';
       table.addEventListener('click', function (event) {
@@ -604,21 +622,7 @@ if (!window.__avidReportTableInit) {
         th.setAttribute('data-sort-dir', next);
         syncSortIndicators();
 
-        var rows = getRows();
-        rows.sort(function (a, b) {
-          var av = (a.children[col] && a.children[col].innerText || '').trim();
-          var bv = (b.children[col] && b.children[col].innerText || '').trim();
-          var ad = Date.parse(av);
-          var bd = Date.parse(bv);
-          var cmp;
-          if (!Number.isNaN(ad) && !Number.isNaN(bd)) {
-            cmp = ad - bd;
-          } else {
-            cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });
-          }
-          return next === 'asc' ? cmp : -cmp;
-        });
-        rows.forEach(function (row) { tbody.appendChild(row); });
+        sortRows(col, next);
         state.page = 1;
         render();
       });
@@ -633,6 +637,7 @@ if (!window.__avidReportTableInit) {
       });
     }
 
+    sortRows(0, 'desc');
     syncSortIndicators();
     render();
   };
@@ -640,6 +645,7 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2026');
 </script>
 <!-- reports-year:2026:end -->
+
 
 
 
@@ -671,7 +677,7 @@ window.__avidReportTableInit('reports-2026');
   </colgroup>
   <thead>
     <tr>
-      <th data-sort-col="0" style="white-space: nowrap;">Report ID</th>
+      <th data-sort-col="0" data-sort-dir="desc" style="white-space: nowrap;">Report ID</th>
       <th data-sort-col="1" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Description</th>
       <th data-sort-col="2" style="white-space: nowrap;">Report Type</th>
       <th data-sort-col="3" style="white-space: nowrap;">Date Reported</th>
@@ -806,6 +812,24 @@ if (!window.__avidReportTableInit) {
       renderPager(totalPages);
     }
 
+    function sortRows(col, dir) {
+      var rows = getRows();
+      rows.sort(function (a, b) {
+        var av = (a.children[col] && a.children[col].innerText || '').trim();
+        var bv = (b.children[col] && b.children[col].innerText || '').trim();
+        var ad = Date.parse(av);
+        var bd = Date.parse(bv);
+        var cmp;
+        if (!Number.isNaN(ad) && !Number.isNaN(bd)) {
+          cmp = ad - bd;
+        } else {
+          cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });
+        }
+        return dir === 'asc' ? cmp : -cmp;
+      });
+      rows.forEach(function (row) { tbody.appendChild(row); });
+    }
+
     if (!table.dataset.avidSortBound) {
       table.dataset.avidSortBound = 'true';
       table.addEventListener('click', function (event) {
@@ -822,21 +846,7 @@ if (!window.__avidReportTableInit) {
         th.setAttribute('data-sort-dir', next);
         syncSortIndicators();
 
-        var rows = getRows();
-        rows.sort(function (a, b) {
-          var av = (a.children[col] && a.children[col].innerText || '').trim();
-          var bv = (b.children[col] && b.children[col].innerText || '').trim();
-          var ad = Date.parse(av);
-          var bd = Date.parse(bv);
-          var cmp;
-          if (!Number.isNaN(ad) && !Number.isNaN(bd)) {
-            cmp = ad - bd;
-          } else {
-            cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });
-          }
-          return next === 'asc' ? cmp : -cmp;
-        });
-        rows.forEach(function (row) { tbody.appendChild(row); });
+        sortRows(col, next);
         state.page = 1;
         render();
       });
@@ -851,6 +861,7 @@ if (!window.__avidReportTableInit) {
       });
     }
 
+    sortRows(0, 'desc');
     syncSortIndicators();
     render();
   };
@@ -858,6 +869,7 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2025');
 </script>
 <!-- reports-year:2025:end -->
+
 
 
 
@@ -889,7 +901,7 @@ window.__avidReportTableInit('reports-2025');
   </colgroup>
   <thead>
     <tr>
-      <th data-sort-col="0" style="white-space: nowrap;">Report ID</th>
+      <th data-sort-col="0" data-sort-dir="desc" style="white-space: nowrap;">Report ID</th>
       <th data-sort-col="1" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Description</th>
       <th data-sort-col="2" style="white-space: nowrap;">Report Type</th>
       <th data-sort-col="3" style="white-space: nowrap;">Date Reported</th>
@@ -1002,6 +1014,24 @@ if (!window.__avidReportTableInit) {
       renderPager(totalPages);
     }
 
+    function sortRows(col, dir) {
+      var rows = getRows();
+      rows.sort(function (a, b) {
+        var av = (a.children[col] && a.children[col].innerText || '').trim();
+        var bv = (b.children[col] && b.children[col].innerText || '').trim();
+        var ad = Date.parse(av);
+        var bd = Date.parse(bv);
+        var cmp;
+        if (!Number.isNaN(ad) && !Number.isNaN(bd)) {
+          cmp = ad - bd;
+        } else {
+          cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });
+        }
+        return dir === 'asc' ? cmp : -cmp;
+      });
+      rows.forEach(function (row) { tbody.appendChild(row); });
+    }
+
     if (!table.dataset.avidSortBound) {
       table.dataset.avidSortBound = 'true';
       table.addEventListener('click', function (event) {
@@ -1018,21 +1048,7 @@ if (!window.__avidReportTableInit) {
         th.setAttribute('data-sort-dir', next);
         syncSortIndicators();
 
-        var rows = getRows();
-        rows.sort(function (a, b) {
-          var av = (a.children[col] && a.children[col].innerText || '').trim();
-          var bv = (b.children[col] && b.children[col].innerText || '').trim();
-          var ad = Date.parse(av);
-          var bd = Date.parse(bv);
-          var cmp;
-          if (!Number.isNaN(ad) && !Number.isNaN(bd)) {
-            cmp = ad - bd;
-          } else {
-            cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });
-          }
-          return next === 'asc' ? cmp : -cmp;
-        });
-        rows.forEach(function (row) { tbody.appendChild(row); });
+        sortRows(col, next);
         state.page = 1;
         render();
       });
@@ -1047,6 +1063,7 @@ if (!window.__avidReportTableInit) {
       });
     }
 
+    sortRows(0, 'desc');
     syncSortIndicators();
     render();
   };
@@ -1054,6 +1071,7 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2023');
 </script>
 <!-- reports-year:2023:end -->
+
 
 
 
@@ -1085,7 +1103,7 @@ window.__avidReportTableInit('reports-2023');
   </colgroup>
   <thead>
     <tr>
-      <th data-sort-col="0" style="white-space: nowrap;">Report ID</th>
+      <th data-sort-col="0" data-sort-dir="desc" style="white-space: nowrap;">Report ID</th>
       <th data-sort-col="1" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Description</th>
       <th data-sort-col="2" style="white-space: nowrap;">Report Type</th>
       <th data-sort-col="3" style="white-space: nowrap;">Date Reported</th>
@@ -1200,6 +1218,24 @@ if (!window.__avidReportTableInit) {
       renderPager(totalPages);
     }
 
+    function sortRows(col, dir) {
+      var rows = getRows();
+      rows.sort(function (a, b) {
+        var av = (a.children[col] && a.children[col].innerText || '').trim();
+        var bv = (b.children[col] && b.children[col].innerText || '').trim();
+        var ad = Date.parse(av);
+        var bd = Date.parse(bv);
+        var cmp;
+        if (!Number.isNaN(ad) && !Number.isNaN(bd)) {
+          cmp = ad - bd;
+        } else {
+          cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });
+        }
+        return dir === 'asc' ? cmp : -cmp;
+      });
+      rows.forEach(function (row) { tbody.appendChild(row); });
+    }
+
     if (!table.dataset.avidSortBound) {
       table.dataset.avidSortBound = 'true';
       table.addEventListener('click', function (event) {
@@ -1216,21 +1252,7 @@ if (!window.__avidReportTableInit) {
         th.setAttribute('data-sort-dir', next);
         syncSortIndicators();
 
-        var rows = getRows();
-        rows.sort(function (a, b) {
-          var av = (a.children[col] && a.children[col].innerText || '').trim();
-          var bv = (b.children[col] && b.children[col].innerText || '').trim();
-          var ad = Date.parse(av);
-          var bd = Date.parse(bv);
-          var cmp;
-          if (!Number.isNaN(ad) && !Number.isNaN(bd)) {
-            cmp = ad - bd;
-          } else {
-            cmp = av.localeCompare(bv, undefined, { numeric: true, sensitivity: 'base' });
-          }
-          return next === 'asc' ? cmp : -cmp;
-        });
-        rows.forEach(function (row) { tbody.appendChild(row); });
+        sortRows(col, next);
         state.page = 1;
         render();
       });
@@ -1245,6 +1267,7 @@ if (!window.__avidReportTableInit) {
       });
     }
 
+    sortRows(0, 'desc');
     syncSortIndicators();
     render();
   };
@@ -1252,6 +1275,7 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2022');
 </script>
 <!-- reports-year:2022:end -->
+
 
 
 
@@ -1474,6 +1498,7 @@ window.__avidReportTableInit('vulnerabilities-2023');
 
 
 
+
 <!-- vulnerabilities-year:2022:start -->
 ##### 2022
 
@@ -1663,6 +1688,7 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('vulnerabilities-2022');
 </script>
 <!-- vulnerabilities-year:2022:end -->
+
 
 
 
