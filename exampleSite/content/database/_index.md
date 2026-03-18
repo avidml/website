@@ -919,21 +919,6 @@ window.__avidReportTableInit('reports-2026');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- reports-year:2025:start -->
 #### 2025
 
@@ -1144,6 +1129,8 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2025');
 </script>
 <!-- reports-year:2025:end -->
+
+
 
 
 
@@ -1794,6 +1781,8 @@ window.__avidReportTableInit('vulnerabilities-2023');
 
 
 
+
+
 <!-- vulnerabilities-year:2022:start -->
 ##### 2022
 
@@ -1983,6 +1972,8 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('vulnerabilities-2022');
 </script>
 <!-- vulnerabilities-year:2022:end -->
+
+
 
 
 
