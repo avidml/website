@@ -1759,6 +1759,7 @@ Reports are occurrences of a GPAI failure mode. We classify reports in four type
     <tr><td><a href="/database/AVID-2026-R1711">AVID-2026-R1711</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Gradio Allows Unauthorized File Copy via Path Manipulation (CVE-2025-48889)</td><td>Advisory</td><td>2025-05-30</td></tr>
     <tr><td><a href="/database/AVID-2026-R1712">AVID-2026-R1712</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">erdogant pypickle pypickle.py load deserialization (CVE-2025-5174)</td><td>Advisory</td><td>2025-05-26</td></tr>
     <tr><td><a href="/database/AVID-2026-R1713">AVID-2026-R1713</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">erdogant pypickle pypickle.py save improper authorization (CVE-2025-5175)</td><td>Advisory</td><td>2025-05-26</td></tr>
+    <tr><td><a href="/database/AVID-2026-R1714">AVID-2026-R1714</a></td><td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Trivy ecosystem supply chain briefly compromised (CVE-2026-33634)</td><td>Advisory</td><td>2026-03-23</td></tr>
   </tbody>
 </table>
 <div class="avid-report-pager" id="reports-2026-pager" style="display: flex; justify-content: flex-start; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem;"></div>
@@ -1919,6 +1920,8 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2026');
 </script>
 <!-- reports-year:2026:end -->
+
+
 
 
 
@@ -2158,6 +2161,8 @@ window.__avidReportTableInit('reports-2025');
 
 
 
+
+
 <!-- reports-year:2023:start -->
 #### 2023
 
@@ -2346,6 +2351,8 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2023');
 </script>
 <!-- reports-year:2023:end -->
+
+
 
 
 
@@ -2557,6 +2564,8 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('reports-2022');
 </script>
 <!-- reports-year:2022:end -->
+
+
 
 
 
@@ -2797,6 +2806,8 @@ window.__avidReportTableInit('vulnerabilities-2023');
 
 
 
+
+
 <!-- vulnerabilities-year:2022:start -->
 ##### 2022
 
@@ -2986,6 +2997,8 @@ if (!window.__avidReportTableInit) {
 window.__avidReportTableInit('vulnerabilities-2022');
 </script>
 <!-- vulnerabilities-year:2022:end -->
+
+
 
 
 
